@@ -1,0 +1,30 @@
+@media screen and (min-width: 800px) {
+	.header-wrapper {
+		display: flex;
+		color: #fff;
+		background-color: #ff9800;
+		font-size: 18px;
+		height: 60px;
+		width: 100%;
+	}
+
+	.header-wrapper div {
+		width: 20%;
+		text-align: center;
+	}
+
+	.header-wrapper img {
+		display: flex;
+		float: left;
+		/*margin-top: 10px;*/
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.header-rapper {
+		display: none;
+	}
+}
