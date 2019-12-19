@@ -1,0 +1,104 @@
+/* defaultCSS */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+
+
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;}
+ul{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;}
+q:before,q:after{content:'';}
+object,embed{vertical-align:top;}
+legend{display:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+img,abbr,acronym,fieldset{border:0;}
+
+* {
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Noto Sans JP', sans-serif;
+	font: 14px/1.9 'Noto Sans JP', sans-serif;
+	font-weight: 300;
+	-webkit-text-size-adjust:100%;
+	overflow-x: hidden;
+	color: #555;
+	background: #fff;
+}
+
+a{
+	color: #000;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+a:hover, .active{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:active, a:focus,input:active, input:focus{outline:0;}
+
+
+
+
+
+/* 共通
+------------------------------------------------------------*/
+html {
+    /* ルートのフォントサイズを10pxに設定しておく */
+	font-size: 62.5%;
+}
+
+body {
+	/* ルートのフォントサイズを1.5em（15pxと同等のサイズ）に設定 */
+	font-size: 1.5em;
+}
+
+div h2{
+	font-size: 2rem;
+}
+div a{
+	font-size: 1.5rem;
+	color: #fff;
+}
+h1, h2{
+	font-family: 'Josefin Sans', 'Noto Sans JP',serif;
+	font-weight: 500;
+}
+h1 {
+	font-size: 2em;
+	padding-bottom: 10px;
+}
+h2 {
+	font-size: 1.5em;
+	padding: 4px 0;
+}
+p {
+	font-size: 1.5rem;
+}
+
+span {
+	display: inline-block;
+}
+
+img{
+	width: 100%;
+	height: auto;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+.container {
+	max-width: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
