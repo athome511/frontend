@@ -1,0 +1,44 @@
+
+
+.requestCard {
+  display: flex;
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
+  border: solid #ff9800;
+}
+
+#icon {
+  height: auto;
+  width: 25%;
+}
+
+#icon img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#requestText {
+  width: 70%;
+}
+
+#requestTitle {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+#requestMemo {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+#requestLimit {
+  display: block;
+  color: #ff9800;
+  width: 100%;
+  text-align: center;
+}
