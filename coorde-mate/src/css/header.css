@@ -1,0 +1,35 @@
+header {
+	display: flex;
+	background-color: #ff9800;
+	font-size: 2rem;
+}
+ul {
+	width: 100%;
+	padding: 0 2%;
+}
+
+header li {
+	padding: 0 3%;
+	float: left;
+	line-height: 60px;
+}
+li a {
+  color: #fff;
+	display: block;
+	transition: .5s;
+}
+li a:hover {
+	opacity: .5;
+}
+
+
+
+header img {
+	display: flex;
+	float: left;
+	margin-right: 20px;
+	margin-top: 3px;
+	width: 54px;
+	height: 54px;
+	border-radius: 50%;
+}

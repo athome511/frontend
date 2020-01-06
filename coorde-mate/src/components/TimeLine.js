@@ -2,6 +2,8 @@ import React from 'react';
 
 import '../css/timeLine.css';
 
+import img from '../img/iconSample.jpg';
+
 class TimeLine extends React.Component {
   /*
   constructor(){
@@ -17,9 +19,9 @@ class TimeLine extends React.Component {
       <a href="#" className="container">
         <div className="requestCard">
           <div className="icon">
-            <img src="../img/iconSample.jpg" alt="default icon" />
+            <img src={img} alt="default icon" />
           </div>
-          <div className="requestText">
+          <div className="requestText right">
             <div className="requestTitle">
               <h2>依頼タイトル</h2>
             </div>
