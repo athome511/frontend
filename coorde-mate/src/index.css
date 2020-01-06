@@ -6,6 +6,10 @@ html {
 
 a {
   text-decoration: none;
+  color: #000;
+}
+a:hover {
+  cursor: pointer;
 }
 
 h1 {
@@ -21,121 +25,8 @@ p {
   text-align:center;
 }
 
-header {
-  width: 100%;
-  background-color: #00897B;
-  box-shadow: 0 4px 12px rgba(0,0,0,.3);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-header a {
-  font-size: 2em;
-  line-height: 80px;
-  color: #fff;
-}
-header a:hover {
-  opacity: .5;
-  transition: .2s;
-}
-
 
 .container {
   margin: 0 auto;
   text-align: center;
-}
-.shadow {
-  box-shadow: 0 3px 10px 1px rgba(0,0,0,.48);
-}
-.frame {
-  padding: 7px;
-  border: 1px solid #ccc;
-  background: #fff;
-  box-shadow: 3px 2px 4px rgba(0,0,0,0.3);
-  box-sizing: border-box;
-}
-.btn {
-  font-size: 1.2em;
-  color: #4DD0E1;
-}
-.btn:hover {
-  cursor: pointer;
-}
-
-/* ここからLibrary */
-.card {
-  width: 80%;
-  margin-top: 30px;
-  padding: 4px 20px 20px;
-}
-.cardContent {
-  width: 100%;
-  display: flex;
-}
-
-.routeBook {
-  width: 20%;
-  float: left;
-}
-.routeBook img {
-  width: 100%;
-  box-shadow: 0 2px 10px rgba(0,0,0,.2)
-}
-
-.routeBookDesc {
-  width: 80%;
-  float: right;
-}
-
-.routeBookDesc h2 {
-  font-weight: 600;
-  padding: 10px 0 8px;
-  text-align:
-}
-.desc {
-  padding: 10px 20px;
-}
-.descContainer {
-  width: 80%;
-  margin: 30px auto;
-}
-
-.readButton {
-  margin: auto;
-}
-
-/* ここからBookSeries */
-.gridList {
-  clear: both;
-}
-.gridListTile {
-  margin-top: 30px;
-  background: #f1f1f1;
-  color: #4DD0E1;
-}
-.gridListTile img {
-  display: inline-block;
-}
-
-
-.gridListTileLink:hover {
-  opacity: .5;
-  transition: .2s;
-}
-.MuiCardMedia-root {
-  float: left;
-}
-
-/* ここからBookShow */
-.readContainer {
-  width: 80%;
-  height: 85vh;
-  margin: auto;
-  margin-top: 30px;
-}
-.readContainer img {
-  width:auto;
-  height:auto;
-  max-width:100%;
-  max-height:100%;
 }

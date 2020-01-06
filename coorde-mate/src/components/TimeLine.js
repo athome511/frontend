@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../css/timeLine.css';
+
 class TimeLine extends React.Component {
   /*
   constructor(){
@@ -12,7 +14,24 @@ class TimeLine extends React.Component {
 
   render() {
     return (
-      <h1>THIS TimeLine</h1>
+      <a href="#" className="container">
+        <div className="requestCard">
+          <div className="icon">
+            <img src="../img/iconSample.jpg" alt="default icon" />
+          </div>
+          <div className="requestText">
+            <div className="requestTitle">
+              <h2>依頼タイトル</h2>
+            </div>
+            <div className="requestMemo">
+              <p>依頼メモを表示する。あああああああああああああああああああああああああああああああああああああああああああ</p>
+            </div>
+            <div className="requestLimit">
+              <p>xx年xx月xx日xx時xx分まで</p>
+            </div>
+          </div>
+        </div>
+      </a>
     );
   }
 }
