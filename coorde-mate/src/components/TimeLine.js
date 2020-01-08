@@ -24,7 +24,7 @@ class TimeLine extends React.Component {
     request.get(`/requests/`)
     .then(res => {
       this.setState({
-        datas: res
+        datas: res.data
       });
     })
   }
@@ -36,7 +36,6 @@ class TimeLine extends React.Component {
         {this.state.datas.map((requestData) => {
           return (
             <div>
-              {console.log("test")}
               <Requests
                 title = {requestData.r_title}
                 limit = {requestData.r_limit}

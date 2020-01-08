@@ -15,18 +15,19 @@ class Requests extends React.Component {
       baseURL: 'http://18.178.35.28:3000/'
     })
 
-    request.get(`/users/${this.props.match.params.userId}`)
+    request.get(`/users/`)
     .then(res => {
       this.setState({
-        datas: res
+        datas: res.data
       });
     })
   }
 
   render() {
     return (
-      <a href="#" className="container">
+
         <div className="requestCard">
+        <a href="#" className="container">
           <div className="icon">
           </div>
           <div className="requestText right">
@@ -40,8 +41,9 @@ class Requests extends React.Component {
               <p>{this.props.limit}</p>
             </div>
           </div>
+                </a>
         </div>
-      </a>
+
 
     );
   }
