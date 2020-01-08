@@ -1,39 +1,53 @@
 import React from 'react';
+import axios from 'axios';
+
+/* myComponents */
+import Requests from './Requests';
 
 import '../css/timeLine.css';
 
-import img from '../img/iconSample.jpg';
+//import img from '../img/iconSample.jpg';
 
 class TimeLine extends React.Component {
-  /*
   constructor(){
     super();
     this.state = {
       datas:[]
     };
   }
-  */
+
+  componentWillMount(){
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3000/'
+    })
+
+    request.get(`/requests/`)
+    .then(res => {
+      this.setState({
+        datas: res
+      });
+    })
+  }
+
 
   render() {
     return (
-      <a href="#" className="container">
-        <div className="requestCard">
-          <div className="icon">
-            <img src={img} alt="default icon" />
-          </div>
-          <div className="requestText right">
-            <div className="requestTitle">
-              <h2>依頼タイトル</h2>
+      <div>
+        {this.state.datas.map((requestData) => {
+          return (
+            <div>
+              {console.log("test")}
+              <Requests
+                title = {requestData.r_title}
+                limit = {requestData.r_limit}
+                memo = {requestData.r_memo}
+                userId = {requestData.r_u_id}
+              />
             </div>
-            <div className="requestMemo">
-              <p>依頼メモを表示する。あああああああああああああああああああああああああああああああああああああああああああ</p>
-            </div>
-            <div className="requestLimit">
-              <p>xx年xx月xx日xx時xx分まで</p>
-            </div>
-          </div>
-        </div>
-      </a>
+
+          )
+        })}
+      </div>
     );
   }
 }
