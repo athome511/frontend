@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 class Requests extends React.Component {
@@ -27,21 +28,23 @@ class Requests extends React.Component {
     return (
 
         <div className="requestCard">
-        <a href="#" className="container">
-          <div className="icon">
-          </div>
-          <div className="requestText right">
-            <div className="requestTitle">
-              <h2>{this.props.title}</h2>
+          {/* 依頼詳細画面へのリンク */}
+          <Link to={`/request/${this.props.requestId}`} key={this.props.requestId} className="container">
+            <div className="icon">
             </div>
-            <div className="requestMemo">
-              <p>{this.props.memo}</p>
+
+            <div className="requestText right">
+              <div className="requestTitle">
+                <h2>{this.props.title}</h2>
+              </div>
+              <div className="requestMemo">
+                <p>{this.props.memo}</p>
+              </div>
+              <div className="requestLimit">
+                <p>{this.props.limit}</p>
+              </div>
             </div>
-            <div className="requestLimit">
-              <p>{this.props.limit}</p>
-            </div>
-          </div>
-                </a>
+          </Link>
         </div>
 
 

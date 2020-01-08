@@ -8,26 +8,10 @@ class RequestDetails extends React.Component {
     };
   }
 
-  componentWillMount(){
-    const request = axios.create({
-      baseURL: 'http://18.178.35.28:3000/'
-    })
-
-    request.get(`/requests/`)
-    .then(res => {
-      this.setState({
-        datas: res.data
-      });
-    })
-  }
-
   render() {
     return (
-      <div>
-        <h1>RequestComponent</h1>
-      </div>
+      <h1>HEllo</h1>
     );
   }
 }
-
 export default RequestDetails;

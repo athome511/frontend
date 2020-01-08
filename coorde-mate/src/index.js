@@ -7,6 +7,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 //myComponents
 import Header from './public/Header';
 import TimeLine from './components/TimeLine';
+import RequestDetails from './components/RequestDetails';
 
 //myCss
 import './css/default.css';
@@ -17,6 +18,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Header />
       <Route exact path={'/'} component={TimeLine}/>
+      <Route path={'/request/:requestId'} component={RequestDetails}/>
     </BrowserRouter>
   </MuiThemeProvider>,
   document.getElementById('root')

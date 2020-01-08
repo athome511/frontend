@@ -37,6 +37,7 @@ class TimeLine extends React.Component {
           return (
             <div>
               <Requests
+                requestId = {requestData.id}
                 title = {requestData.r_title}
                 limit = {requestData.r_limit}
                 memo = {requestData.r_memo}
