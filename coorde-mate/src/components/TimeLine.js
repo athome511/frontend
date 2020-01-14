@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import BaseURLContext from '../contexts/baseURL';
+//import BaseURLContext from '../contexts/BaseURL';
 
 /* myComponents */
 import RequestCard from './RequestCard';
@@ -33,13 +33,7 @@ class TimeLine extends React.Component {
 
 
   render() {
-    <BaseURLContext.Consumer>
-      {
-        ({ datas, baseURL }) => {
 
-        }
-      }
-    </BaseURLContext.Consumer>
 
     return (
       <div>
