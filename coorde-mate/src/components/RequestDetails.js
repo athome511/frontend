@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+
+//myComponent
+import RequestDetailsCard from './RequestDetailsCard';
 import ClothsTile from './ClothsTile';
 
 
@@ -41,7 +44,21 @@ class RequestDetails extends React.Component {
   render() {
     return (
       <div>
-        <h1>依頼詳細</h1>
+        <RequestDetailsCard
+          requestId = {this.state.requestDatas.id}
+          userId = {this.state.userDatas.id}
+          userIcon = {this.state.userDatas.u_icon}
+          userName = {this.state.userDatas.u_name}
+          title = {this.state.requestDatas.r_title}
+          limit = {this.state.requestDatas.r_limit}
+          memo = {this.state.requestDatas.r_memo}
+          />
+
+
+
+
+
+
         <p>userName : {this.state.userDatas.u_name}</p>
         <p>requestTitle : {this.state.requestDatas.r_title}</p>
 

@@ -1,12 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 /* myComponents */
 import RequestCard from './RequestCard';
 
-import '../css/timeLine.css';
-
-//import img from '../img/iconSample.jpg';
 
 class TimeLine extends React.Component {
   constructor(){
@@ -35,7 +33,10 @@ class TimeLine extends React.Component {
       <div>
         {this.state.datas.map((requestData) => {
           return (
-            <div>
+            <Link to={`/request/${requestData.id}`}
+               key={requestData.id}
+               className="container"
+            >
               <RequestCard
                 requestId = {requestData.id}
                 title = {requestData.r_title}
@@ -43,8 +44,7 @@ class TimeLine extends React.Component {
                 memo = {requestData.r_memo}
                 userId = {requestData.r_u_id}
               />
-            </div>
-
+          </Link>
           )
         })}
       </div>
