@@ -19,6 +19,7 @@ ReactDOM.render(
       <Header />
       <Route exact path={'/'} component={TimeLine}/>
       <Route path={'/request/:requestId'} component={RequestDetails}/>
+      <Route path={'/request/submit/:requestId'} component={RequestSubmit}/>
     </BrowserRouter>
   </MuiThemeProvider>,
   document.getElementById('root')

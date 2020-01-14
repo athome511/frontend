@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 //myComponent
+import ButtonComponent from '../public/ButtonComponent'
 import RequestDetailsCard from './RequestDetailsCard';
 import ClothsTile from './ClothsTile';
 
@@ -38,9 +40,6 @@ class RequestDetails extends React.Component {
   }
 
 
-
-
-
   render() {
     return (
       <div>
@@ -54,11 +53,6 @@ class RequestDetails extends React.Component {
           memo = {this.state.requestDatas.r_memo}
           />
 
-
-
-
-
-
         <p>userName : {this.state.userDatas.u_name}</p>
         <p>requestTitle : {this.state.requestDatas.r_title}</p>
 
@@ -67,6 +61,12 @@ class RequestDetails extends React.Component {
             userId = "3"
           />
         </div>
+
+        <Link to={`/request/submit/${this.state.requestDatas.id}`} >
+          <ButtonComponent
+            buttonText = "提案する"
+          />
+        </Link>
       </div>
     );
   }
