@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 //myComponent
 import ButtonComponent from '../public/ButtonComponent'
@@ -56,17 +56,25 @@ class RequestDetails extends React.Component {
         <p>userName : {this.state.userDatas.u_name}</p>
         <p>requestTitle : {this.state.requestDatas.r_title}</p>
 
+        {/* 所有服一覧表示 */}
         <div className="container">
           <ClothsTile
-            userId = "3"
+            userId = {this.state.userDatas.id}
           />
         </div>
 
-        <Link to={`/request/submit/${this.state.requestDatas.id}`} >
+        {/*<Link to={`/request/submit/${this.state.requestDatas.id}`} >
           <ButtonComponent
             buttonText = "提案する"
           />
-        </Link>
+        </Link>*/}
+        <ButtonComponent
+          link = {`/request/${this.state.requestDatas.id}/submit`}
+          buttonText = "提案する"
+        />
+
+
+
       </div>
     );
   }

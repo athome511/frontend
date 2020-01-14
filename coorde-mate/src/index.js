@@ -8,6 +8,7 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './public/Header';
 import TimeLine from './components/TimeLine';
 import RequestDetails from './components/RequestDetails';
+import RequestSubmit from './components/RequestSubmit';
 
 //myCss
 import './css/default.css';
@@ -19,7 +20,7 @@ ReactDOM.render(
       <Header />
       <Route exact path={'/'} component={TimeLine}/>
       <Route path={'/request/:requestId'} component={RequestDetails}/>
-      <Route path={'/request/submit/:requestId'} component={RequestSubmit}/>
+      <Route path={'/request/:requestId/submit'} component={RequestSubmit}/>
     </BrowserRouter>
   </MuiThemeProvider>,
   document.getElementById('root')

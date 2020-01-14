@@ -5,34 +5,38 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ListSubheader from '@material-ui/core/ListSubheader';
 
+
+import Loading from '../public/Loading';
 //css
 import '../css/clothsTile.css';
 
 class ClothsTile extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       datas: []
     };
   }
 
-  componentWillMount(){
+
+  componentDidMount(){
+    console.log(this.props.userId)
     const request = axios.create({
       baseURL: 'http://18.178.35.28:3001'
     })
 
-    request.get(`/cloths`)
+    //request.get(`/cloths/${this.props.userId}`)
+    request.get(`/cloths/${this.props.userId}`)
     .then(res => {
       this.setState({
-        datas: res.data
+        datas: res.data.cloths
       });
     })
   }
 
 
-
-
   render() {
+    if(!Number.isInteger(this.props.userId))  return <Loading />
     return (
       <div className="root">
       <GridList cellHeight={200} className="gridList">
@@ -40,7 +44,7 @@ class ClothsTile extends React.Component {
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
           <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
         </GridListTile>
-
+        
         {this.state.datas.map(tile => (
           <GridListTile key={tile.c_link} style={{width: '20%'}}>
             <img src={tile.c_link} alt={`服画像id : ${tile.c_u_id}`} />
