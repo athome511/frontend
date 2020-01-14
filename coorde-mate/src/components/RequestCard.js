@@ -30,10 +30,10 @@ class RequestCard extends React.Component {
       baseURL: 'http://18.178.35.28:3001/'
     })
 
-    request.get(`/users/`)
+    request.get(`/users/${this.props.userId}/`)
     .then(res => {
       this.setState({
-        datas: res.data
+        datas: res.data.u_icon
       });
     })
 
@@ -54,6 +54,7 @@ class RequestCard extends React.Component {
           <Link to={`/request/${this.props.requestId}`} key={this.props.requestId} className="container"
           >
             <div className="icon">
+              <img src={this.state.datas} />
             </div>
 
             <div className="requestText right">
@@ -67,7 +68,6 @@ class RequestCard extends React.Component {
                 <p>{this.props.limit}</p>
               </div>
             </div>
-            <p>Test Link Message</p>
           </Link>
         </div>
 

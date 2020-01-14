@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import BaseURLContext from '../contexts/baseURL';
 
 /* myComponents */
 import RequestCard from './RequestCard';
@@ -12,7 +13,8 @@ class TimeLine extends React.Component {
   constructor(){
     super();
     this.state = {
-      datas:[]
+      datas:[],
+      baseU: 'http://18.178.35.28:3001/'
     };
   }
 
@@ -31,9 +33,16 @@ class TimeLine extends React.Component {
 
 
   render() {
+    <BaseURLContext.Consumer>
+      {
+        ({ datas, baseURL }) => {
+
+        }
+      }
+    </BaseURLContext.Consumer>
+
     return (
       <div>
-        <p>Hello</p>
         {this.state.datas.map((requestData) => {
           return (
             <div>
