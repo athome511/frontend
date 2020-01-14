@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 /* myComponents */
-import Requests from './Requests';
+import RequestCard from './RequestCard';
 
 import '../css/timeLine.css';
 
@@ -18,7 +18,7 @@ class TimeLine extends React.Component {
 
   componentWillMount(){
     const request = axios.create({
-      baseURL: 'http://18.178.35.28:3000/'
+      baseURL: 'http://18.178.35.28:3001/'
     })
 
     request.get(`/requests/`)
@@ -33,10 +33,11 @@ class TimeLine extends React.Component {
   render() {
     return (
       <div>
+        <p>Hello</p>
         {this.state.datas.map((requestData) => {
           return (
             <div>
-              <Requests
+              <RequestCard
                 requestId = {requestData.id}
                 title = {requestData.r_title}
                 limit = {requestData.r_limit}

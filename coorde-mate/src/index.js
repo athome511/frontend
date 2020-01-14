@@ -8,10 +8,12 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import Header from './public/Header';
 import TimeLine from './components/TimeLine';
 import RequestDetails from './components/RequestDetails';
+import PastTimeLine from './components/PastTimeLine';
 
 //myCss
 import './css/default.css';
 import './index.css';
+
 
 ReactDOM.render(
   <MuiThemeProvider>
@@ -19,6 +21,8 @@ ReactDOM.render(
       <Header />
       <Route exact path={'/'} component={TimeLine}/>
       <Route path={'/request/:requestId'} component={RequestDetails}/>
+
+      <Route path={'/pastTimeLine/:requestId'} component={PastTimeLine}/>
     </BrowserRouter>
   </MuiThemeProvider>,
   document.getElementById('root')

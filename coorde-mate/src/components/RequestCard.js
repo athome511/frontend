@@ -3,17 +3,31 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 
-class Requests extends React.Component {
+class RequestCard extends React.Component {
   constructor(){
     super();
     this.state = {
       datas:[]
-    };
+    }
   }
+
+  /*
+  constructor() {
+  super();
+  this.state = {
+    data: [],
+    baseURL: 'http://18.178.35.28:3001/'
+  }
+}
+
+  componentWillMount() {
+  const request = axios.create({this.state.baseURL})
+}
+  */
 
   componentWillMount(){
     const request = axios.create({
-      baseURL: 'http://18.178.35.28:3000/'
+      baseURL: 'http://18.178.35.28:3001/'
     })
 
     request.get(`/users/`)
@@ -22,14 +36,23 @@ class Requests extends React.Component {
         datas: res.data
       });
     })
+
   }
+/*
+  setId(requestId, userId) {
+    this.setState({
+      requestId: requestId,
+      userId: userId;
+    })
+  }*/
 
   render() {
     return (
 
         <div className="requestCard">
           {/* 依頼詳細画面へのリンク */}
-          <Link to={`/request/${this.props.requestId}`} key={this.props.requestId} className="container">
+          <Link to={`/request/${this.props.requestId}`} key={this.props.requestId} className="container"
+          >
             <div className="icon">
             </div>
 
@@ -44,6 +67,7 @@ class Requests extends React.Component {
                 <p>{this.props.limit}</p>
               </div>
             </div>
+            <p>Test Link Message</p>
           </Link>
         </div>
 
@@ -53,4 +77,4 @@ class Requests extends React.Component {
 }
 
 
-export default Requests;
+export default RequestCard;

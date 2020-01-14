@@ -10,7 +10,7 @@ class RequestDetails extends React.Component {
 
   render() {
     return (
-      <h1>HEllo</h1>
+      <h1>{this.props.userId}</h1>
     );
   }
 }
