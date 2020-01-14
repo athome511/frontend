@@ -1,0 +1,44 @@
+.postRequest-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10%;
+  margin-top: 10%;
+  background-color: #fff;
+  width: 80%;
+  height: 100vh;
+  margin-top: 60px;
+}
+
+.postRequest-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-wrapper {
+  text-align: center;
+}
+
+#title {
+  margin-top: 20%;
+  height: 10%;
+}
+
+#memo {
+  height: 20%;
+  resize: vertical;
+}
+
+#limit {
+  height: 10%;
+}
+
+#submitButton {
+  align-items: center;
+  border-style: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 1.4em;
+  color: #fff;
+  background-color: #ff9800;
+}
