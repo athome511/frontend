@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import RequestDetailsUser from './RequestDetailsUser';
+import ClothsTile from './ClothsTile';
 
 
 //依頼詳細画面
@@ -70,9 +71,15 @@ class RequestDetails extends React.Component {
       <div>
         <h1>依頼詳細</h1>
         <RequestDetailsUser
-          userId = "3"
+          userId = {this.state.requestDatas.r_u_id}
         />
         <p>requestTitle : {this.state.requestDatas.r_title}</p>
+
+        <div className="container">
+          <ClothsTile
+            userId = "3"
+          />
+        </div>
       </div>
     );
   }
