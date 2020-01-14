@@ -6,9 +6,8 @@ import RequestCard from './RequestCard';
 
 import '../css/timeLine.css';
 
-//import img from '../img/iconSample.jpg';
 
-class TimeLine extends React.Component {
+class PastTimeLine extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -33,23 +32,25 @@ class TimeLine extends React.Component {
   render() {
     return (
       <div>
+        <p>Hello</p>
         {this.state.datas.map((requestData) => {
-          return (
-            <div>
-              <RequestCard
-                requestId = {requestData.id}
-                title = {requestData.r_title}
-                limit = {requestData.r_limit}
-                memo = {requestData.r_memo}
-                userId = {requestData.r_u_id}
-              />
-            </div>
-
-          )
+          if(requestData.is_selected_bc) {
+            return (
+              <div>
+                <RequestCard
+                  requestId = {requestData.id}
+                  title = {requestData.r_title}
+                  limit = {requestData.r_limit}
+                  memo = {requestData.r_memo}
+                  userId = {requestData.r_u_id}
+                />
+              </div>
+            )
+          }
         })}
       </div>
     );
   }
 }
 
-export default TimeLine;
+export default PastTimeLine;
