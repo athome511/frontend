@@ -1,4 +1,4 @@
-.mypageMenu-wrapper {
+.mypageMenu {
   display: flex;
   background-color: #ffb74d;
   float: left;
@@ -6,17 +6,17 @@
   width: 20%;
 }
 
-li a{
+.mypageMenu a{
   display: block;
   font-size: 1.8rem;
   padding: 30px 16px;
   transition: .5s;
 }
 
-li {
+.mypageMenu {
   text-align: center;
 }
 
-li a:hover {
-  opacity: .5:
+.mypageMenu a:hover {
+  opacity: .5;
 }
