@@ -1,0 +1,10 @@
+.memo {
+  width: 80%;
+  margin-left: 10%;
+}
+
+textarea {
+  width: 100%;
+  border-color: #ffb74d;
+  border-radius: 10px 10px;
+}
