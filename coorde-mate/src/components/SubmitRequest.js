@@ -4,14 +4,18 @@ import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 
 
-import ButtonComponent from '../public/ButtonComponent';
+//import ButtonComponent from '../public/ButtonComponent';
+import { postEvent } from '../actions';
 
-//import { postEvent } from '../action';
 //css
 import '../css/submitRequest.css';
 
 //依頼投稿ページ
 class SubmitRequest extends React.Component {
+  constructor(props) {
+    super(props)
+    this.onSubmit = this.onSubmit.bind(this)
+  }
 
   renderField(field) {
     const { input, label, type, meta: { touched, error } } = field
@@ -24,12 +28,22 @@ class SubmitRequest extends React.Component {
     )
   }
 
-  render() {
-    return (
-      <form>
-        <div><Field label="LabelTitle" name="title" type="text" component={this.renderField} /></div>
+  async onSubmit(values) {
+    console.log(values)
+    await this.props.postEvent(values)
+    this.props.history.push('/')
+  }
 
-        <div><Field label="BodyTitle" name="body" type="text" component={this.renderField} /></div>
+  render() {
+    const { handleSubmit } = this.props
+
+    return (
+      <form onSubmit={handleSubmit(this.onSubmit)}>
+        <div><Field label="依頼タイトル" name="r_title" type="String" component={this.renderField} /></div>
+
+        <div><Field label="依頼メモ" name="r_memo" type="text" component={this.renderField} /></div>
+
+        <div><Field label="依頼期限" name="r_limit" type="datetime" component={this.renderField} /></div>
 
         <div>
           <input type="submit" value="Submit" disabled={false} />
@@ -49,6 +63,9 @@ const validate = values => {
 
   return errors
 }
-export default connect(null, null)(
+
+const mapDispatchToProps = ({ postEvent })
+
+export default connect(null, mapDispatchToProps)(
   reduxForm({ validate, form: 'requestNewForm' })(SubmitRequest)
 )
