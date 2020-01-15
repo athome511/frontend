@@ -34,6 +34,7 @@ class PastTimeLine extends React.Component {
         <p>Hello</p>
         {this.state.datas.map((requestData) => {
           if(requestData.is_selected_bc) {
+            {console.log(requestData.is_selected_bc)}
             return (
               <div>
                 <RequestCard
