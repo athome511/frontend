@@ -74,7 +74,9 @@ class RequestDetails extends React.Component {
           buttonText = "提案する"
         />
 
-      <ProposalCard />
+      <ProposalCard
+        requestId = {this.state.requestDatas.id}
+      />
 
 
 

@@ -10,6 +10,8 @@ import Loading from '../public/Loading';
 //css
 import '../css/clothsTile.css';
 
+
+// ユーザの所有服一覧
 class ClothsTile extends React.Component {
   constructor(){
     super();
@@ -63,11 +65,13 @@ class ClothsTile extends React.Component {
           <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
         </GridListTile>
 
-        {this.state.datas.map(tile => (
-          <GridListTile key={tile.c_link} style={{width: '20%'}}>
-            <img src={tile.c_link} alt={`服画像id : ${tile.c_u_id}`} />
-          </GridListTile>
-        ))}
+        {this.state.datas.map((tile) => {
+          return (
+            <GridListTile key={tile.c_link} style={{width: '20%'}}>
+              <img src={tile.c_link} alt={`服画像id : ${tile.c_u_id}`} />
+            </GridListTile>
+          )
+        })}
 
       </GridList>
     </div>
