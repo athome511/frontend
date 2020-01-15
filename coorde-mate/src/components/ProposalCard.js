@@ -29,6 +29,11 @@ class ProposalCard extends React.Component {
           return (
             <div>
             <p>提案メモ</p>
+              {/*
+                {<ProposalClothTile
+                  clothLink = {proposalData.ここにリンク}
+                />}
+                */}
               <p>{proposalData.p_memo}</p>
             </div>
           )
