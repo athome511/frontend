@@ -70,7 +70,7 @@ class RequestDetails extends React.Component {
           />
         </Link>*/}
         <ButtonComponent
-          link = {`/request/${this.state.requestDatas.id}/submit`}
+          link = {`/proposal/${this.props.match.params.requestId}/submit`}
           buttonText = "提案する"
         />
 

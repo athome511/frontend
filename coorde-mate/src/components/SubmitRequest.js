@@ -1,7 +1,7 @@
 import React from 'react';
 
 //css
-import '../css/SubmitRequest.css';
+import '../css/submitRequest.css';
 
 //依頼投稿ページ
 class SubmitRequest extends React.Component {
@@ -20,7 +20,7 @@ class SubmitRequest extends React.Component {
       </div>
 
       <div className="button-wrapper">
-        <button id="submitButton" type="submit">依頼を提案する</button>
+        <button className="submitButton" type="submit">依頼を提案する</button>
       </div>
 
     </div>
