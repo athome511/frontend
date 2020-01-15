@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
+
+import { getCloths } from '../actions';
 
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -20,7 +23,6 @@ class ClothsTile extends React.Component {
     };
   }
 
-
   componentDidMount(){
     const request = axios.create({
       baseURL: 'http://18.178.35.28:3001'
@@ -36,20 +38,11 @@ class ClothsTile extends React.Component {
   }
 
 /*
-  getUrl(hoge) {
-    const request = axios.create({
-      baseURL: 'http://18.178.35.28:3001'
-    })
+  componentDidMount() {
+    this.props.getCloths(1)
+  }
+*/
 
-    //request.get(`/cloths/${this.props.userId}`)
-    request.get(`/cloths/${hoge}`)
-    .then(res => {
-      this.setState({
-        datas: res.data
-      });
-      //console.log(res)
-    })
-  }*/
 
 
 
@@ -79,4 +72,8 @@ class ClothsTile extends React.Component {
   }
 }
 
-export default ClothsTile;
+const mapDispatchToProps = ({ getCloths });
+
+export default connect(null, mapDispatchToProps)(
+    ClothsTile
+);
