@@ -14,9 +14,6 @@ header a {
 	display: block;
 	transition: .5s;
 }
-header a:last-child {
-	float: right;
-}
 header a:hover {
 	opacity: .5;
 }
