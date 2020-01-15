@@ -1,35 +1,54 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
+
 
 import ButtonComponent from '../public/ButtonComponent';
 
+//import { postEvent } from '../action';
 //css
 import '../css/submitRequest.css';
 
 //依頼投稿ページ
 class SubmitRequest extends React.Component {
+
+  renderField(field) {
+    const { input, label, type, meta: { touched, error } } = field
+
+    return(
+      <div>
+        <input {...input} placeholder={label} type={type} />
+        {touched && error && <span>{error}</span>}
+      </div>
+    )
+  }
+
   render() {
     return (
-      <div className="postRequest-wrapper">
-        <div className="postRequest-form" id="title" >
-          <input type="text" placeholder="タイトルを入力" size="40" />
+      <form>
+        <div><Field label="LabelTitle" name="title" type="text" component={this.renderField} /></div>
+
+        <div><Field label="BodyTitle" name="body" type="text" component={this.renderField} /></div>
+
+        <div>
+          <input type="submit" value="Submit" disabled={false} />
+          <Link to="/" >Cancel</Link>
         </div>
-      <div className="postRequest-form" id="limit">
-        <input type="text" placeholder="期限を入力" size="40" />
-      </div>
+      </form>
 
-      <div className="postRequest-form" id="memo">
-        <textarea rows="5" cols="40" placeholder="メモを入力" ></textarea>
-      </div>
-
-
-      <ButtonComponent
-        link = {`/completed`}
-        buttonText = "依頼を投稿する"
-      />
-
-    </div>
     );
   }
 }
 
-export default SubmitRequest;
+const validate = values => {
+  const errors = {}
+
+  if (!values.title) errors.title = "Entar a title, Please."
+  if (!values.body) errors.body = "Entar a title, Please."
+
+  return errors
+}
+export default connect(null, null)(
+  reduxForm({ validate, form: 'requestNewForm' })(SubmitRequest)
+)

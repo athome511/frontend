@@ -61,7 +61,6 @@ class Ranking extends React.Component {
             {this.state.rankingDatas.map(row => (
               <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
-                  Rank
                   {console.log(this.state)}
                 </TableCell>
                 <TableCell><img src={row.u_icon} /></TableCell>

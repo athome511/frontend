@@ -16,13 +16,21 @@ import Ranking from './components/Ranking';
 import UserHistory from './components/UserHistory';
 import MyPage from './components/MyPage';
 
-
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducers';
 //myCss
 import './css/default.css';
 import './index.css';
 
+
+
+const store = createStore(reducer)
+
+
 ReactDOM.render(
   <MuiThemeProvider>
+    <Provider store={store}>
     <BrowserRouter>
       <Header />
       <Route exact path={'/'} component={TimeLine}/>
@@ -52,6 +60,7 @@ ReactDOM.render(
 
 
     </BrowserRouter>
+  </Provider>
   </MuiThemeProvider>,
   document.getElementById('root')
 );
