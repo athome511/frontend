@@ -7,7 +7,7 @@ class Completed extends React.Component {
   render() {
     return (
       <div className="finish-wrapper">
-        <div className="text">xxxが完了しました</div>
+        <div className="text">完了しました</div>
 
 
           <ButtonComponent

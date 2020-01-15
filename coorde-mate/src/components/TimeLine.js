@@ -2,8 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
+
 /* myComponents */
 import RequestCard from './RequestCard';
+import ButtonComponent from '../public/ButtonComponent';
+
 
 
 class TimeLine extends React.Component {
@@ -31,6 +34,11 @@ class TimeLine extends React.Component {
   render() {
     return (
       <div>
+        <ButtonComponent
+          link = {`/request/submit`}
+          buttonText = "依頼を投稿する"
+        />
+
         {this.state.datas.map((requestData) => {
           return (
             <Link to={`/request/${requestData.id}`}

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ButtonComponent from '../public/ButtonComponent';
+
 //css
 import '../css/submitRequest.css';
 
@@ -19,9 +21,11 @@ class SubmitRequest extends React.Component {
         <textarea rows="5" cols="40" placeholder="メモを入力" ></textarea>
       </div>
 
-      <div className="button-wrapper">
-        <button className="submitButton" type="submit">依頼を提案する</button>
-      </div>
+
+      <ButtonComponent
+        link = {`/completed`}
+        buttonText = "依頼を投稿する"
+      />
 
     </div>
     );

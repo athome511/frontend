@@ -3,7 +3,7 @@ import axios from 'axios';
 //import { Link } from 'react-router-dom';
 
 //myComponent
-import ButtonComponent from '../public/ButtonComponent'
+import ButtonComponent from '../public/ButtonComponent';
 import RequestDetailsCard from './RequestDetailsCard';
 import ClothsTile from './ClothsTile';
 import ProposalCard from './ProposalCard';
@@ -63,12 +63,7 @@ class RequestDetails extends React.Component {
             userId = {this.state.userDatas.id}
           />
         </div>
-
-        {/*<Link to={`/request/submit/${this.state.requestDatas.id}`} >
-          <ButtonComponent
-            buttonText = "提案する"
-          />
-        </Link>*/}
+        
         <ButtonComponent
           link = {`/proposal/${this.props.match.params.requestId}/submit`}
           buttonText = "提案する"

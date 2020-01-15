@@ -28,7 +28,7 @@ ReactDOM.render(
       <Route exact path={'/'} component={TimeLine}/>
 
       {/* 依頼投稿画面 */}
-      <Route path={'/request/:requestId/submit'} component={SubmitRequest}/>
+      <Route path={'/request/submit'} component={SubmitRequest}/>
 
       {/* 依頼詳細画面 */}
       <Route path={'/request/:requestId'} component={RequestDetails}/>
