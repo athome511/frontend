@@ -1,6 +1,4 @@
 .ranking-wrapper {
-  margin-left: 10%;
-  margin-top: 10%;
   width: 80%;
   font-size: 2rem;
 }
@@ -42,4 +40,13 @@ table td {
 table img {
   width: 100px;
   border-radius: 50%;
+}
+
+
+
+
+
+
+.tableWidth {
+  min-width: 650px;
 }

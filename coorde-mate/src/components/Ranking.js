@@ -1,31 +1,80 @@
 import React from 'react';
+import axios from 'axios';
+
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 
 //css
 import '../css/ranking.css';
-import imgUrl from '../img/iconSample.jpg';
 
 //ランキング画面
 class Ranking extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      rankingDatas:[],
+      rankCount: 0
+    };
+  }
+
+  componentWillMount(){
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3001'
+    })
+
+    request.get(`/ranking`)
+    .then(res => {
+      this.setState({
+        rankingDatas: res.data
+      });
+    })
+  }
+
+  rankCount() {
+    this.setState({ rankCount: this.state.rankCount +  1 })
+    return (
+      this.state.rankCount
+    )
+  }
+
   render() {
     return (
-      <div className="ranking-wrapper">
-      <table>
-        <tr>
-          <th className="rankHeader">rank</th>
-          <th>icon</th>
-          <th className="userNameHeader">userName</th>
-          <th>point</th>
-          <th>unit</th>
-        </tr>
-        <tr>
-          <td className="rank">1.</td>
-          <td><img src={imgUrl} /></td>
-          <td className="userName">ニックネーム</td>
-          <td className="point">30</td>
-          <td className="unit">BC</td>
-        </tr>
-      </table>
-    </div>
+      <TableContainer component={Paper}>
+        <Table className="tableWidth" aria-label="simple table">
+
+          <TableHead>
+            <TableRow>
+              <TableCell>Rank</TableCell>
+              <TableCell>icon</TableCell>
+              <TableCell>ユーザネーム</TableCell>
+              <TableCell>BC数</TableCell>
+              <TableCell>BC</TableCell>
+            </TableRow>
+          </TableHead>
+
+          <TableBody>
+            {this.state.rankingDatas.map(row => (
+              <TableRow key={row.id}>
+                <TableCell component="th" scope="row">
+                  Rank
+                  {console.log(this.state)}
+                </TableCell>
+                <TableCell><img src={row.u_icon} /></TableCell>
+                <TableCell>{row.u_name}</TableCell>
+                <TableCell>{row.u_month_bc}</TableCell>
+                <TableCell>BC</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+
+        </Table>
+      </TableContainer>
+
     );
   }
 }
