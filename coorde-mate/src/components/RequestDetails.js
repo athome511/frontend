@@ -6,6 +6,7 @@ import axios from 'axios';
 import ButtonComponent from '../public/ButtonComponent'
 import RequestDetailsCard from './RequestDetailsCard';
 import ClothsTile from './ClothsTile';
+import ProposalCard from './ProposalCard';
 
 
 //依頼詳細画面
@@ -72,6 +73,8 @@ class RequestDetails extends React.Component {
           link = {`/request/${this.state.requestDatas.id}/submit`}
           buttonText = "提案する"
         />
+
+      <ProposalCard />
 
 
 
