@@ -4,7 +4,6 @@ import axios from 'axios';
 /* myComponents */
 import RequestCard from './RequestCard';
 
-import '../css/timeLine.css';
 
 
 class PastTimeLine extends React.Component {

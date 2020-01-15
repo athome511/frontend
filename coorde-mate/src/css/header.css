@@ -2,23 +2,22 @@ header {
 	display: flex;
 	background-color: #ff9800;
 	font-size: 2rem;
-}
-ul {
 	width: 100%;
 	padding: 0 2%;
 }
 
-header li {
+header a {
 	padding: 0 3%;
 	float: left;
 	line-height: 60px;
-}
-li a {
   color: #fff;
 	display: block;
 	transition: .5s;
 }
-li a:hover {
+header a:last-child {
+	float: right;
+}
+header a:hover {
 	opacity: .5;
 }
 

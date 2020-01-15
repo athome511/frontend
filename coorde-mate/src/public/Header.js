@@ -9,17 +9,13 @@ class Header extends React.Component {
   render() {
     return(
       <header>
-        <ul>
           <Link to={`/`}>タイムライン</Link>
           <Link to={`/pastTimeLine`}>過去タイムライン</Link>
-          {/*<Link to={`/ranking`}>ランキング</Link>*/}
-          {/*<Link to={`/userHistory/:userId`}>依頼・投稿履歴</Link>*/}
+          <Link to={`/ranking`}>ランキング</Link>
+          <Link to={`/userHistory/:userId`}>依頼・投稿履歴</Link>
 
-          <li className="right"><a href="#">
-            <img src={img} />
-              マイページ
-            </a></li>
-          </ul>
+          <Link to={`/myPage`}><img src={img}/>マイページ</Link>
+
         </header>
       );
     }

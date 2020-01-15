@@ -9,7 +9,9 @@ import Header from './public/Header';
 import TimeLine from './components/TimeLine';
 import RequestDetails from './components/RequestDetails';
 import RequestSubmit from './components/RequestSubmit';
-import PastTimeLine from './component/PastTimeLine';
+import PastTimeLine from './components/PastTimeLine';
+import Ranking from './components/Ranking';
+import UserHistory from './components/UserHistory';
 
 //myCss
 import './css/default.css';
@@ -25,8 +27,8 @@ ReactDOM.render(
 
       <Route path={'/pastTimeLine'} component={PastTimeLine}/>
 
-      {/*<Route exact path={'/ranking'} component={Ranking}/>
-      <Route path={'/userHistory/:userId'} component={UserHistory}/>*/}
+      <Route exact path={'/ranking'} component={Ranking}/>
+      <Route path={'/userHistory/:userId'} component={UserHistory}/>
 
     </BrowserRouter>
   </MuiThemeProvider>,
