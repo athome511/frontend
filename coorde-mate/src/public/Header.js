@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../css/header.css';
 
@@ -9,10 +10,11 @@ class Header extends React.Component {
     return(
       <header>
         <ul>
-          <li><a href="#">タイムライン</a></li>
-          <li><a href="#">過去タイムライン</a></li>
-          <li><a href="#">ランキング</a></li>
-          <li><a href="#">依頼・投稿履歴</a></li>
+          <Link to={`/`}>タイムライン</Link>
+          <Link to={`/pastTimeLine`}>過去タイムライン</Link>
+          {/*<Link to={`/ranking`}>ランキング</Link>*/}
+          {/*<Link to={`/userHistory/:userId`}>依頼・投稿履歴</Link>*/}
+
           <li className="right"><a href="#">
             <img src={img} />
               マイページ
