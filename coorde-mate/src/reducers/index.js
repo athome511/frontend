@@ -3,8 +3,9 @@
 
 import { combineReducers } from 'redux';
 import { reducer as form } from 'redux-form';
+import events from './events';
 
-export default combineReducers({ form })
+export default combineReducers({ form, events })
 
 // export default combineReducers({ count, foo, bax })
 //複数のreducerをやるのが普通や

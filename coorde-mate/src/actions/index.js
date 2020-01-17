@@ -14,14 +14,11 @@ export const GET_CLOTHS = 'GET_CLOTHS';
 
 const ROOT_URL = 'http://18.178.35.28:3001/';
 
-export const readEvents = () => async dispatch => {
-  const response = await axios.get(`${ROOT_URL}/events`)
-  dispatch({ type: READ_EVENTS, response })
-}
+
 
 //所有服一覧
-export const getCloths = userId => async dispatch => {
-  const response = await axios.get(`${ROOT_URL}/cloths/${userId}`)
+export const getCloths = () => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/cloths/1`)
   dispatch({ type: GET_CLOTHS, response })
 }
 
