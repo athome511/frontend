@@ -29,17 +29,11 @@ class Ranking extends React.Component {
 
     request.get(`/ranking`)
     .then(res => {
+      console.log(res)
       this.setState({
         rankingDatas: res.data
       });
     })
-  }
-
-  rankCount() {
-    this.setState({ rankCount: this.state.rankCount +  1 })
-    return (
-      this.state.rankCount
-    )
   }
 
   render() {
