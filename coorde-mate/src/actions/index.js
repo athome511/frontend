@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 
+//オリジナル
+export const READ_TIMELINE = 'READ_TIMELINE'
+
 //以下二つは他でも使うため宣言
 export const READ_EVENTS = 'READ_EVENTS';
 export const READ_EVENT = 'READ_EVENT';
@@ -13,6 +16,18 @@ export const GET_CLOTHS = 'GET_CLOTHS';
 
 
 const ROOT_URL = 'http://18.178.35.28:3001/';
+
+export const readTimeLine = () => ({
+  type: READ_TIMELINE
+})
+
+
+
+
+
+
+
+
 
 export const readEvents = () => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/events`)

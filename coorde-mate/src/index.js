@@ -11,6 +11,7 @@ import reducer from './reducers';
 
 //myComponents
 import Header from './public/Header';
+import Login from './public/Login';
 import Completed from './components/Completed'
 import TimeLine from './components/TimeLine';
 import RequestDetails from './components/RequestDetails';
@@ -35,7 +36,10 @@ ReactDOM.render(
     <Provider store={store}>
     <BrowserRouter>
       <Header />
-      <Route exact path={'/timeLine'} component={TimeLine}/>
+      {/* ログイン画面 */}
+      <Route exact path={'/'} component={Login}/>
+
+      <Route path={'/timeLine'} component={TimeLine}/>
 
       {/* 依頼投稿画面 */}
       <Route path={'/requestSubmit'} component={SubmitRequest}/>

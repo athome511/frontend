@@ -1,11 +1,33 @@
 import React from 'react';
 
-import './css/login.css';
 
 //ログイン画面
 class Login extends React.Component {
   render() {
     return (
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
       <div className="login-wrapper">
       <h3 className="theme">今日のあなたをデザインする</h3>
       <h1 className="logo">コーデメイト</h1>
