@@ -17,8 +17,7 @@ class Ranking extends React.Component {
   constructor(){
     super();
     this.state = {
-      rankingDatas:[],
-      rankCount: 0
+      rankingDatas:[]
     };
   }
 
@@ -35,12 +34,6 @@ class Ranking extends React.Component {
     })
   }
 
-  rankCount() {
-    this.setState({ rankCount: this.state.rankCount +  1 })
-    return (
-      this.state.rankCount
-    )
-  }
 
   render() {
     return (
@@ -61,7 +54,7 @@ class Ranking extends React.Component {
             {this.state.rankingDatas.map(row => (
               <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
-                  {console.log(this.state)}
+                  <p>sa</p>
                 </TableCell>
                 <TableCell><img src={row.u_icon} /></TableCell>
                 <TableCell>{row.u_name}</TableCell>
