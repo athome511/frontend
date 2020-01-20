@@ -19,17 +19,18 @@ class ClothsTile extends React.Component {
   constructor(){
     super();
     this.state = {
-      datas: []
+      datas: [],
+      userDatas: []
     };
   }
-
+/*
   componentDidMount(){
     const request = axios.create({
       baseURL: 'http://18.178.35.28:3001'
     })
 
     //request.get(`/cloths/${this.props.userId}`)
-    request.get(`/cloths/1`)
+    request.get(`/cloths/${this.props.userId}`)
     .then(res => {
       this.setState({
         datas: res.data
@@ -37,18 +38,41 @@ class ClothsTile extends React.Component {
     })
   }
 
-/*
-  componentDidMount() {
-    this.props.getCloths(1)
+  componentWillMount(){
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3001'
+    })
+
+    //request.get(`/cloths/${this.props.userId}`)
+    request.get(`/cloths/${this.props.userId}`)
+    .then(res => {
+      this.setState({
+        datas: res.data
+      });
+    })
   }
-*/
+  */
+
+  setUser(userId) {
+    console.log(userId)
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3001'
+    })
+    request.get(`/cloths/${userId}`)
+    .then(res => {
+      this.setState({
+        userDatas : res.data
+      })
+    })
+    console.log(this.state)
+  }
 
 
 
 
   render() {
     if(!Number.isInteger(this.props.userId))  return <Loading />
-
+    this.setUser(this.props.userId)
 
     return (
       <div className="root">
@@ -58,7 +82,7 @@ class ClothsTile extends React.Component {
           <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
         </GridListTile>
 
-        {this.state.datas.map((tile) => {
+        {this.state.userDatas.map((tile) => {
           return (
             <GridListTile key={tile.c_link} style={{width: '20%'}}>
               <img src={tile.c_link} alt={`服画像id : ${tile.c_u_id}`} />

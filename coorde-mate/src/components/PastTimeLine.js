@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 /* myComponents */
 import RequestCard from './RequestCard';
@@ -31,20 +32,20 @@ class PastTimeLine extends React.Component {
   render() {
     return (
       <div>
-        <p>Hello</p>
         {this.state.datas.map((requestData) => {
           if(requestData.is_selected_bc) {
-            {console.log(requestData.is_selected_bc)}
             return (
-              <div>
+              <Link to={`/request/${requestData.id}`}
+                 key={requestData.id}
+                 className="container"
+              >
                 <RequestCard
                   requestId = {requestData.id}
                   title = {requestData.r_title}
-                  limit = {requestData.r_limit}
                   memo = {requestData.r_memo}
                   userId = {requestData.r_u_id}
                 />
-              </div>
+            </Link>
             )
           }
         })}

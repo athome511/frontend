@@ -35,25 +35,27 @@ class TimeLine extends React.Component {
     return (
       <div>
         <ButtonComponent
-          link = {`/requestSubmit`}
+          link = {`/request/submit`}
           buttonText = "依頼を投稿する"
         />
 
         {this.state.datas.map((requestData) => {
-          return (
-            <Link to={`/request/${requestData.id}`}
-               key={requestData.id}
-               className="container"
-            >
-              <RequestCard
-                requestId = {requestData.id}
-                title = {requestData.r_title}
-                limit = {requestData.r_limit}
-                memo = {requestData.r_memo}
-                userId = {requestData.r_u_id}
-              />
-          </Link>
-          )
+          if(!requestData.is_selected_bc) {
+            return (
+              <Link to={`/request/${requestData.id}`}
+                 key={requestData.id}
+                 className="container"
+              >
+                <RequestCard
+                  requestId = {requestData.id}
+                  title = {requestData.r_title}
+                  limit = {requestData.r_limit}
+                  memo = {requestData.r_memo}
+                  userId = {requestData.r_u_id}
+                />
+            </Link>
+            )
+          }
         })}
       </div>
     );

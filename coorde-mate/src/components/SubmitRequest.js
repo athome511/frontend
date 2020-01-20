@@ -37,7 +37,7 @@ class SubmitRequest extends React.Component {
 
   async onSubmit(values) {
     await this.props.postEvent(values)
-    this.props.history.push('/')
+    this.props.history.push('/completed')
   }
 
   render() {

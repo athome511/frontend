@@ -29,7 +29,6 @@ class Ranking extends React.Component {
 
     request.get(`/ranking`)
     .then(res => {
-      console.log(res)
       this.setState({
         rankingDatas: res.data
       });
@@ -55,7 +54,7 @@ class Ranking extends React.Component {
             {this.state.rankingDatas.map(row => (
               <TableRow key={row.id}>
                 <TableCell component="th" scope="row">
-                  {console.log(this.state)}
+                  {row.rank}
                 </TableCell>
                 <TableCell><img src={row.u_icon} /></TableCell>
                 <TableCell>{row.u_name}</TableCell>

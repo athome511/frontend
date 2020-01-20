@@ -55,7 +55,8 @@ class RequestDetails extends React.Component {
           />
 
         <p>userName : {this.state.userDatas.u_name}</p>
-        <p>requestTitle : {this.state.requestDatas.r_title}</p>
+          <p>userName : {this.state.userDatas.u_name}</p>
+        <p>userId : {this.state.userDatas.id}</p>
 
         {/* 所有服一覧表示 */}
         <div className="container">
@@ -63,7 +64,7 @@ class RequestDetails extends React.Component {
             userId = {this.state.userDatas.id}
           />
         </div>
-        
+
         <ButtonComponent
           link = {`/proposal/${this.props.match.params.requestId}/submit`}
           buttonText = "提案する"
