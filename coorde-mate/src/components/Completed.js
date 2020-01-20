@@ -11,7 +11,7 @@ class Completed extends React.Component {
 
 
           <ButtonComponent
-            link = {`/`}
+            link = {`/timeLine`}
             buttonText = "タイムラインに戻る"
           />
       </div>

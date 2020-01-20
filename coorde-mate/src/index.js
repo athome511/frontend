@@ -35,7 +35,7 @@ ReactDOM.render(
     <Provider store={store}>
     <BrowserRouter>
       <Header />
-      <Route exact path={'/'} component={TimeLine}/>
+      <Route exact path={'/timeLine'} component={TimeLine}/>
 
       {/* 依頼投稿画面 */}
       <Route path={'/requestSubmit'} component={SubmitRequest}/>

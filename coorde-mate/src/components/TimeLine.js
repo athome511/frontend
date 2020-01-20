@@ -35,7 +35,7 @@ class TimeLine extends React.Component {
     return (
       <div>
         <ButtonComponent
-          link = {`/request/submit`}
+          link = {`/requestSubmit`}
           buttonText = "依頼を投稿する"
         />
 
