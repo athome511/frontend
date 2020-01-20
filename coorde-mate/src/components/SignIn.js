@@ -75,5 +75,5 @@ const validate = values => {
 const mapDispatchToProps = ({ signInEvent })
 
 export default connect(null, mapDispatchToProps)(
-  reduxForm({ validate, form: 'requestNewForm' })(SignIn)
+  reduxForm({ validate, form: 'signInForm' })(SignIn)
 )

@@ -1,60 +1,58 @@
 import React from 'react';
+import axios from 'axios';
 
 
 //ログイン画面
 class Login extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      datas: [],
+      mail: '',
+      password: ''
+    } // stateのkey名とフォームのname属性を一致させる
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange (e) {
+    let name = e.target.name; // フォームのname属性を取得
+    this.setState({ [name]: e.target.value }) // name属性 = stateのkey名なのでstateに保存
+  }
+
+  check() {
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3001'
+    })
+
+    request.get(`/login/${this.state.mail}`)
+    .then(res => {
+      this.setState({
+        datas: res.data
+      });
+      console.log(res)
+    })
+  }
 
 
   render() {
     return (
+      <div>
+        <p>titleの値：{this.state.mail}</p>
+        <p>textの値：{this.state.password}</p>
 
+        <input name="mail" value={this.state.mail} onChange={this.handleChange} />
 
+        <input name="password" type="password" onChange={this.handleChange} />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <div className="login-wrapper">
-      <h3 className="theme">今日のあなたをデザインする</h3>
-      <h1 className="logo">コーデメイト</h1>
-
-      <div className="loginForm">
-        <div className="mailAddress">
-          <input type="text" placeholder="メールアドレス" size="40" />
-        </div>
-
-        <div className="password">
-          <input type="text" placeholder="パスワード" size="40" />
-        </div>
-
-        <div>
-          <button className="loginButton" type="submit">ログイン</button>
-        </div>
-
-        <div>
-          <button className="signUpButton" type="submit">新規登録</button>
-        </div>
-
+        <button onClick={() => {this.check()}}>ログイン</button>
       </div>
-    </div>
-    );
+    )
   }
+
+
 }
+
+
+
 
 export default Login;
