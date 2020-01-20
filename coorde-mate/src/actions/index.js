@@ -2,7 +2,7 @@ import axios from 'axios';
 
 
 //オリジナル
-export const READ_TIMELINE = 'READ_TIMELINE'
+export const READ_REQUESTS = 'READ_REQUESTS';
 
 //以下二つは他でも使うため宣言
 export const READ_EVENTS = 'READ_EVENTS';
@@ -17,9 +17,11 @@ export const GET_CLOTHS = 'GET_CLOTHS';
 
 const ROOT_URL = 'http://18.178.35.28:3001/';
 
-export const readTimeLine = () => ({
-  type: READ_TIMELINE
-})
+//外部APIにリクエストを投げる
+export const readRequests = () => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/requests`)
+  dispatch({ type: READ_REQUESTS, response })
+}
 
 
 

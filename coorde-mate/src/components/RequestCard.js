@@ -47,30 +47,6 @@ class RequestCard extends React.Component {
           </div>
 
 
-
-
-          {/* 依頼詳細画面へのリンク */}
-          {/*<Link to={`/request/${this.props.requestId}`}
-             key={this.props.requestId}
-             className="container"
-          >
-
-            <div className="icon">
-              <img src={this.state.userDatas.u_icon} alt={this.state.userDatas.u_name} />
-            </div>
-
-            <div className="requestText right">
-              <div className="requestTitle">
-                <h2>{this.props.title}</h2>
-              </div>
-              <div className="requestMemo">
-                <p>{this.props.memo}</p>
-              </div>
-              <div className="requestLimit">
-                <p>{this.props.limit}</p>
-              </div>
-            </div>
-          </Link>*/}
         </div>
 
 

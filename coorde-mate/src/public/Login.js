@@ -3,6 +3,8 @@ import React from 'react';
 
 //ログイン画面
 class Login extends React.Component {
+
+
   render() {
     return (
 
@@ -27,7 +29,7 @@ class Login extends React.Component {
 
 
 
-      
+
       <div className="login-wrapper">
       <h3 className="theme">今日のあなたをデザインする</h3>
       <h1 className="logo">コーデメイト</h1>
