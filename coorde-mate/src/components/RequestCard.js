@@ -1,16 +1,21 @@
 import React from 'react';
-import axios from 'axios';
+//import axios from 'axios';
+
+import { connect  } from 'react-redux';
+import { readUser } from '../actions';
 
 //css
 import '../css/requestCard.css';
 
 class RequestCard extends React.Component {
-  constructor(){
+  /*constructor(){
     super();
     this.state = {
       userDatas:[]
     }
   }
+
+
 
   componentWillMount(){
     const request = axios.create({
@@ -23,16 +28,19 @@ class RequestCard extends React.Component {
         userDatas: res.data
       });
     })
-  }
+  }*/
 
+  componentDidMount() {
+    this.props.readUsers()
+  }
 
   render() {
     return (
 
         <div className="requestCard">
-          <div className="icon">
+          {/*<div className="icon">
             <img src={this.state.userDatas.u_icon} alt={this.state.userDatas.u_name} />
-          </div>
+          </div>*/}
 
           <div className="requestText right">
             <div className="requestTitle">
@@ -54,5 +62,10 @@ class RequestCard extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({  })
 
-export default RequestCard;
+const mapDispatchToProps = ({ readUser })
+
+export default connect(mapStateToProps, mapDispatchToProps)(RequestCard);
+
+//export default RequestCard;

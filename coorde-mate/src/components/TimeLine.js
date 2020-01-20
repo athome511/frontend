@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 import { connect  } from 'react-redux';
-import { readRequests } from '../actions'
+import { readRequests } from '../actions';
 
 /* myComponents */
 import RequestCard from './RequestCard';
@@ -13,13 +13,7 @@ import ButtonComponent from '../public/ButtonComponent';
 
 
 class TimeLine extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      datas:[]
-    };
-  }
-
+  
   componentDidMount() {
     this.props.readRequests()
   }

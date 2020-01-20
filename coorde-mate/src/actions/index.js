@@ -2,7 +2,10 @@ import axios from 'axios';
 
 
 //オリジナル
+export const SIGN_IN = 'SIGN_IN';
 export const READ_REQUESTS = 'READ_REQUESTS';
+export const READ_USER = 'READ_USER';
+export const READ_REQUEST_DETAILS = 'READ_REQUEST_DETAILS';
 
 //以下二つは他でも使うため宣言
 export const READ_EVENTS = 'READ_EVENTS';
@@ -17,13 +20,29 @@ export const GET_CLOTHS = 'GET_CLOTHS';
 
 const ROOT_URL = 'http://18.178.35.28:3001/';
 
+//新規登録
+export const signInEvent = values => async dispatch => {
+  const response = await axios.post(`${ROOT_URL}/users`, values)
+  dispatch({ type: SIGN_IN, response })
+}
+
 //外部APIにリクエストを投げる
 export const readRequests = () => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/requests`)
   dispatch({ type: READ_REQUESTS, response })
 }
 
+//ユーザデータ取得
+export const readUser = (userId) => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/users/${userId}`)
+  dispatch({ type: READ_USER, response})
+}
 
+//依頼詳細取得
+export const readRequestDetails = (requestId) => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/requests/${requestId}`)
+  dispatch({ type: READ_REQUEST_DETAILS, response })
+}
 
 
 

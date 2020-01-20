@@ -11,7 +11,8 @@ import reducer from './reducers';
 
 //myComponents
 import Header from './public/Header';
-import Login from './public/Login';
+import Login from './components/Login';
+import SignIn from './components/SignIn';
 import Completed from './components/Completed'
 import TimeLine from './components/TimeLine';
 import RequestDetails from './components/RequestDetails';
@@ -38,6 +39,7 @@ ReactDOM.render(
       <Header />
       {/* ログイン画面 */}
       <Route exact path={'/'} component={Login}/>
+      <Route exact path={'/signIn'} component={SignIn}/>
 
       <Route path={'/timeLine'} component={TimeLine}/>
 

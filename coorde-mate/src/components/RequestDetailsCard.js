@@ -4,6 +4,11 @@ import React from 'react';
 import '../css/requestCard.css';
 
 class RequestDetailsCard extends React.Component {
+
+  componentDidMount() {
+    console.log(this.props.userId)
+  }
+
   render() {
     return (
 
