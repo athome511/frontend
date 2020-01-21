@@ -4,7 +4,8 @@ import {
   READ_REQUESTS,
   READ_USER,
   READ_REQUEST_DETAILS,
-  READ_CLOTHS
+  READ_CLOTHS,
+  READ_PROPOSALS
 } from '../actions';
 
 
@@ -17,10 +18,14 @@ export default (events = {}, action) => {
       return _.mapKeys(action.response.data, 'id')
 
     case READ_CLOTHS:
+      console.log("action")
       return _.mapKeys(action.response.data, 'id')
 
     case READ_REQUEST_DETAILS:
       return action.response.data
+
+    case READ_PROPOSALS:
+      return events
 
     default:
       return events

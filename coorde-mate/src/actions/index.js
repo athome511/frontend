@@ -7,6 +7,7 @@ export const READ_REQUESTS = 'READ_REQUESTS';
 export const READ_USER = 'READ_USER';
 export const READ_REQUEST_DETAILS = 'READ_REQUEST_DETAILS';
 export const READ_CLOTHS = 'READ_CLOTHS';
+export const READ_PROPOSALS = 'READ_PROPOSALS';
 
 
 //以下二つは他でも使うため宣言
@@ -44,17 +45,6 @@ export const readRequestDetails = (requestId) => async dispatch => {
   dispatch({ type: READ_REQUEST_DETAILS, response })
 }
 
-
-
-
-
-
-
-export const readEvents = () => async dispatch => {
-  const response = await axios.get(`${ROOT_URL}/events`)
-  dispatch({ type: READ_EVENTS, response })
-}
-
 //所有服一覧
 export const readCloths = (userId) => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/cloths/${userId}`)
@@ -68,6 +58,13 @@ export const postEvent = values => async dispatch => {
   const response = await axios.post(`${ROOT_URL}/requests`, values)
   dispatch({ type: CREATE_EVENT, response })
 }
+
+//提案情報取得
+/*
+export const readProposals = requestId => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/proposal/${requestId}`)
+  dispatch({ type: READ_PROPOSALS, response })
+}*/
 
 
 

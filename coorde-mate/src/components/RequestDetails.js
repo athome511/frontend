@@ -70,6 +70,7 @@ class RequestDetails extends React.Component {
             userId = {props.events.r_u_id}
             borderStyle = {"none"}
             />
+          {console.log(props.events.r_u_id)}
 
 
 
