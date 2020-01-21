@@ -37,7 +37,6 @@ ReactDOM.render(
   <MuiThemeProvider>
     <Provider store={store}>
     <BrowserRouter>
-      {console.log('hi')}
       <Header />
       {/* ログイン画面 */}
       <Route exact path={'/'} component={Login}/>
