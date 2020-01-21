@@ -12,6 +12,7 @@ import reducer from './reducers';
 //myComponents
 import Header from './public/Header';
 import Login from './components/Login';
+import Logout from './components/Logout';
 import SignIn from './components/SignIn';
 import Completed from './components/Completed'
 import TimeLine from './components/TimeLine';
@@ -36,6 +37,7 @@ ReactDOM.render(
   <MuiThemeProvider>
     <Provider store={store}>
     <BrowserRouter>
+      {console.log('hi')}
       <Header />
       {/* ログイン画面 */}
       <Route exact path={'/'} component={Login}/>
@@ -65,6 +67,10 @@ ReactDOM.render(
 
       {/* 入力完了画面 */}
       <Route path={`/completed`} component={Completed}/>
+
+
+      <Route path={`/logout`} component={Logout}/>
+
 
 
     </BrowserRouter>
