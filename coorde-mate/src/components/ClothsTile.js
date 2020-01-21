@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import { connect } from 'react-redux';
 
-import { getCloths } from '../actions';
+import { readCloths } from '../actions';
 
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -52,7 +52,7 @@ class ClothsTile extends React.Component {
     })
   }
   */
-
+/*
   setUser(userId) {
     console.log(userId)
     const request = axios.create({
@@ -66,13 +66,17 @@ class ClothsTile extends React.Component {
     })
     console.log(this.state)
   }
+*/
+  componentDidMount() {
+    this.props.readCloths(this.props.userId)
+  }
 
 
 
 
   render() {
     if(!Number.isInteger(this.props.userId))  return <Loading />
-    this.setUser(this.props.userId)
+
 
     return (
       <div className="root">
@@ -96,8 +100,9 @@ class ClothsTile extends React.Component {
   }
 }
 
-const mapDispatchToProps = ({ getCloths });
+const mapStateToProps = state => ({ events: state.events })
+const mapDispatchToProps = ({ readCloths });
 
-export default connect(null, mapDispatchToProps)(
+export default connect(mapStateToProps, mapDispatchToProps)(
     ClothsTile
 );

@@ -79,6 +79,7 @@ class RequestDetails extends React.Component {
 
         <div className="container">
           <ClothsTile
+            userId = {props.events.r_u_id}
           />
         </div>
 
