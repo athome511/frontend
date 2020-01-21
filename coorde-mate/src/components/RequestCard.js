@@ -31,7 +31,7 @@ class RequestCard extends React.Component {
   }*/
 
   componentDidMount() {
-    this.props.readUsers()
+    this.props.readUser()
   }
 
   render() {

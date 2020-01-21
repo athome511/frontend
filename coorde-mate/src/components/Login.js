@@ -27,7 +27,10 @@ class Login extends React.Component {
     request.get(`/login/${this.state.mail}`)
     .then(res => {
       console.log(this.state.mail)
-      if(res.data.u_mail === this.state.mail && res.data.u_password === this.state.password) this.props.history.push('/')
+      if(res.data.u_mail === this.state.mail && res.data.u_password === this.state.password) {
+        localStorage.setItem('userData', JSON.stringify(res.data))
+        this.props.history.push('/timeLine')
+      }
 
     })
   }
