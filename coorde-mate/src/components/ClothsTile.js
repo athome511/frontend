@@ -1,8 +1,7 @@
 import React from 'react';
-import axios from 'axios';
+import _ from 'lodash';
 import { connect } from 'react-redux';
-
-import { getCloths } from '../actions';
+import { readCloths } from '../actions';
 
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -52,7 +51,7 @@ class ClothsTile extends React.Component {
     })
   }
   */
-
+/*
   setUser(userId) {
     console.log(userId)
     const request = axios.create({
@@ -67,12 +66,27 @@ class ClothsTile extends React.Component {
     console.log(this.state)
   }
 
+*/
 
+  componentDidMount(){
+    this.props.readCloths(this.props.userId)
+    console.log(this.props.userId)
+  }
+
+
+  renderCloth() {
+    return (
+      _.map(this.props.events, clothData => (
+        <GridListTile key={clothData.c_link} style={{width: '20%'}}>
+          <img src={clothData.c_link} alt={`服画像id : ${clothData.c_u_id}`} />
+        </GridListTile>
+      ))
+    )
+  }
 
 
   render() {
     if(!Number.isInteger(this.props.userId))  return <Loading />
-    this.setUser(this.props.userId)
 
     return (
       <div className="root">
@@ -82,22 +96,21 @@ class ClothsTile extends React.Component {
           <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
         </GridListTile>
 
-        {this.state.userDatas.map((tile) => {
-          return (
-            <GridListTile key={tile.c_link} style={{width: '20%'}}>
-              <img src={tile.c_link} alt={`服画像id : ${tile.c_u_id}`} />
-            </GridListTile>
-          )
-        })}
+        {/* 服一覧表示 */}
+        {this.renderCloth()}
 
       </GridList>
     </div>
+
+
+
     )
   }
 }
 
-const mapDispatchToProps = ({ getCloths });
+const mapStateToProps = state => ({ events: state.events })
+const mapDispatchToProps = ({ readCloths });
 
-export default connect(null, mapDispatchToProps)(
+export default connect(mapStateToProps, mapDispatchToProps)(
     ClothsTile
 );

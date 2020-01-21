@@ -6,6 +6,8 @@ export const SIGN_IN = 'SIGN_IN';
 export const READ_REQUESTS = 'READ_REQUESTS';
 export const READ_USER = 'READ_USER';
 export const READ_REQUEST_DETAILS = 'READ_REQUEST_DETAILS';
+export const READ_CLOTHS = 'READ_CLOTHS';
+
 
 //以下二つは他でも使うため宣言
 export const READ_EVENTS = 'READ_EVENTS';
@@ -14,8 +16,6 @@ export const CREATE_EVENT = 'CREATE_EVENT';
 export const UPDATE_EVENT = 'UPDATE_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
 
-//自分で定義
-export const GET_CLOTHS = 'GET_CLOTHS';
 
 
 const ROOT_URL = 'http://18.178.35.28:3001/';
@@ -56,9 +56,9 @@ export const readEvents = () => async dispatch => {
 }
 
 //所有服一覧
-export const getCloths = userId => async dispatch => {
+export const readCloths = userId => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/cloths/${userId}`)
-  dispatch({ type: GET_CLOTHS, response })
+  dispatch({ type: READ_CLOTHS, response })
 }
 
 
