@@ -14,7 +14,7 @@ export default (events = {}, action) => {
       return _.mapKeys(action.response.data, 'id')
 
     case READ_USER:
-      return events
+      return _.mapKeys(action.response.data, 'id')
 
     case READ_REQUEST_DETAILS:
       return action.response.data
