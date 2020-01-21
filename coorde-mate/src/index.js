@@ -17,6 +17,7 @@ import SignIn from './components/SignIn';
 import Completed from './components/Completed'
 import TimeLine from './components/TimeLine';
 import RequestDetails from './components/RequestDetails';
+import ClothsTile from './components/ClothsTile';
 import SubmitRequest from './components/SubmitRequest';
 import SubmitProposal from './components/SubmitProposal';
 import PastTimeLine from './components/PastTimeLine';
@@ -49,6 +50,7 @@ ReactDOM.render(
 
       {/* 依頼詳細画面 */}
       <Route path={'/request/:requestId'} component={RequestDetails}/>
+      <Route path={'/request/:requestId/cloths/:userId'} component={ClothsTile}/>
 
       {/* 提案入力画面 */}
       <Route path={`/proposal/:requestId/submit`} component={SubmitProposal}/>

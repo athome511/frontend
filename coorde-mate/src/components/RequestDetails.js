@@ -8,7 +8,7 @@ import { readRequestDetails } from '../actions';
 //myComponent
 import ButtonComponent from '../public/ButtonComponent';
 import RequestCard from './RequestCard';
-import ClothsTile from './ClothsTile';
+//import ClothsTile from './ClothsTile';
 import ProposalCard from './ProposalCard';
 
 
@@ -49,25 +49,25 @@ class RequestDetails extends React.Component {
           <p>userId : {props.events.r_u_id}</p>
 
 
-          <div className="container">
-            <Link to={`/request/${props.events.id}/cloths`} />
-
-            
+          <ButtonComponent
+            link = {`/request/${props.events.id}/cloths/${props.events.r_u_id}`}
+            buttonText = "服を見る"
+           />
+            {/*
             <ClothsTile
               userId = {props.events.r_u_id}
-              />
-          </div>
+              />*/}
 
           <ButtonComponent
             link = {`/proposal/${this.props.match.params.requestId}/submit`}
             buttonText = "提案する"
             />
 
-
+          {/*
           <ProposalCard
             requestId = {props.events.id}
             />
-
+*/}
 
         </div>
       );
