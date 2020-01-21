@@ -17,75 +17,19 @@ import '../css/clothsTile.css';
 
 // ユーザの所有服一覧
 class ClothsTile extends React.Component {
-  constructor(){
+  /*constructor(){
     super();
     this.state = {
       datas: [],
       userDatas: []
     };
-  }
-  /*componentDidMount(){
-    const request = axios.create({
-      baseURL: 'http://18.178.35.28:3001'
-    })
-
-    //request.get(`/cloths/${this.props.userId}`)
-    request.get(`/cloths/${this.props.userId}`)
-    .then(res => {
-      this.setState({
-        datas: res.data
-      });
-    })
-  }
-
-  componentWillMount(){
-    const request = axios.create({
-      baseURL: 'http://18.178.35.28:3001'
-    })
-
-    //request.get(`/cloths/${this.props.userId}`)
-    request.get(`/cloths/${this.props.userId}`)
-    .then(res => {
-      this.setState({
-        datas: res.data
-      });
-    })
-  }
-*/
+  }*/
 /*
-  async setUser(userId) {
-    console.log(userId)
-    const request = await axios.create({
-      baseURL: 'http://18.178.35.28:3001'
-    })
-    await request.get(`/cloths/${userId}`)
-    .then(res => {
-      this.setState({
-        userDatas : res.data
-      })
-    })
-    console.log(this.state)
-  }
-*/
-
-  /*componentDidMout() {
+  componentDidMout() {
     console.log("componentDid")
     this.props.readCloths(this.props.userId)
   }
-
-
-  renderCloths() {
-    return (
-      _.map(this.props.events, clothData => (
-        <GridListTile key={clothData.c_link} style={{width: '20%'}}>
-          <img src={clothData.c_link} alt={`服画像id : ${clothData.c_u_id}`} />
-        </GridListTile>
-      ))
-    )
-  }
 */
-
-
 
   render() {
     if(!Number.isInteger(this.props.userId))  return <Loading />
