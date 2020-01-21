@@ -7,7 +7,7 @@ import { readRequestDetails } from '../actions';
 
 //myComponent
 import ButtonComponent from '../public/ButtonComponent';
-import RequestDetailsCard from './RequestDetailsCard';
+import RequestCard from './RequestCard';
 import ClothsTile from './ClothsTile';
 import ProposalCard from './ProposalCard';
 
@@ -54,13 +54,22 @@ class RequestDetails extends React.Component {
     return (
       <div>
 
-        <RequestDetailsCard
+        {/*<RequestDetailsCard
           requestId = {props.events.id}
           userId = {props.events.r_u_id}
           title = {props.events.r_title}
           limit = {props.events.r_limit}
           memo = {props.events.r_memo}
-          />
+          />*/}
+          <RequestCard
+            key = {props.events.id}
+            requestId = {props.events.id}
+            title = {props.events.r_title}
+            limit = {props.events.r_limit}
+            memo = {props.events.r_memo}
+            userId = {props.events.r_u_id}
+            borderStyle = {"none"}
+            />
 
 
 

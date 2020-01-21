@@ -19,19 +19,23 @@ class RequestCard extends React.Component {
       baseURL: 'http://18.178.35.28:3001'
     })
 
-    request.get(`/users/${this.props.userId}`)
-    .then(res => {
-      this.setState({
-        userDatas: res.data
-      });
-    })
+    if(this.props.userId !== undefined) {
+      request.get(`/users/${this.props.userId}`)
+      .then(res => {
+        this.setState({
+          userDatas: res.data
+        });
+      })
+    }
   }
 
 
   render() {
+    const style = { border: this.props.borderStyle }
+
     return (
 
-        <div className="requestCard">
+        <div className="requestCard" style={style} >
           <div className="icon">
             <img src={this.state.userDatas.u_icon} alt={`UserIcon : ${this.state.userDatas.u_name}`} />
           </div>
