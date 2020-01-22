@@ -1,20 +1,18 @@
 .mypageMenu {
-  display: flex;
+  display: block;
   background-color: #ffb74d;
   float: left;
-  margin-top: 20%;
+  margin-top: 10%;
   width: 20%;
+  height: 100%;
+  text-align: center;
 }
 
 .mypageMenu a{
   display: block;
   font-size: 1.8rem;
-  padding: 30px 16px;
+  padding: 20% 16px;
   transition: .5s;
-}
-
-.mypageMenu {
-  text-align: center;
 }
 
 .mypageMenu a:hover {

@@ -76,7 +76,7 @@ class RequestDetails extends React.Component {
             <ButtonComponent
               link = {`/proposal/${this.props.match.params.requestId}/submit`}
               buttonText = "提案する"
-              />
+            />
 
 
               <ProposalCard

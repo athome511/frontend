@@ -2,18 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 
-import { connect  } from 'react-redux';
-import { readProposals } from '../actions';
+//import { connect  } from 'react-redux';
+//import { readProposals } from '../actions';
 
 import Loading from '../public/Loading';
 
 class ProposalCard extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      flag: 0
-    };
-  }
+
   /*
   componentWillMount(){
   const request = axios.create({
@@ -33,24 +28,24 @@ class ProposalCard extends React.Component {
   componentDidMount() {
   this.props.readProposals(this.requestIdState)
   }*/
-
+  /*
   renderProposals(requestId) {
-    this.props.readProposals(requestId)
+  this.props.readProposals(requestId)
 
-    return (
-      _.map(this.props.events, proposalData => (
-        <div>
-          <p>提案メモ</p>
-          <p>{proposalData.p_memo}</p>
-          <p>提案服一覧</p>
-          <div>{this.renderSelectSloths(proposalData.p_pc_text)}</div>
-          <p>{proposalData.p_pc_text}</p>
+  return (
+  _.map(this.props.events, proposalData => (
+  <div>
+  <p>提案メモ</p>
+  <p>{proposalData.p_memo}</p>
+  <p>提案服一覧</p>
+  <div>{this.renderSelectSloths(proposalData.p_pc_text)}</div>
+  <p>{proposalData.p_pc_text}</p>
 
-          ---------------------------------
-        </div>
-      ))
-    )
-  }
+  ---------------------------------
+  </div>
+  ))
+  )
+  }*/
 
   renderSelectSloths(selectCloths) {
     /*const ary = selectCloths.split('_')
@@ -73,16 +68,16 @@ class ProposalCard extends React.Component {
   }
   */
   render() {
-    if(this.state.flag == 0) {
+    /*if(this.state.flag == 0) {
       const requestIdState = localStorage.getItem('requestId')
       this.setState = { flag: 1 }
-    }
+    }*/
 
 
     return (
       <div>
         {console.log(this.requestIdState)}
-        {this.renderProposals(this.requestIdState)}
+        {/*this.renderProposals(this.requestIdState)*/}
 
 
 
@@ -103,10 +98,10 @@ class ProposalCard extends React.Component {
     }
   }
 
+/*
+const mapStateToProps = state => ({ events: state.events })
+const mapDispatchToProps = ({ readProposals })
 
-  const mapStateToProps = state => ({ events: state.events })
-  const mapDispatchToProps = ({ readProposals })
-
-  export default connect(mapStateToProps, mapDispatchToProps)(ProposalCard);
-
-  //export default ProposalCard;
+export default connect(mapStateToProps, mapDispatchToProps)(ProposalCard);
+*/
+export default ProposalCard;

@@ -20,7 +20,7 @@ class Header extends React.Component {
                 <Link to={`/timeLine`}>タイムライン</Link>
                 <Link to={`/pastTimeLine`}>過去タイムライン</Link>
                 <Link to={`/ranking`}>ランキング</Link>
-                <Link to={`/userHistory/${headerState.id}`}>依頼・投稿履歴</Link>
+                <Link to={`/history/requests/${headerState.id}`}>依頼・投稿履歴</Link>
 
                 <Link to={`/myPage`}><img src={headerState.u_icon} alt={`User Icon : ${headerState.u_name}`} />マイページ</Link>
               </header>

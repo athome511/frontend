@@ -22,7 +22,8 @@ import SubmitRequest from './components/SubmitRequest';
 import SubmitProposal from './components/SubmitProposal';
 import PastTimeLine from './components/PastTimeLine';
 import Ranking from './components/Ranking';
-import UserHistory from './components/UserHistory';
+import RequestHistory from './components/RequestHistory';
+import ProposalHistory from './components/ProposalHistory';
 import MyPage from './components/MyPage';
 
 //myCss
@@ -60,7 +61,8 @@ ReactDOM.render(
 
       <Route path={'/ranking'} component={Ranking}/>
 
-      <Route path={'/userHistory/:userId'} component={UserHistory}/>
+      <Route path={'/history/requests/:userId'} component={RequestHistory}/>
+      <Route path={'/history/proposals/:userId'} component={ProposalHistory}/>
 
       <Route path={'/myPage'} component={MyPage}/>
 
