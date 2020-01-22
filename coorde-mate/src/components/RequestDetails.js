@@ -25,9 +25,12 @@ class RequestDetails extends React.Component {
     const request = axios.create({
       baseURL: 'http://18.178.35.28:3001'
     })
-    //依頼idをローカルストレージへ
+    //依頼情報をローカルストレージへ
     if(this.props.events.id !== undefined) {
-    localStorage.setItem('requestId', this.props.events.id)
+      request.get(`/requests/${this.props.events.r_u_id}`)
+      .then(res => {
+          localStorage.setItem('requestData', JSON.stringify(res.data))
+      })
 }
     request.get(`/cloths/${this.props.events.r_u_id}`)
     .then(res => {
