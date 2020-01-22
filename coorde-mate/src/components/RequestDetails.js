@@ -1,5 +1,5 @@
 import React from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import { connect  } from 'react-redux';
@@ -8,7 +8,7 @@ import { readRequestDetails } from '../actions';
 //myComponent
 import ButtonComponent from '../public/ButtonComponent';
 import RequestCard from './RequestCard';
-//import ClothsTile from './ClothsTile';
+import ClothsTile from './ClothsTile';
 import ProposalCard from './ProposalCard';
 
 
@@ -19,12 +19,23 @@ class RequestDetails extends React.Component {
     this.props.readRequestDetails(this.props.match.params.requestId)
   }
 
+  setClothsData() {
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3001'
+    })
+
+    request.get(`/cloths/${this.props.events.r_u_id}`)
+    .then(res => {
+        localStorage.setItem('clothsData', JSON.stringify(res.data))
+    })
+  }
 
   render() {
     const props = this.props
 
     return (
       <div>
+        {this.setClothsData()}
 
         {/*<RequestDetailsCard
           requestId = {props.events.id}
@@ -48,33 +59,32 @@ class RequestDetails extends React.Component {
           <p>userName : {props.events.u_name}</p>
           <p>userId : {props.events.r_u_id}</p>
 
-
-          <ButtonComponent
+          {/*
+            <ButtonComponent
             link = {`/request/${props.events.id}/cloths/${props.events.r_u_id}`}
             buttonText = "服を見る"
-           />
-            {/*
+            />*/}
             <ClothsTile
-              userId = {props.events.r_u_id}
-              />*/}
+              key = {props.events.r_u_id}
+              />
 
-          <ButtonComponent
-            link = {`/proposal/${this.props.match.params.requestId}/submit`}
-            buttonText = "提案する"
-            />
+            <ButtonComponent
+              link = {`/proposal/${this.props.match.params.requestId}/submit`}
+              buttonText = "提案する"
+              />
 
-          {/*
-          <ProposalCard
-            requestId = {props.events.id}
-            />
-*/}
+            {/*
+              <ProposalCard
+              requestId = {props.events.id}
+              />
+              */}
 
-        </div>
-      );
-    }
-  }
+            </div>
+          );
+        }
+      }
 
-  const mapStateToProps = state => ({ events: state.events })
-  const mapDispatchToProps = ({ readRequestDetails })
+      const mapStateToProps = state => ({ events: state.events })
+      const mapDispatchToProps = ({ readRequestDetails })
 
-  export default connect(mapStateToProps, mapDispatchToProps)(RequestDetails);
+      export default connect(mapStateToProps, mapDispatchToProps)(RequestDetails);
