@@ -8,13 +8,13 @@ import { readProposals } from '../actions';
 import Loading from '../public/Loading';
 
 class ProposalCard extends React.Component {
-  /*constructor(){
-  super();
-  this.state = {
-  proposalDatas: []
-  };
+  constructor(){
+    super();
+    this.state = {
+      flag: 0
+    };
   }
-
+  /*
   componentWillMount(){
   const request = axios.create({
   baseURL: 'http://18.178.35.28:3001'
@@ -36,7 +36,6 @@ class ProposalCard extends React.Component {
 
   renderProposals(requestId) {
     this.props.readProposals(requestId)
-    console.log(this.props.events)
 
     return (
       _.map(this.props.events, proposalData => (
@@ -44,22 +43,46 @@ class ProposalCard extends React.Component {
           <p>提案メモ</p>
           <p>{proposalData.p_memo}</p>
           <p>提案服一覧</p>
+          <div>{this.renderSelectSloths(proposalData.p_pc_text)}</div>
           <p>{proposalData.p_pc_text}</p>
 
-            ---------------------------------
+          ---------------------------------
         </div>
       ))
     )
   }
 
+  renderSelectSloths(selectCloths) {
+    /*const ary = selectCloths.split('_')
+    ary.map(function(v) {
+    return parseInt(v)
+    })
 
+    ary.map((cloths) => {
+    return (
+    <React.Fragment>
+    <img src={cloths} />
+    </React.Fragment>
+    )
+    })*/
+
+  }
+  /*
+  componentWillMount() {
+  const requestIdState = localStorage.getItem('requestId')
+  }
+  */
   render() {
-    const requestIdState = localStorage.getItem('requestId')
-    if(requestIdState === false)  return <Loading />
+    if(this.state.flag == 0) {
+      const requestIdState = localStorage.getItem('requestId')
+      this.setState = { flag: 1 }
+    }
+
 
     return (
       <div>
-        {this.renderProposals(requestIdState)}
+        {console.log(this.requestIdState)}
+        {this.renderProposals(this.requestIdState)}
 
 
 

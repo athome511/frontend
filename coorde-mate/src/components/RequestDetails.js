@@ -6,6 +6,8 @@ import { connect  } from 'react-redux';
 import { readRequestDetails } from '../actions';
 
 //myComponent
+import Loading from '../public/Loading';
+
 import ButtonComponent from '../public/ButtonComponent';
 import RequestCard from './RequestCard';
 import ClothsTile from './ClothsTile';
@@ -24,8 +26,9 @@ class RequestDetails extends React.Component {
       baseURL: 'http://18.178.35.28:3001'
     })
     //依頼idをローカルストレージへ
+    if(this.props.events.id !== undefined) {
     localStorage.setItem('requestId', this.props.events.id)
-
+}
     request.get(`/cloths/${this.props.events.r_u_id}`)
     .then(res => {
         localStorage.setItem('clothsData', JSON.stringify(res.data))
@@ -65,7 +68,7 @@ class RequestDetails extends React.Component {
             link = {`/request/${props.events.id}/cloths/${props.events.r_u_id}`}
             buttonText = "服を見る"
             />*/}
-            
+
             <ClothsTile
               key = {props.events.r_u_id}
               />
