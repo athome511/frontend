@@ -90,7 +90,7 @@ class RequestDetails extends React.Component {
             buttonText = "服を見る"
             />*/}
 
-
+            
             <ClothsTile />
 
             <ButtonComponent

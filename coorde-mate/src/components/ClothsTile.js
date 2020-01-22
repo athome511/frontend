@@ -1,5 +1,5 @@
 import React from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 /*import _ from 'lodash';
 import { connect } from 'react-redux';
 
@@ -17,18 +17,37 @@ import '../css/clothsTile.css';
 
 // ユーザの所有服一覧
 class ClothsTile extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      datas:[]
+    };
+  }
+  
+  componentWillMount() {
+    const requestState = JSON.parse(localStorage.getItem('requestData'))
 
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3001/'
+    })
+    request.get(`/cloths/${requestState.r_u_id}`)
+    .then(res => {
+      this.setState({
+        datas: res.data.c_link_data
+      });
+    })
+  }
+/*
   renderCloths() {
     const clothsState = JSON.parse(localStorage.getItem('clothsData'))
     clothsState.c_link_data.map((clothData) => {
       return (
         <GridListTile key={clothData.id} style={{width: '20%'}}>
-          {console.log(clothData.c_link)}
           <img src={clothData.c_link} alt={`服画像id : ${clothData.c_u_id}`} />
         </GridListTile>
       )
     })
-  }
+  }*/
 
   render() {
     if(!Number.isInteger(1000))  return <Loading />
@@ -47,7 +66,14 @@ class ClothsTile extends React.Component {
           </GridListTile>
 
           {/* 所有服一覧表示 */}
-          {this.renderCloths()}
+          {this.state.datas.map((cloth) => {
+            return (
+              <GridListTile key={cloth.id} style={{width: '20%'}}>
+                <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
+              </GridListTile>
+            )
+          })}
+          {/*this.renderCloths()*/}
 
           {/*this.setUser(this.props.userId)*/}
 
