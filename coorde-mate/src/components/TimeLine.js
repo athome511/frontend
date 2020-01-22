@@ -14,6 +14,11 @@ import ButtonComponent from '../public/ButtonComponent';
 
 class TimeLine extends React.Component {
 
+  componentWillMount() {
+    localStorage.removeItem('requestId')
+    localStorage.removeItem('clothsData')
+  }
+
   componentDidMount() {
     this.props.readRequests()
   }

@@ -38,20 +38,20 @@ class ClothsTile extends React.Component {
   }*/
 
   renderCloths() {
-    const clothsState = JSON.parse(localStorage.getItem('clothsData'))
+    /*const clothsState = JSON.parse(localStorage.getItem('clothsData'))
 
-    //_.mapKeys(clothsState.)
+    //_.mapKeys(clothsState)
     clothsState.map((clothData) => {
       return (
         <GridListTile key={clothData.c_link} style={{width: '20%'}}>
           <img src={clothData.c_link} alt={`服画像id : ${clothData.c_u_id}`} />
         </GridListTile>
       )
-    })
+    })*/
   }
 
   render() {
-    //if(!Number.isInteger(this.props.events))  return <Loading />
+    if(!Number.isInteger(this.props.events))  return <Loading />
     //if (this.props.events == null) return <Loading />
     //if (this.props.userId === undefined) return <Loading />
 

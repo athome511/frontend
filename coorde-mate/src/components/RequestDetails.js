@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 import { connect  } from 'react-redux';
 import { readRequestDetails } from '../actions';
@@ -19,10 +19,12 @@ class RequestDetails extends React.Component {
     this.props.readRequestDetails(this.props.match.params.requestId)
   }
 
-  setClothsData() {
+  setClothsAndProposalData() {
     const request = axios.create({
       baseURL: 'http://18.178.35.28:3001'
     })
+    //依頼idをローカルストレージへ
+    localStorage.setItem('requestId', this.props.events.id)
 
     request.get(`/cloths/${this.props.events.r_u_id}`)
     .then(res => {
@@ -32,10 +34,9 @@ class RequestDetails extends React.Component {
 
   render() {
     const props = this.props
-
     return (
       <div>
-        {this.setClothsData()}
+        {this.setClothsAndProposalData()}
 
         {/*<RequestDetailsCard
           requestId = {props.events.id}
@@ -64,6 +65,7 @@ class RequestDetails extends React.Component {
             link = {`/request/${props.events.id}/cloths/${props.events.r_u_id}`}
             buttonText = "服を見る"
             />*/}
+            
             <ClothsTile
               key = {props.events.r_u_id}
               />
@@ -73,11 +75,10 @@ class RequestDetails extends React.Component {
               buttonText = "提案する"
               />
 
-            {/*
+
               <ProposalCard
-              requestId = {props.events.id}
               />
-              */}
+
 
             </div>
           );

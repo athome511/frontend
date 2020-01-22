@@ -24,7 +24,7 @@ export default (events = {}, action) => {
       return action.response.data
 
     case READ_PROPOSALS:
-      return events
+      return _.mapKeys(action.response.data, 'id')
 
     default:
       return events

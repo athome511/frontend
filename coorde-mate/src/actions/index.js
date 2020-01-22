@@ -51,6 +51,12 @@ export const readCloths = (userId) => async dispatch => {
   dispatch({ type: READ_CLOTHS, response })
 }
 
+//提案情報取得
+export const readProposals = (requestId) => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/proposals/${requestId}`)
+  dispatch({ type: READ_PROPOSALS, response})
+}
+
 
 //投稿ページ
 //依頼情報登録？
