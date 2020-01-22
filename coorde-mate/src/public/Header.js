@@ -22,7 +22,7 @@ class Header extends React.Component {
                 <Link to={`/ranking`}>ランキング</Link>
                 <Link to={`/history/requests/${headerState.id}`}>依頼・投稿履歴</Link>
 
-                <Link to={`/myPage`}><img src={headerState.u_icon} alt={`User Icon : ${headerState.u_name}`} />マイページ</Link>
+                <Link to={`/myPage/status`}><img src={headerState.u_icon} alt={`User Icon : ${headerState.u_name}`} />マイページ</Link>
               </header>
             )
           }
@@ -33,6 +33,7 @@ class Header extends React.Component {
     );
   }
 }
+
 
 
 export default Header;

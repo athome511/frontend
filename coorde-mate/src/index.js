@@ -25,6 +25,8 @@ import Ranking from './components/Ranking';
 import RequestHistory from './components/RequestHistory';
 import ProposalHistory from './components/ProposalHistory';
 import MyPage from './components/MyPage';
+import MyPageStatus from './components/MyPageStatus';
+
 
 //myCss
 import './css/default.css';
@@ -64,7 +66,9 @@ ReactDOM.render(
       <Route path={'/history/requests/:userId'} component={RequestHistory}/>
       <Route path={'/history/proposals/:userId'} component={ProposalHistory}/>
 
+      {/* マイページコンポーネント */}
       <Route path={'/myPage'} component={MyPage}/>
+      <Route path={'/myPage/status'} component={MyPageStatus}/>
 
 
 

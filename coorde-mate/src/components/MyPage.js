@@ -4,11 +4,7 @@ import MyPageMenuHeader from '../public/MyPageMenuHeader';
 
 class MyPage extends React.Component {
   render() {
-    return (
-      <div>
-        <MyPageMenuHeader />
-      </div>
-    );
+    return <MyPageMenuHeader />
   }
 }
 
