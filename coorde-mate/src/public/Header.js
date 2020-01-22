@@ -17,12 +17,13 @@ class Header extends React.Component {
           } else if (headerState.id) {
             return (
               <header>
-                <Link to={`/timeLine`}>タイムライン</Link>
-                <Link to={`/pastTimeLine`}>過去タイムライン</Link>
-                <Link to={`/ranking`}>ランキング</Link>
-                <Link to={`/history/requests/${headerState.id}`}>依頼・投稿履歴</Link>
-
-                <Link to={`/myPage/status`}><img src={headerState.u_icon} alt={`User Icon : ${headerState.u_name}`} />マイページ</Link>
+              <ul>
+                <li><Link to={`/timeLine`}>タイムライン</Link></li>
+                <li><Link to={`/pastTimeLine`}>過去タイムライン</Link></li>
+                <li><Link to={`/ranking`}>ランキング</Link></li>
+                <li><Link to={`/userHistory/${headerState.id}`}>依頼・投稿履歴</Link></li>
+                <li style={{float:'right'}}><Link to={`/myPage/accountStatus`}><img src={headerState.u_icon} alt={`User Icon : ${headerState.u_name}`} />マイページ</Link></li>
+              </ul>
               </header>
             )
           }
@@ -33,7 +34,6 @@ class Header extends React.Component {
     );
   }
 }
-
 
 
 export default Header;

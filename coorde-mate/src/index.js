@@ -25,7 +25,8 @@ import Ranking from './components/Ranking';
 import RequestHistory from './components/RequestHistory';
 import ProposalHistory from './components/ProposalHistory';
 import MyPage from './components/MyPage';
-import MyPageStatus from './components/MyPageStatus';
+import MyPageAccountStatus from './components/MyPageAccountStatus';
+import MyPageAccountChange from './components/MyPageAccountChange';
 
 
 //myCss
@@ -68,8 +69,8 @@ ReactDOM.render(
 
       {/* マイページコンポーネント */}
       <Route path={'/myPage'} component={MyPage}/>
-      <Route path={'/myPage/status'} component={MyPageStatus}/>
-
+      <Route path={'/myPage/accountStatus'} component={MyPageAccountStatus}/>
+      <Route path={'/myPage/accountChange'} component={MyPageAccountChange}/>
 
 
       {/* 入力完了画面 */}
