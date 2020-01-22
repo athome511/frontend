@@ -17,52 +17,19 @@ import '../css/clothsTile.css';
 
 // ユーザの所有服一覧
 class ClothsTile extends React.Component {
-  componentDidMount() {
-    //this.props.readCloths(this.props.userId)
-    //this.props.readCloths(1)
-  }
-
-  /*
-  renderCloths() {
-  const clothsState = JSON.parse(localStorage.getItem('clothsData'))
-  if(clothsState) {
-  clothsState.map((clothData) => {
-  return (
-  <React.Fragment>
-  {console.log(clothData.c_link)}
-  <GridListTile key={clothData.id} style={{width: '20%'}}>
-  <img src={clothData.c_link} alt={`服画像id : ${clothData.c_u_id}`} />
-  </GridListTile>
-  </React.Fragment>
-  )
-  })
-  }
-  */
 
   renderCloths() {
     const clothsState = JSON.parse(localStorage.getItem('clothsData'))
     clothsState.c_link_data.map((clothData) => {
       return (
         <GridListTile key={clothData.id} style={{width: '20%'}}>
-          {console.log(clothData)}
-        <img src={clothData.c_link} alt={`服画像id : ${clothData.c_u_id}`} />
+          {console.log(clothData.c_link)}
+          <img src={clothData.c_link} alt={`服画像id : ${clothData.c_u_id}`} />
         </GridListTile>
       )
     })
   }
 
-  /*
-  renderCloths() {
-  const clothsState = JSON.parse(localStorage.getItem('rclothsData'))
-  return (
-  _.map(clothsState, clothData => (
-  <GridListTile key={clothData.c_link} style={{width: '20%'}}>
-  <img src={clothData.c_link} alt={`服画像id : ${clothData.c_u_id}`} />
-  </GridListTile>
-  ))
-  )
-  }
-  */
   render() {
     if(!Number.isInteger(1000))  return <Loading />
 
@@ -81,30 +48,21 @@ class ClothsTile extends React.Component {
 
           {/* 所有服一覧表示 */}
           {this.renderCloths()}
-          {/*
-            {this.state.userDatas.map((tile) => {
-            return (
-            <GridListTile key={tile.c_link} style={{width: '20%'}}>
-            <img src={tile.c_link} alt={`服画像id : ${tile.c_u_id}`} />
-            </GridListTile>
-            )
-            })}
-            */}
 
-            {/*this.setUser(this.props.userId)*/}
+          {/*this.setUser(this.props.userId)*/}
 
-          </GridList>
-        </div>
-      )
-    }
+        </GridList>
+      </div>
+    )
   }
+}
 
-  /*
-  const mapStateToProps = state => ({ events: state.events })
-  const mapDispatchToProps = ({ readCloths });
+/*
+const mapStateToProps = state => ({ events: state.events })
+const mapDispatchToProps = ({ readCloths });
 
-  export default connect(mapStateToProps, mapDispatchToProps)(
-  ClothsTile);
-  */
+export default connect(mapStateToProps, mapDispatchToProps)(
+ClothsTile);
+*/
 
-  export default ClothsTile;
+export default ClothsTile;
