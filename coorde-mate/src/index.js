@@ -24,6 +24,7 @@ import PastTimeLine from './components/PastTimeLine';
 import Ranking from './components/Ranking';
 import UserHistory from './components/UserHistory';
 import MyPage from './components/MyPage';
+import MyPageStatus from './components/MyPageStatus';
 
 //myCss
 import './css/default.css';
@@ -63,6 +64,8 @@ ReactDOM.render(
       <Route path={'/userHistory/:userId'} component={UserHistory}/>
 
       <Route path={'/myPage'} component={MyPage}/>
+
+      <Route path={'/myPage/status'} component={MyPageStatus}/>
 
 
 

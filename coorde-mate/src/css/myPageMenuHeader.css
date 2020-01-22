@@ -1,9 +1,10 @@
 .mypageMenu {
-  display: flex;
+  display: block;
   background-color: #ffb74d;
   float: left;
-  margin-top: 20%;
-  width: 20%;
+  margin-top: 80px;
+  width: 12%;
+  height: 100%;
 }
 
 .mypageMenu a{
