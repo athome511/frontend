@@ -27,12 +27,33 @@ class RequestDetails extends React.Component {
     })
     //依頼idをローカルストレージへ
     if(this.props.events.id !== undefined) {
-    localStorage.setItem('requestId', this.props.events.id)
-}
-    request.get(`/cloths/${this.props.events.r_u_id}`)
-    .then(res => {
+      request.get(`/requests/${this.props.events.id}`)
+      .then(res => {
+        localStorage.setItem('requestData', JSON.stringify(res.data))
+      })
+    }
+    if(this.props.events.r_u_id !== undefined) {
+      request.get(`/cloths/${this.props.events.r_u_id}`)
+      .then(res => {
         localStorage.setItem('clothsData', JSON.stringify(res.data))
-    })
+      })
+    }
+
+    const requestState = JSON.parse(localStorage.getItem('requestData'))
+    return (
+      <RequestCard
+        key = {requestState.id}
+        requestId = {requestState.id}
+        title = {requestState.r_title}
+        limit = {requestState.r_limit}
+        memo = {requestState.r_memo}
+        userId = {requestState.r_u_id}
+        borderStyle = {"none"}
+        />
+    )
+
+
+
   }
 
   render() {
@@ -47,16 +68,16 @@ class RequestDetails extends React.Component {
           title = {props.events.r_title}
           limit = {props.events.r_limit}
           memo = {props.events.r_memo}
-          />*/}
+          />
           <RequestCard
-            key = {props.events.id}
-            requestId = {props.events.id}
-            title = {props.events.r_title}
-            limit = {props.events.r_limit}
-            memo = {props.events.r_memo}
-            userId = {props.events.r_u_id}
-            borderStyle = {"none"}
-            />
+          key = {props.events.id}
+          requestId = {props.events.id}
+          title = {props.events.r_title}
+          limit = {props.events.r_limit}
+          memo = {props.events.r_memo}
+          userId = {props.events.r_u_id}
+          borderStyle = {"none"}
+          />*/}
 
 
 
@@ -69,26 +90,25 @@ class RequestDetails extends React.Component {
             buttonText = "服を見る"
             />*/}
 
-            <ClothsTile
-              key = {props.events.r_u_id}
-              />
+
+            <ClothsTile />
 
             <ButtonComponent
               link = {`/proposal/${this.props.match.params.requestId}/submit`}
               buttonText = "提案する"
-            />
-
-
-              <ProposalCard
               />
 
 
-            </div>
-          );
-        }
+            <ProposalCard
+              />
+
+
+          </div>
+        );
       }
+    }
 
-      const mapStateToProps = state => ({ events: state.events })
-      const mapDispatchToProps = ({ readRequestDetails })
+    const mapStateToProps = state => ({ events: state.events })
+    const mapDispatchToProps = ({ readRequestDetails })
 
-      export default connect(mapStateToProps, mapDispatchToProps)(RequestDetails);
+    export default connect(mapStateToProps, mapDispatchToProps)(RequestDetails);

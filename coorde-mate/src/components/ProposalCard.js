@@ -76,7 +76,6 @@ class ProposalCard extends React.Component {
 
     return (
       <div>
-        {console.log(this.requestIdState)}
         {/*this.renderProposals(this.requestIdState)*/}
 
 

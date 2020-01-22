@@ -5,8 +5,8 @@ import axios from 'axios';
 import '../css/requestCard.css';
 
 class RequestCard extends React.Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       userDatas:[]
     }
