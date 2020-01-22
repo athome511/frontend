@@ -28,7 +28,7 @@ header a {
 }
 */
 
-li a:hover {
+li :hover {
 	opacity: .5;
 }
 

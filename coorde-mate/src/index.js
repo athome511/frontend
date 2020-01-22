@@ -25,6 +25,9 @@ import Ranking from './components/Ranking';
 import UserHistory from './components/UserHistory';
 import MyPage from './components/MyPage';
 import MyPageStatus from './components/MyPageStatus';
+import MyPageAccountStatus from './components/MyPageAccountStatus';
+import MyPageAccountChange from './components/MyPageAccountChange';
+
 
 //myCss
 import './css/default.css';
@@ -67,7 +70,9 @@ ReactDOM.render(
 
       <Route path={'/myPage/status'} component={MyPageStatus}/>
 
+      <Route path={'/myPage/accountStatus'} component={MyPageAccountStatus}/>
 
+      <Route path={'/myPage/accountChange'} component={MyPageAccountChange}/>
 
       {/* 入力完了画面 */}
       <Route path={`/completed`} component={Completed}/>

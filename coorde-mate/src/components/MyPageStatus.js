@@ -36,7 +36,7 @@ class MyPageStatus extends React.Component {
     console.log('aaaaa');
     console.log(userIdStatus.id);
     return (
-      <div className="myPageDefault">
+      <div className="myPageContainer">
         <div className="userInfo">
           <div className="icon">
             <img src={userIdStatus.u_icon} alt={userIdStatus.u_name} />
