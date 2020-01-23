@@ -43,11 +43,11 @@ class RequestHistory extends React.Component {
       <div>
         <h1>依頼履歴</h1>
         <ButtonComponent
-          link = {`/history/requests/${userState.id}`}
+          link = {`/userHistory/requests/${userState.id}`}
           buttonText = "依頼履歴"
         />
         <ButtonComponent
-          link = {`/history/proposals/${userState.id}`}
+          link = {`/userHistory/proposals/${userState.id}`}
           buttonText = "提案履歴"
         />
 

@@ -39,6 +39,7 @@ class RequestDetails extends React.Component {
       })
     }
 
+
     const requestState = JSON.parse(localStorage.getItem('requestData'))
     return (
       <RequestCard
@@ -52,6 +53,7 @@ class RequestDetails extends React.Component {
         />
     )
 
+    
 
 
   }
@@ -90,8 +92,10 @@ class RequestDetails extends React.Component {
             buttonText = "服を見る"
             />*/}
 
-            
-            <ClothsTile />
+
+            <ClothsTile
+              userId={props.events.r_u_id}
+              />
 
             <ButtonComponent
               link = {`/proposal/${this.props.match.params.requestId}/submit`}

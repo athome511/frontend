@@ -23,7 +23,7 @@ class ClothsTile extends React.Component {
       datas:[]
     };
   }
-  
+/*
   componentWillMount() {
     const requestState = JSON.parse(localStorage.getItem('requestData'))
 
@@ -36,7 +36,7 @@ class ClothsTile extends React.Component {
         datas: res.data.c_link_data
       });
     })
-  }
+  }*/
 /*
   renderCloths() {
     const clothsState = JSON.parse(localStorage.getItem('clothsData'))
@@ -50,8 +50,19 @@ class ClothsTile extends React.Component {
   }*/
 
   render() {
-    if(!Number.isInteger(1000))  return <Loading />
-
+    const requestState = JSON.parse(localStorage.getItem('requestData'))
+    const clothsState = JSON.parse(localStorage.getItem('clothsData'))
+    //if(!Number.isInteger(1000))  return <Loading />
+    if(clothsState.c_u_id !== requestState.r_u_id) return <Loading />
+      const request = axios.create({
+        baseURL: 'http://18.178.35.28:3001/'
+      })
+      request.get(`/cloths/${requestState.r_u_id}`)
+      .then(res => {
+        this.setState({
+          datas: res.data.c_link_data
+        });
+      })
     //if (this.props.events == null) return <Loading />
     //if (this.props.userId === undefined) return <Loading />
 

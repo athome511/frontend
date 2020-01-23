@@ -64,8 +64,8 @@ ReactDOM.render(
 
       <Route path={'/ranking'} component={Ranking}/>
 
-      <Route path={'/history/requests/:userId'} component={RequestHistory}/>
-      <Route path={'/history/proposals/:userId'} component={ProposalHistory}/>
+      <Route path={'/userHistory/requests/:userId'} component={RequestHistory}/>
+      <Route path={'/userHistory/proposals/:userId'} component={ProposalHistory}/>
 
       {/* マイページコンポーネント */}
       <Route path={'/myPage'} component={MyPage}/>
