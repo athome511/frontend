@@ -53,17 +53,17 @@ export const readUserRequests = (userId) => async dispatch => {
   dispatch({ type: READ_USER_REQUESTS, response })
 }
 
+//特定ユーザの提案した依頼情報取得
+export const readUserProposals = (userId) => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/user_proposals/${userId}`)
+  dispatch({ type: READ_USER_PROPOSALS, response })
+}
+
 //所有服一覧
 
 export const readCloths = (userId) => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/cloths/${userId}`)
   dispatch({ type: READ_CLOTHS, response })
-}
-
-//特定ユーザの提案情報取得
-export const readUserProposal = (userId) => async dispatch => {
-  const response = await axios.get(`${ROOT_URL}/user_proposals/${userId}`)
-  dispatch({ type: READ_USER_PROPOSALS, response })
 }
 
 

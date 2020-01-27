@@ -67,7 +67,6 @@ class ProposalCard extends React.Component {
       return (
         <GridListTile key={cloths} style={{width: '20%'}}>
           <img src="http://18.178.35.28:3001/closets/${cloths}" alt="proposal image"/>
-          {console.log(cloths)}
         </GridListTile>
       )
     })
