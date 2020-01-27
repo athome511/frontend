@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
 
 //ログイン画面
 class Login extends React.Component {
@@ -37,21 +40,24 @@ class Login extends React.Component {
 
 
   render() {
+
     return (
       <div>
         <p>titleの値：{this.state.mail}</p>
         <p>textの値：{this.state.password}</p>
 
-        <input name="mail" value={this.state.mail} onChange={this.handleChange} />
+      <TextField className="standard-basic"　name="mail" label="メールアドレス"　value={this.state.mail} onChange={this.handleChange} />
 
-        <input name="password" type="password" onChange={this.handleChange} />
+    <TextField className="standard-basic"　name="password" label="パスワード" type="password" onChange={this.handleChange} />
+
+        {/*<input name="mail" value={this.state.mail} onChange={this.handleChange} />
+
+        <input name="password" type="password" onChange={this.handleChange} />*/}
 
         <button onClick={() => {this.check()}}>ログイン</button>
       </div>
     )
   }
-
-
 }
 
 

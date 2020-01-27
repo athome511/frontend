@@ -56,7 +56,7 @@ class SubmitRequest extends React.Component {
 
         <RaisedButton label="Submit" type="submit" style={style} disabled={pristine || submitting} />
 
-        <RaisedButton label="Cancel" style={style} containerElement={<Link to="/"  />} />
+        <RaisedButton label="Cancel" style={style} containerElement={<Link to="/" />} />
 
       </form>
 
