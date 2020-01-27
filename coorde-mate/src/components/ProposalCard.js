@@ -25,10 +25,12 @@ class ProposalCard extends React.Component {
     })
 
     //request.get(`/proposal/${this.props.requestId}`)
-    request.get(`/proposals/1`)
+    request.get(`/proposals/2`)
     .then(res => {
       this.setState({ proposalDatas: res.data })
+      console.log(res.data)
     })
+
   }
 
 
@@ -57,18 +59,15 @@ class ProposalCard extends React.Component {
   }*/
 
   renderSelectSloths(selectCloths) {
-    /*const ary = selectCloths.split('_')
+    const ary = selectCloths.split('_')
     ary.map(function(v) {
-    return parseInt(v)
+      return parseInt(v)
     })
 
+
     ary.map((cloths) => {
-    return (
-    <React.Fragment>
-    <img src={cloths} />
-    </React.Fragment>
-    )
-    })*/
+      return <img src={`http://18.178.35.28:3001`} alt="proposal image"/>
+    })
 
   }
   /*
@@ -79,30 +78,55 @@ class ProposalCard extends React.Component {
   render() {
     return (
       <div className="root">
+        {this.state.proposalDatas.map((cloth) => {
+          if(cloth.id) {
+            return (
+              <GridList cellHeight={200} className="gridList">
+                <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+                  <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
+                </GridListTile>
+
+                <GridListTile key={cloth.id} style={{width: '20%'}}>
+                  {this.renderSelectSloths(cloth.p_pc_text)}
+                </GridListTile>
+
+              </GridList>
+            )
+          }
+        })}
+        {/*
         <GridList cellHeight={200} className="gridList">
           <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
             <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
-          </GridListTile>
+          </GridListTile>*/}
 
           {/* 所有服一覧表示 */}
-          {this.state.proposalDatas.map((cloth) => {
+          {/*
+            {this.state.proposalDatas.map((cloth) => {
             return (
-              <GridListTile key={cloth.id} style={{width: '20%'}}>
-                <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
+            <GridListTile key={cloth.id} style={{width: '20%'}}>
+            <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
 
-              </GridListTile>
+            </GridListTile>
             )
-          })}
-        </GridList>
-      </div>
-    );
+            })}
+            </GridList>
+            */}
+            {/*
+            <GridListTile key={this.state.proposalDatas.id} style={{width: '20%'}}>
+              {this.renderSelectSloths(this.state.proposalDatas.p_pc_text)}
+            </GridListTile>
+
+          </GridList>*/}
+        </div>
+      );
+    }
   }
-}
 
-/*
-const mapStateToProps = state => ({ events: state.events })
-const mapDispatchToProps = ({ readProposals })
+  /*
+  const mapStateToProps = state => ({ events: state.events })
+  const mapDispatchToProps = ({ readProposals })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProposalCard);
-*/
-export default ProposalCard;
+  export default connect(mapStateToProps, mapDispatchToProps)(ProposalCard);
+  */
+  export default ProposalCard;
