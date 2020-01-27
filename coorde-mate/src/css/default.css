@@ -101,3 +101,11 @@ img{
 .right {
 	float: right;
 }
+
+.accent {
+	color: #F44336;
+}
+
+.bold {
+	font-weight: bold;
+}

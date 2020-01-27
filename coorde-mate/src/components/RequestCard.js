@@ -50,6 +50,19 @@ class RequestCard extends React.Component {
             <div className="requestLimit">
               <p>{this.props.limit}</p>
             </div>
+
+            {
+              (() => {
+                if (this.props.bcSelected) {
+                  return (
+                    <div className="accent bold">
+                      <p>BCを選択してください</p>
+                    </div>
+                  )
+                }
+              })()
+            }
+
           </div>
 
 

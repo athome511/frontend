@@ -28,6 +28,7 @@ class RequestHistory extends React.Component {
             limit = {requestData.r_limit}
             memo = {requestData.r_memo}
             userId = {requestData.r_u_id}
+            bcSelected = {requestData.is_selected_bc}
             borderStyle = {"block"}
             />
         </Link>

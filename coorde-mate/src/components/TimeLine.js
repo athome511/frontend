@@ -37,7 +37,6 @@ class TimeLine extends React.Component {
             title = {requestData.r_title}
             limit = {requestData.r_limit}
             memo = {requestData.r_memo}
-            userId = {requestData.r_u_id}
             borderStyle = {"block"}
             />
         </Link>
