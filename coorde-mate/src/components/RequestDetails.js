@@ -6,7 +6,7 @@ import { connect  } from 'react-redux';
 import { readRequestDetails } from '../actions';
 
 //myComponent
-import Loading from '../public/Loading';
+//import Loading from '../public/Loading';
 
 import ButtonComponent from '../public/ButtonComponent';
 import RequestCard from './RequestCard';
@@ -17,7 +17,7 @@ import ProposalCard from './ProposalCard';
 //依頼詳細画面
 class RequestDetails extends React.Component {
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.readRequestDetails(this.props.match.params.requestId)
   }
 
@@ -25,22 +25,25 @@ class RequestDetails extends React.Component {
     const request = axios.create({
       baseURL: 'http://18.178.35.28:3001'
     })
+
     //依頼idをローカルストレージへ
-    if(this.props.events.id !== undefined) {
-      request.get(`/requests/${this.props.events.id}`)
+      request.get(`/requests/${this.props.match.params.requestId}`)
       .then(res => {
         localStorage.setItem('requestData', JSON.stringify(res.data))
       })
-    }
-    if(this.props.events.r_u_id !== undefined) {
-      request.get(`/cloths/${this.props.events.r_u_id}`)
+
+      const requestState = JSON.parse(localStorage.getItem('requestData'))
+
+
+      request.get(`/cloths/${requestState.r_u_id}`)
       .then(res => {
         localStorage.setItem('clothsData', JSON.stringify(res.data))
       })
-    }
 
 
-    const requestState = JSON.parse(localStorage.getItem('requestData'))
+
+
+
     return (
       <RequestCard
         key = {requestState.id}
@@ -53,66 +56,42 @@ class RequestDetails extends React.Component {
         />
     )
 
-    
+
+
 
 
   }
 
   render() {
+
+
     const props = this.props
     return (
       <div>
         {this.setClothsAndProposalData()}
+        <p>userName : {props.events.u_name}</p>
+        <p>userId : {props.events.r_u_id}</p>
 
-        {/*<RequestDetailsCard
-          requestId = {props.events.id}
-          userId = {props.events.r_u_id}
-          title = {props.events.r_title}
-          limit = {props.events.r_limit}
-          memo = {props.events.r_memo}
+        <ClothsTile
+          userId={props.events.r_u_id}
           />
-          <RequestCard
-          key = {props.events.id}
-          requestId = {props.events.id}
-          title = {props.events.r_title}
-          limit = {props.events.r_limit}
-          memo = {props.events.r_memo}
-          userId = {props.events.r_u_id}
-          borderStyle = {"none"}
-          />*/}
+
+        <ButtonComponent
+          link = {`/proposal/${this.props.match.params.requestId}/submit`}
+          buttonText = "提案する"
+          />
 
 
-
-          <p>userName : {props.events.u_name}</p>
-          <p>userId : {props.events.r_u_id}</p>
-
-          {/*
-            <ButtonComponent
-            link = {`/request/${props.events.id}/cloths/${props.events.r_u_id}`}
-            buttonText = "服を見る"
-            />*/}
+        <ProposalCard
+          />
 
 
-            <ClothsTile
-              userId={props.events.r_u_id}
-              />
+      </div>
+    );
+  }
+}
 
-            <ButtonComponent
-              link = {`/proposal/${this.props.match.params.requestId}/submit`}
-              buttonText = "提案する"
-              />
+const mapStateToProps = state => ({ events: state.events })
+const mapDispatchToProps = ({ readRequestDetails })
 
-
-            <ProposalCard
-              />
-
-
-          </div>
-        );
-      }
-    }
-
-    const mapStateToProps = state => ({ events: state.events })
-    const mapDispatchToProps = ({ readRequestDetails })
-
-    export default connect(mapStateToProps, mapDispatchToProps)(RequestDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(RequestDetails);

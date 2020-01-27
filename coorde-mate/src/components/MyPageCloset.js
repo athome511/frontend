@@ -1,45 +1,32 @@
 import React from 'react';
 import axios from 'axios';
-/*import _ from 'lodash';
-import { connect } from 'react-redux';
 
-import { readCloths } from '../actions';
-*/
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ListSubheader from '@material-ui/core/ListSubheader';
 
-
 import Loading from '../public/Loading';
-//css
-import '../css/clothsTile.css';
 
+class MyPageCloset extends React.Component {
+  componentWillMount() {
+    const userState = JSON.parse(localStorage.getItem('userData'))
 
-// ユーザの所有服一覧
-class ClothsTile extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      datas:[]
-    };
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3001'
+    })
+    request.get(`/cloths/${userState.id}`)
+    .then(res => {
+      localStorage.setItem('clothsData', JSON.stringify(res.data))
+    })
+
   }
 
+
+
   render() {
-    const requestState = JSON.parse(localStorage.getItem('requestData'))
     const clothsState = JSON.parse(localStorage.getItem('clothsData'))
-    //if(!Number.isInteger(1000))  return <Loading />
-    if(clothsState.c_u_id !== requestState.r_u_id) return <Loading />
-      const request = axios.create({
-        baseURL: 'http://18.178.35.28:3001/'
-      })
-      request.get(`/cloths/${requestState.r_u_id}`)
-      .then(res => {
-        this.setState({
-          datas: res.data.c_link_data
-        });
-      })
-    //if (this.props.events == null) return <Loading />
-    //if (this.props.userId === undefined) return <Loading />
+
+
 
     return (
       <div className="root">
@@ -49,16 +36,19 @@ class ClothsTile extends React.Component {
           </GridListTile>
 
           {/* 所有服一覧表示 */}
-          {this.state.datas.map((cloth) => {
+          
+          {clothsState.c_link_data.map((cloth) => {
             return (
               <GridListTile key={cloth.id} style={{width: '20%'}}>
                 <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
               </GridListTile>
             )
           })}
+
         </GridList>
       </div>
-    )
+    );
   }
 }
-export default ClothsTile;
+
+export default MyPageCloset;

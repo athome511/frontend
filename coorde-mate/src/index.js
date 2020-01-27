@@ -27,6 +27,7 @@ import ProposalHistory from './components/ProposalHistory';
 import MyPage from './components/MyPage';
 import MyPageAccountStatus from './components/MyPageAccountStatus';
 import MyPageAccountChange from './components/MyPageAccountChange';
+import MyPageCloset from './components/MyPageCloset';
 
 
 //myCss
@@ -71,6 +72,8 @@ ReactDOM.render(
       <Route path={'/myPage'} component={MyPage}/>
       <Route path={'/myPage/accountStatus'} component={MyPageAccountStatus}/>
       <Route path={'/myPage/accountChange'} component={MyPageAccountChange}/>
+      <Route path={'/myPage/closet'} component={MyPageCloset}/>
+
 
 
       {/* 入力完了画面 */}
