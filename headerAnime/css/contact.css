@@ -1,0 +1,139 @@
+.contactText {
+	text-align: center;
+}
+
+
+/* 見出しデザイン */
+.contactText h2{
+	margin: 35px 0 25px;
+	overflow: hidden;
+}
+.contactText h2 span{
+	position: relative;
+	display: inline-block;
+	margin: 0 2.5em;
+	padding: 0 1em;
+	text-align: left;
+}
+.contactText h2 span::before,
+.contactText h2 span::after{
+	position: absolute;
+	top: 50%;
+	content: '';
+	width: 50%;
+	height: 2px;
+	border-radius: 3px;
+	background-color: #ccc;
+}
+.contactText h2 span::before{
+	right: 100%;
+}
+.contactText h2 span::after{
+	left: 100%;
+}
+
+.contactForm {
+
+}
+
+
+/* フォーム */
+.contact {
+	text-align: center;
+}
+form {
+	width: 40%;
+	margin: 0 auto;
+}
+.contact dt {
+	font-size: 1.6rem;
+	font-weight: 500;
+	text-align: left;
+}
+.contact input,
+.contact select,
+.contact textarea {
+	height: 30px;
+	width: 100%;
+	border: 1px solid #459F99;
+	border-radius: 3px;
+	margin-bottom: 30px;
+	margin-top: 5px;
+}
+.contact textarea {
+	min-height: 150px;
+	max-width: 100%;
+	min-width: 100%;
+}
+
+label {
+	
+}
+.checkBox input,
+label {
+	margin-top: 0;
+	margin-bottom: 0 !important;
+	width: auto !important;
+	float: left;
+	text-align: left;
+	position: relative;
+	top: 2px;
+}
+
+label a:hover {
+	text-decoration: underline;
+}
+.contact .shadow {
+	margin: 20px 0 40px 0;
+	height: 40px;
+	border: 2px solid #459F99;
+	border-radius: 3px;
+	font-size: 1.5rem;
+	font-weight: 600;
+	width: 100%;
+	background-color: #fff;
+}
+
+/* checkbox */
+.checkBox {
+	float: left;
+	width: 100%;
+	line-height: 30px;
+	position: relative;
+}
+
+.checkBox span{
+	padding-left: 10px;
+}
+
+
+
+/* 問い合わせ完了 */
+.thx {
+	margin-top: 50px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+.thx .contactText h2,
+.thx p {
+	padding: 20px 0;
+}
+.thx a {
+	margin-bottom: 30px;
+}
+
+
+
+
+@media only screen and (max-width: 387px){
+	div h2,
+	.contactText h2 {
+		font-size: 1.7rem;
+	}
+
+
+}
+
+

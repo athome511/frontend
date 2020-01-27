@@ -1,0 +1,349 @@
+/* defaultCSS */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+
+
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;}
+ul{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;}
+q:before,q:after{content:'';}
+object,embed{vertical-align:top;}
+legend{display:none;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+img,abbr,acronym,fieldset{border:0;}
+
+* {
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Noto Sans JP', sans-serif;
+	font: 14px/1.9 'Noto Sans JP', sans-serif;
+	font-weight: 300;
+	-webkit-text-size-adjust:100%;
+	overflow-x: hidden;
+	color: #555;
+	background: #fff;
+}
+
+a{
+	color: #000;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+a:hover, .active{
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:active, a:focus,input:active, input:focus{outline:0;}
+
+
+
+
+
+/* 共通
+------------------------------------------------------------*/
+html {
+    /* ルートのフォントサイズを10pxに設定しておく */
+	font-size: 62.5%;
+}
+
+body {
+	/* ルートのフォントサイズを1.5em（15pxと同等のサイズ）に設定 */
+	font-size: 1.5em;
+}
+
+div h2{
+	font-size: 2rem;
+}
+div a{
+	font-size: 1.5rem;
+
+}
+h1, h2{
+	font-family: 'Josefin Sans', 'Noto Sans JP',serif;
+	font-weight: 500;
+}
+h1 {
+	font-size: 2em;
+	padding-bottom: 10px;
+}
+h2 {
+	font-size: 1.5em;
+	padding: 4px 0;
+}
+p {
+	font-size: 1.5rem;
+}
+
+span {
+	display: inline-block;
+}
+
+img{
+	width: 100%;
+	height: auto;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+
+.arrow_btn,
+img {
+	border-radius: 3px;
+}
+
+
+
+
+.container {
+	max-width: 100%;
+	margin: 0 auto;
+	box-sizing: border-box;
+}
+
+.func {
+	width: 65%;
+	margin: 0 auto;
+	clear: both;
+}
+
+
+.grayBg{
+	padding-top: 40px;
+	margin-bottom: 40px;
+	background-color: #f6f6f6;
+	border-radius: 10px;
+}
+
+.shadow {
+	box-shadow: 3px 2px 4px rgba(0,0,0,0.3);
+}
+
+
+.overray {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+.frame {
+	padding: 7px;
+    border: 1px solid #ccc;
+    background: #fff;
+    box-shadow: 3px 2px 4px rgba(0,0,0,0.3);
+}
+
+
+
+
+/* グローバルメニュー	
+------------------------------------------------------------*/
+#mainnav {
+	height: 70px;
+	margin: 0 auto;
+	background: rgba(255,255,255,.9);
+	border-bottom: 1px solid #d1d1d1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 15;
+}
+.logo {
+	float: left;
+	width: 200px;
+	transition: all 0.3s ease 0s;
+}
+.logo img {
+	margin-top: 10px;
+	margin-left: 23px;
+	width: 100%;
+}
+.logo:hover {
+	opacity: 0.4;
+}
+.logo a {
+	display: block;
+}
+
+
+.panel{
+	display: none;
+	overflow: hidden;
+}
+
+
+/* フッター
+------------------------------------------------------------*/
+#footer{
+	background: rgba(255,255,255,.9);
+	border-top: 1px solid #d1d1d1;
+	clear: both;
+	text-align: center;
+	font-size: 12px;
+}
+
+footer .logo {
+	width: 120px;
+}
+footer .logo img {
+	margin-top: 10px;
+	margin-left: 23px;
+	width: 100%;
+}
+
+.footerMenu {
+
+}
+.footerMenu li {
+	display: inline-block;
+	line-height: 100px;
+	padding: 0 10px;
+}
+.footerMenu a {
+	font-size: 1.1em;
+	transition: .3s;
+}
+.footerMenu a:hover {
+	opacity: 0.5;
+}
+
+.copy {
+	background: #459F99;
+	clear: both;
+	color: #fff;
+	line-height: 2.5em;
+	font-size: 1.2rem;
+}
+
+
+/* ヘッダー(共通)
+------------------------------------------------------------*/
+header {
+	color: #fff;
+	height: 350px;
+	background: url('../img/public/header.jpg') center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	margin-top: 70px;		/* グローバルメニューの高さ */
+}
+
+
+.topWrapper {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin-top: 100px;
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+.topWrapper h1{
+	font-size: 40px;
+	font-weight:normal;
+
+	position: relative;
+	display: inline-block;
+	margin-bottom: 1em;
+}
+.topWrapper h1:before {
+	content: '';
+	position: absolute;
+	bottom: 15px;
+	display: inline-block;
+	width: 70px;
+	height: 5px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+	background-color: #459F99;
+	border-radius: 3px;
+}
+
+.topWrapper h2{
+	font-size: 20px;
+	font-weight:normal;
+}
+
+
+
+/* パンくずリスト */
+.pankuzu {
+	padding-top: 10px;
+	margin-bottom: 30px;
+	font-size: 13px;
+	color: #727171;
+}
+.pankuzu a {
+	color: #459F99;
+	font-weight: normal;
+}
+.fa-chevron-right {
+	font-size: 10px;
+	padding: 0 6px;
+}
+
+
+
+/* ボタン */
+.arrow_btn {
+	display: block;
+	position: relative;
+	width: 40%;
+	line-height: 20px;
+	font-size: 1.1em;
+	padding: 0.8em;
+	margin: 30px auto 10px;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #fff;
+	border:1px solid #1B1B1B;
+	transition: transform ease .3s;
+}
+
+.arrow_btn:hover {
+	cursor: pointer;
+	text-decoration: none;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	transition: .1s;
+}
+
+	.ripple { 
+		position: relative; 
+		overflow: hidden; 
+	} 
+
+	.ripple .ripple-active { 
+		position: absolute; 
+		pointer-events: none; 
+		background: #555; 
+		border-radius: 50%; 
+		transform: scale(0); 
+		animation: ripple .8s; 
+		opacity: .3; 
+	}
+
+	@keyframes ripple { 
+		to { 
+			opacity: 0; 
+			transform: scale(2.0); 
+		} 
+	}
+
+
+
+
+
