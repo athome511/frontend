@@ -34,7 +34,6 @@ class RequestDetails extends React.Component {
 
       const requestState = JSON.parse(localStorage.getItem('requestData'))
 
-
       request.get(`/cloths/${requestState.r_u_id}`)
       .then(res => {
         localStorage.setItem('clothsData', JSON.stringify(res.data))

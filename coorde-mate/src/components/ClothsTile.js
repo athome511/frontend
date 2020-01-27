@@ -20,7 +20,8 @@ class ClothsTile extends React.Component {
   constructor(){
     super();
     this.state = {
-      datas:[]
+      datas:[],
+      flag: 0
     };
   }
 
@@ -29,15 +30,21 @@ class ClothsTile extends React.Component {
     const clothsState = JSON.parse(localStorage.getItem('clothsData'))
     //if(!Number.isInteger(1000))  return <Loading />
     if(clothsState.c_u_id !== requestState.r_u_id) return <Loading />
+
+
+    if(this.state.flag === 0) {
       const request = axios.create({
         baseURL: 'http://18.178.35.28:3001/'
       })
       request.get(`/cloths/${requestState.r_u_id}`)
       .then(res => {
         this.setState({
-          datas: res.data.c_link_data
+          datas: res.data.c_link_data,
+          flag: 1
         });
       })
+    }
+
     //if (this.props.events == null) return <Loading />
     //if (this.props.userId === undefined) return <Loading />
 
