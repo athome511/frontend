@@ -65,9 +65,9 @@ class SignIn extends React.Component {
 const validate = values => {
   const errors = {}
 
-  if (!values.u_name) errors.u_name = "Entar a 1title, Please."
-  if (!values.u_mail) errors.u_mail = "Entar a 2title, Please."
-  if (!values.u_password) errors.u_password = "Entar a 3title, Please."
+  if (!values.u_name) errors.u_name = "ニックネームを入力してください"
+  if (!values.u_mail) errors.u_mail = "メールアドレスを入力してください"
+  if (!values.u_password) errors.u_password = "パスワードを入力してください"
 
   return errors
 }

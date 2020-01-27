@@ -14,7 +14,8 @@ class ProposalCard extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      proposalDatas:[]
+      proposalDatas:[],
+      imageData:[]
     }
   }
 
@@ -27,7 +28,6 @@ class ProposalCard extends React.Component {
     request.get(`/proposals/${this.props.requestId}`)
     .then(res => {
       this.setState({ proposalDatas: res.data })
-      console.log(res.data)
     })
 
   }
@@ -57,16 +57,27 @@ class ProposalCard extends React.Component {
   )
   }*/
 
-  renderSelectSloths(selectCloths) {
+  renderSelectSloths(selectCloths, cloth) {
+    const request = axios.create({
+      baseURL: 'http://18.178.35.28:3001/'
+    })
+
+
     const ary = selectCloths.split('_')
     ary.map(function(v) {
       return parseInt(v)
     })
 
-    ary.map((cloths) => {
+    ary.map((clothData) => {
+      request.get(`/closets/${clothData.id}`)
+      .then(res => {
+        this.setState({
+          imageData: res.data.c_link
+        });
+      })
       return (
-        <GridListTile key={cloths} style={{width: '20%'}}>
-          <img src="http://18.178.35.28:3001/closets/${cloths}" alt="proposal image"/>
+        <GridListTile key={clothData} style={{width: '20%'}}>
+          <img src="http://18.178.35.28:3001/closets/${clothData}" alt="proposal image"/>
         </GridListTile>
       )
     })
@@ -84,32 +95,32 @@ class ProposalCard extends React.Component {
           if(cloth.id) {
             return (
               <div className="root">
-              <GridList cellHeight={200} className="gridList">
-                <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-                  <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
-                </GridListTile>
+                <GridList cellHeight={200} className="gridList">
+                  <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+                    <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
+                  </GridListTile>
 
-                <GridListTile key={cloth.id} style={{width: '20%'}}>
-                  {this.renderSelectSloths(cloth.p_pc_text)}
-                </GridListTile>
+                  <GridListTile key={cloth.id} style={{width: '20%'}}>
+                    {this.renderSelectSloths(cloth.p_pc_text, cloth)}
+                  </GridListTile>
 
-                <p>memo: {cloth.p_memo}</p>
+                  <p>memo: {cloth.p_memo}</p>
 
-              </GridList>
-            </div>
+                </GridList>
+              </div>
             )
           }
         })}
 
       </React.Fragment>
-      );
-    }
+    );
   }
+}
 
-  /*
-  const mapStateToProps = state => ({ events: state.events })
-  const mapDispatchToProps = ({ readProposals })
+/*
+const mapStateToProps = state => ({ events: state.events })
+const mapDispatchToProps = ({ readProposals })
 
-  export default connect(mapStateToProps, mapDispatchToProps)(ProposalCard);
-  */
-  export default ProposalCard;
+export default connect(mapStateToProps, mapDispatchToProps)(ProposalCard);
+*/
+export default ProposalCard;

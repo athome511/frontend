@@ -1,19 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ListSubheader from '@material-ui/core/ListSubheader';
 
-
 import Loading from '../public/Loading';
-//css
-import '../css/clothsTile.css';
 
 
-// ユーザの所有服一覧
-class ClothsTile extends React.Component {
+class SubmitBc extends React.Component {
   constructor(){
     super();
     this.state = {
@@ -21,6 +16,7 @@ class ClothsTile extends React.Component {
       flag: 0
     };
   }
+
 
   render() {
     const requestState = JSON.parse(localStorage.getItem('requestData'))
@@ -42,8 +38,6 @@ class ClothsTile extends React.Component {
       })
     }
 
-
-
     return (
       <div className="root">
         <GridList cellHeight={200} className="gridList">
@@ -61,7 +55,8 @@ class ClothsTile extends React.Component {
           })}
         </GridList>
       </div>
-    )
+    );
   }
 }
-export default ClothsTile;
+
+export default SubmitBc;

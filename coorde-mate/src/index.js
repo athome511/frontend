@@ -20,6 +20,7 @@ import RequestDetails from './components/RequestDetails';
 //import ClothsTile from './components/ClothsTile';
 import SubmitRequest from './components/SubmitRequest';
 import SubmitProposal from './components/SubmitProposal';
+import SubmitBc from './components/SubmitBc';
 import PastTimeLine from './components/PastTimeLine';
 import Ranking from './components/Ranking';
 import RequestHistory from './components/RequestHistory';
@@ -62,6 +63,9 @@ ReactDOM.render(
 
 
       <Route path={'/pastTimeLine'} component={PastTimeLine}/>
+
+        {/* BC選択画面 */}
+        <Route path={`/selectBc/:requestId/submit`} component={SubmitBc}/>
 
       <Route path={'/ranking'} component={Ranking}/>
 

@@ -53,7 +53,7 @@ class RequestCard extends React.Component {
 
             {
               (() => {
-                if (this.props.bcSelected) {
+                if (this.props.bcSelected === false) {
                   return (
                     <div className="accent bold">
                       <p>BCを選択してください</p>

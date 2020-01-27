@@ -65,20 +65,37 @@ class RequestDetails extends React.Component {
 
 
     const props = this.props
+    const userState = JSON.parse(localStorage.getItem('userData'))
     return (
       <div>
         {this.setClothsAndProposalData()}
         <p>userName : {props.events.u_name}</p>
         <p>userId : {props.events.r_u_id}</p>
 
-        <ClothsTile
-          userId={props.events.r_u_id}
-          />
+        <ClothsTile />
 
-        <ButtonComponent
-          link = {`/proposal/${this.props.match.params.requestId}/submit`}
-          buttonText = "提案する"
-          />
+          {
+            (() => {
+              if (props.events.is_selected_bc === false &&
+                  props.events.r_u_id === userState.id) {
+                return (
+                  <ButtonComponent
+                    link = {`/selectBc/${this.props.match.params.requestId}/submit`}
+                    buttonText = "BCを選択する"
+                    accent = "accent"
+                    />
+                )
+              } else {
+                return (
+                  <ButtonComponent
+                    link = {`/proposal/${this.props.match.params.requestId}/submit`}
+                    buttonText = "提案する"
+                    />
+                )
+              }
+            })()
+          }
+
 
 
         <ProposalCard

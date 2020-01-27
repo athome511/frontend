@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
-import { makeStyles } from '@material-ui/core/styles';
+import ButtonComponent from '../public/ButtonComponent';
+
 import TextField from '@material-ui/core/TextField';
 
 
@@ -55,6 +56,11 @@ class Login extends React.Component {
         <input name="password" type="password" onChange={this.handleChange} />*/}
 
         <button onClick={() => {this.check()}}>ログイン</button>
+
+          <ButtonComponent
+            link = {`/signIn`}
+            buttonText = "新規登録"
+            />
       </div>
     )
   }
