@@ -82,7 +82,7 @@ class RequestDetails extends React.Component {
 
 
         <ProposalCard
-          />
+          requestId = {this.props.match.params.requestId}/>
 
 
       </div>

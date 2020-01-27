@@ -24,8 +24,7 @@ class ProposalCard extends React.Component {
       baseURL: 'http://18.178.35.28:3001'
     })
 
-    //request.get(`/proposal/${this.props.requestId}`)
-    request.get(`/proposals/2`)
+    request.get(`/proposals/${this.props.requestId}`)
     .then(res => {
       this.setState({ proposalDatas: res.data })
       console.log(res.data)
@@ -64,9 +63,13 @@ class ProposalCard extends React.Component {
       return parseInt(v)
     })
 
-
     ary.map((cloths) => {
-      return <img src={`http://18.178.35.28:3001`} alt="proposal image"/>
+      return (
+        <GridListTile key={cloths} style={{width: '20%'}}>
+          <img src="http://18.178.35.28:3001/closets/${cloths}" alt="proposal image"/>
+          {console.log(cloths)}
+        </GridListTile>
+      )
     })
 
   }
@@ -77,10 +80,11 @@ class ProposalCard extends React.Component {
   */
   render() {
     return (
-      <div className="root">
+      <React.Fragment>
         {this.state.proposalDatas.map((cloth) => {
           if(cloth.id) {
             return (
+              <div className="root">
               <GridList cellHeight={200} className="gridList">
                 <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                   <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
@@ -90,35 +94,15 @@ class ProposalCard extends React.Component {
                   {this.renderSelectSloths(cloth.p_pc_text)}
                 </GridListTile>
 
+                <p>memo: {cloth.p_memo}</p>
+
               </GridList>
+            </div>
             )
           }
         })}
-        {/*
-        <GridList cellHeight={200} className="gridList">
-          <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-            <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
-          </GridListTile>*/}
 
-          {/* 所有服一覧表示 */}
-          {/*
-            {this.state.proposalDatas.map((cloth) => {
-            return (
-            <GridListTile key={cloth.id} style={{width: '20%'}}>
-            <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
-
-            </GridListTile>
-            )
-            })}
-            </GridList>
-            */}
-            {/*
-            <GridListTile key={this.state.proposalDatas.id} style={{width: '20%'}}>
-              {this.renderSelectSloths(this.state.proposalDatas.p_pc_text)}
-            </GridListTile>
-
-          </GridList>*/}
-        </div>
+      </React.Fragment>
       );
     }
   }
