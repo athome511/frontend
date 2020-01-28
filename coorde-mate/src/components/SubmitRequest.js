@@ -58,6 +58,8 @@ class SubmitRequest extends React.Component {
     return (
       <form onSubmit={handleSubmit(this.onSubmit)} style={form}>
 
+        <div style={input}><Field label="ユーザID" name="r_u_id" type="String" component={this.renderField} /></div>
+
         <div style={input}><Field label="依頼タイトル" name="r_title" type="String" component={this.renderField} /></div>
 
         <div style={input}><Field label="依頼メモ" name="r_memo" type="text" component={this.renderField} /></div>
@@ -66,7 +68,8 @@ class SubmitRequest extends React.Component {
 
         <div className="submitRequestButton" style={submit}>
           <RaisedButton label="Submit" type="submit" style={style} disabled={pristine || submitting} />
-          <RaisedButton label="Cancel" style={style} containerElement={<Link to="/" />} />
+
+        <RaisedButton label="Cancel" style={style} containerElement={<Link to="/" />} />
         </div>
       </form>
 

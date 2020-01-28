@@ -7,7 +7,7 @@ import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ListSubheader from '@material-ui/core/ListSubheader';
 
-//import Loading from '../public/Loading';
+import Loading from '../public/Loading';
 
 class ProposalCard extends React.Component {
   constructor(props){
@@ -58,7 +58,7 @@ class ProposalCard extends React.Component {
                 </GridList>
               </div>
             )
-          }
+          } else return <Loading />
         })}
 
       </React.Fragment>
