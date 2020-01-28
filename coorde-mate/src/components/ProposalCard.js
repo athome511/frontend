@@ -27,7 +27,6 @@ class ProposalCard extends React.Component {
     .then(res => {
       this.setState({ proposalDatas: res.data })
     })
-
   }
 
 
