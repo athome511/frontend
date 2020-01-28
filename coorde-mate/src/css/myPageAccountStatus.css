@@ -1,3 +1,8 @@
+.myPageContainer {
+  padding-left: 12%;
+  text-align: center;
+}
+
 .mailAddress {
   display: block;
   width: 60%;
@@ -12,4 +17,26 @@
 p {
   font-size: 2.4rem !important;
   text-align: center;
+}
+
+.userInfo {
+  padding-top: 10%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  width: 60%;
+}
+
+.userIcon {
+  display: block;
+  width: 25%;
+}
+
+.userIcon img {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid;
 }

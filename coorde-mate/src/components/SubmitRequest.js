@@ -42,22 +42,32 @@ class SubmitRequest extends React.Component {
 
   render() {
     const { handleSubmit, pristine, submitting } = this.props
-    const style = { margin: 12 }
+    const style = { margin: 15}
+    const form = {
+      width: '80%',
+      margin: 'auto',
+      alignItems: 'center'
+    }
+    const submit = {
+      textAlign: 'center'
+    }
+    const input = {
+      marginTop: 50
+    }
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit)}>
+      <form onSubmit={handleSubmit(this.onSubmit)} style={form}>
 
-        <div><Field label="依頼タイトル" name="r_title" type="String" component={this.renderField} /></div>
+        <div style={input}><Field label="依頼タイトル" name="r_title" type="String" component={this.renderField} /></div>
 
-        <div><Field label="依頼メモ" name="r_memo" type="text" component={this.renderField} /></div>
+        <div style={input}><Field label="依頼メモ" name="r_memo" type="text" component={this.renderField} /></div>
 
-        <div><Field label="依頼期限" name="r_limit" type="datetime" component={this.renderField} /></div>
+        <div style={input}><Field label="依頼期限" name="r_limit" type="datetime" component={this.renderField} /></div>
 
-
-        <RaisedButton label="Submit" type="submit" style={style} disabled={pristine || submitting} />
-
-        <RaisedButton label="Cancel" style={style} containerElement={<Link to="/" />} />
-
+        <div className="submitRequestButton" style={submit}>
+          <RaisedButton label="Submit" type="submit" style={style} disabled={pristine || submitting} />
+          <RaisedButton label="Cancel" style={style} containerElement={<Link to="/" />} />
+        </div>
       </form>
 
     );
@@ -67,9 +77,9 @@ class SubmitRequest extends React.Component {
 const validate = values => {
   const errors = {}
 
-  if (!values.r_title) errors.r_title = "Entar a 1title, Please."
-  if (!values.r_memo) errors.r_memo = "Entar a 2title, Please."
-  if (!values.r_limit) errors.r_limit = "Entar a 3title, Please."
+  if (!values.r_title) errors.r_title = "タイトルを１～１４文字で入力してください"
+  if (!values.r_memo) errors.r_memo = "メモは１４０文字までにしてください"
+  if (!values.r_limit) errors.r_limit = "期限を入力してください"
 
   return errors
 }
