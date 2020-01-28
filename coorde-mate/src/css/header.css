@@ -1,45 +1,59 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url(https://fonts.googleapis.com/css?family=PT+Sans);
+
 header {
 	display: flex;
 	background-color: #ff9800;
 	font-size: 2rem;
 	width: 100%;
-	padding: 0 2%;
+	height: auto;
+	min-width: 100px;
+	/*padding: 0 2%;*/
+}
+header p {
+	color: white;
+	font-size: 1.4rem !important;
 }
 
-ul {
+header ul {
 	width: 100%;
-	padding: 0 2%;
 }
 
 header li {
-	padding: 0 3%;
-	float: left;
-	line-height: 60px;
-}
-
-/*
-header a {
-	padding: 0 3%;
-	float: left;
-	line-height: 60px;
-  color: #fff;
 	display: block;
-	white-space: nowrap;
-}
-*/
-
-li :hover {
-	opacity: .5;
+	padding: 0 3% 0 0;
+	float: left;
+	line-height: 60px;
 }
 
+
+header li:not(:last-child) {
+	border-right:1px solid #fff;
+		padding: 0 3% ;
+}
 
 
 header img {
-	display: flex;
+	display: block;
 	float: left;
 	margin-right: 20px;
 	margin-top: 3px;
 	width: 54px;
 	height: 54px;
 	border-radius: 50%;
+}
+
+/*
+header p:hover {
+	opacity: 0.5;
+	transition: 0.3s;
+}
+*/
+
+header li:hover {
+	transition: 1s;
+	background-color: #f44336;
 }

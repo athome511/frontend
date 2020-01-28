@@ -6,7 +6,6 @@ class ButtonComponent extends React.Component {
 
   render() {
     return (
-
           <Link to={`${this.props.link}`} >
             <Button variant="contained">
               {this.props.buttonText}
