@@ -69,6 +69,7 @@ class ProposalCard extends React.Component {
     })
 
     ary.map((clothData) => {
+      //clothDataは整数しか入ってないで〜
       request.get(`/closets/${clothData.id}`)
       .then(res => {
         this.setState({
