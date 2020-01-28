@@ -42,6 +42,7 @@ class SubmitBc extends React.Component {
 
 
   render() {
+    
     return (
       <React.Fragment>
         {this.state.proposalDatas.map((cloth) => {

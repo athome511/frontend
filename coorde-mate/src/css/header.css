@@ -1,43 +1,46 @@
+/*
 * {
   box-sizing: border-box;
 }
+*/
 
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
-header {
+.headerList {
 	display: flex;
 	background-color: #ff9800;
 	font-size: 2rem;
 	width: 100%;
-	height: auto;
+	height: 60px;
 	min-width: 100px;
 	/*padding: 0 2%;*/
 }
-header p {
+
+.headerList p {
 	color: white;
 	font-size: 1.4rem !important;
 }
 
-header ul {
-	width: 100%;
-}
-
-header li {
-	display: block;
+.headerList > li {
+	display: inline-block;
 	padding: 0 3% 0 0;
-	float: left;
 	line-height: 60px;
+  background-color: #ff9800;
 }
 
-
-header li:not(:last-child) {
+/*
+.headerList > li:last-child {
+	display: block;
+	margin: 0 0 3% 0;
+}
+*/
+.headerList > li:not(:last-child) {
 	border-right:1px solid #fff;
 		padding: 0 3% ;
 }
 
-
-header img {
-	display: block;
+.headerList img {
+	display: inline-block;
 	float: left;
 	margin-right: 20px;
 	margin-top: 3px;
@@ -53,7 +56,27 @@ header p:hover {
 }
 */
 
-header li:hover {
+.headerList li:hover,
+.headerList li li:hover {
 	transition: 1s;
 	background-color: #f44336;
+}
+
+
+.headerList li li {
+		background-color: #ff9800;
+		line-height: 60px;
+    height: 0;
+    overflow: hidden;
+    transition: .5s;
+		display: block;
+}
+.headerList li li a {
+    display: block;
+    border-top: 1px solid #fff;
+}
+.headerList li:hover > ul > li {
+	width: 100%;
+    height: 80px;
+    overflow: visible;
 }
