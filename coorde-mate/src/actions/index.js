@@ -16,6 +16,7 @@ export const READ_USER_REQUESTS = 'READ_USER_REQUESTS';
 export const READ_EVENTS = 'READ_EVENTS';
 export const READ_EVENT = 'READ_EVENT';
 export const CREATE_EVENT = 'CREATE_EVENT';
+export const CREATE_PROPOSAL = 'CREATE_PROPOSAL';
 export const UPDATE_EVENT = 'UPDATE_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
 
@@ -72,6 +73,12 @@ export const readCloths = (userId) => async dispatch => {
 export const postEvent = values => async dispatch => {
   const response = await axios.post(`${ROOT_URL}/requests`, values)
   dispatch({ type: CREATE_EVENT, response })
+}
+
+//提案登録
+export const postProposal = values => async dispatch => {
+  const response = await axios.post(`${ROOT_URL}/proposals`, values)
+  dispatch({ type: CREATE_PROPOSAL, response })
 }
 
 //提案情報取得
