@@ -64,7 +64,10 @@ class RequestCard extends React.Component {
     const paper = {
       padding: 10,
       margin: 'auto',
-      maxWidth: 1000
+      marginTop: 4,
+      marginBottom: 4,
+      width: '100%',
+      border: 'solid 1px #ff9800',
     }
     const image = {
       width: 128,
@@ -74,11 +77,16 @@ class RequestCard extends React.Component {
       margin: 'auto',
       display: 'block',
       maxWidth: '100%',
-      maxHeight: '100%'
+      maxHeight: '100%',
+      borderRadius: '50%',
+      border: 'solid'
+    }
+    const memo = {
+      fontSize: '1.2rem'
     }
 
     return (
-      <div style={root}>
+      <div style={root} className="card">
       <Paper style={paper}>
         <Grid container spacing={2}>
           <Grid item>
@@ -89,12 +97,13 @@ class RequestCard extends React.Component {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography gutterBottom variant="body2">
-                  {this.props.title}
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom>
+              <Typography gutterBottom variant="body2">
+                {this.props.title}
+              </Typography>
+                <Typography variant="subtitle1" gutterBottom style={memo}>
                   {this.props.memo}
                 </Typography>
+
                 <Typography variant="body2" color="textSecondary">
                   {this.props.limit}
                 </Typography>

@@ -38,3 +38,7 @@
   width: 100%;
   text-align: center;
 }
+
+.MuiTypography-subtitle1 h6 {
+  margin-left: 100;
+}

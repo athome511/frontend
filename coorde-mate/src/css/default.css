@@ -95,6 +95,11 @@ img{
 	box-sizing: border-box;
 }
 
+.card {
+	width: 80%;
+	margin: auto;
+}
+
 .left {
 	float: left;
 }
