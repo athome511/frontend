@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import _ from 'lodash';
 
 //import { connect  } from 'react-redux';
 //import { readProposals } from '../actions';
@@ -15,7 +14,6 @@ class ProposalCard extends React.Component {
     super(props);
     this.state = {
       proposalDatas:[],
-      imageData:[]
     }
   }
 
@@ -33,62 +31,6 @@ class ProposalCard extends React.Component {
   }
 
 
-
-  /*
-  componentDidMount() {
-  this.props.readProposals(this.requestIdState)
-  }*/
-  /*
-  renderProposals(requestId) {
-  this.props.readProposals(requestId)
-
-  return (
-  _.map(this.props.events, proposalData => (
-  <div>
-  <p>提案メモ</p>
-  <p>{proposalData.p_memo}</p>
-  <p>提案服一覧</p>
-  <div>{this.renderSelectSloths(proposalData.p_pc_text)}</div>
-  <p>{proposalData.p_pc_text}</p>
-
-  ---------------------------------
-  </div>
-  ))
-  )
-  }*/
-
-  renderSelectSloths(selectCloths, cloth) {
-    const request = axios.create({
-      baseURL: 'http://18.178.35.28:3001/'
-    })
-
-
-    const ary = selectCloths.split('_')
-    ary.map(function(v) {
-      return parseInt(v)
-    })
-
-    ary.map((clothData) => {
-      //clothDataは整数しか入ってないで〜
-      request.get(`/closets/${clothData.id}`)
-      .then(res => {
-        this.setState({
-          imageData: res.data.c_link
-        });
-      })
-      return (
-        <GridListTile key={clothData} style={{width: '20%'}}>
-          <img src="http://18.178.35.28:3001/closets/${clothData}" alt="proposal image"/>
-        </GridListTile>
-      )
-    })
-
-  }
-  /*
-  componentWillMount() {
-  const requestIdState = localStorage.getItem('requestId')
-  }
-  */
   render() {
     return (
       <React.Fragment>
@@ -101,9 +43,15 @@ class ProposalCard extends React.Component {
                     <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
                   </GridListTile>
 
-                  <GridListTile key={cloth.id} style={{width: '20%'}}>
-                    {this.renderSelectSloths(cloth.p_pc_text, cloth)}
-                  </GridListTile>
+                  {/* 提案服一覧表示 */}
+                  {cloth.p_selected_data.map((cloth) => {
+                    return (
+                      <GridListTile key={cloth.id} style={{width: '20%'}}>
+                        <img src={cloth.link} alt={`服画像id : ${cloth.id}`} />
+                      </GridListTile>
+                    )
+                  })}
+
 
                   <p>memo: {cloth.p_memo}</p>
 
@@ -118,10 +66,4 @@ class ProposalCard extends React.Component {
   }
 }
 
-/*
-const mapStateToProps = state => ({ events: state.events })
-const mapDispatchToProps = ({ readProposals })
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProposalCard);
-*/
 export default ProposalCard;
