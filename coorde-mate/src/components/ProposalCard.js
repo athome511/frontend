@@ -1,9 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-//import { connect  } from 'react-redux';
-//import { readProposals } from '../actions';
-
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -36,11 +33,23 @@ class ProposalCard extends React.Component {
 
   bcLabel(p_bc) {
     if(p_bc !== null){
-        return(
-          <div className="bcLabel-content">
-            <div className="bcLabel">BC</div>
-          </div>
-        )
+      return(
+        <div className="bcLabel-content">
+          <div className="bcLabel">BC</div>
+        </div>
+      )
+    }
+  }
+
+  renderIcon(proposalData) {
+    console.log(proposalData)
+    if(proposalData.p_is_selected_bc === true){
+      return (
+        <div className="proposaer">
+          <img src={proposalData.p_u_icon} alt="icon" className="proposalIcon"/>
+          <p>コーディネート提案者 : {proposalData.p_u_name}</p>
+        </div>
+      )
     }
   }
 
@@ -52,6 +61,7 @@ class ProposalCard extends React.Component {
           if(cloth.id) {
             return (
               <div className="root shadowStyle">
+                {this.renderIcon(cloth)}
                 <GridList cellHeight={200} className="gridList">
                   <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                     <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>提案服一覧</ListSubheader>
@@ -76,9 +86,8 @@ class ProposalCard extends React.Component {
             )
           } else return <Loading />
           })}
-
         </React.Fragment>
       );
     }
   }
-export default ProposalCard;
+  export default ProposalCard;

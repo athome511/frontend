@@ -1,6 +1,10 @@
 import React from 'react';
-import axios from 'axios';
+import _ from 'lodash';
+
 import { Link } from 'react-router-dom';
+
+import { connect  } from 'react-redux';
+import { readPastRequests } from '../actions';
 
 /* myComponents */
 import RequestCard from './RequestCard';
@@ -8,49 +12,45 @@ import RequestCard from './RequestCard';
 
 
 class PastTimeLine extends React.Component {
-  constructor(){
-    super();
-    this.state = {
-      datas:[]
-    };
+
+  componentDidMount() {
+    this.props.readPastRequests()
   }
 
-  componentWillMount(){
-    const request = axios.create({
-      baseURL: 'http://18.178.35.28:3001'
-    })
-
-    request.get(`/past_requests`)
-    .then(res => {
-      this.setState({
-        datas: res.data
-      });
-    })
-  }
-
-
+/* 過去タイムライン表示 */
+renderEvents() {
+  return (
+    _.map(this.props.events, requestData => (
+      <Link to={`/request/${requestData.id}`}
+        key={requestData.id}
+        className="container"
+        >
+        <RequestCard
+          key = {requestData.id}
+          userId = {requestData.r_u_id}
+          title = {requestData.r_title}
+          memo = {requestData.r_memo}
+          borderStyle = {"block"}
+          />
+      </Link>
+    ))
+  )
+}
 
   render() {
     return (
-      <div>
-        {this.state.datas.map((requestData) => {
-          return (
-            <Link to={`/request/${requestData.id}`}
-              key={requestData.id}
-              className="container"
-              >
-              <RequestCard
-                requestId = {requestData.id}
-                title = {requestData.r_title}
-                memo = {requestData.r_memo}
-                userId = {requestData.r_u_id}
-                />
-            </Link>
-          )
-        })}
-      </div>
+      <React.Fragment>
+      {this.renderEvents()}
+    </React.Fragment>
+
     );
   }
 }
 
-export default PastTimeLine;
+
+const mapStateToProps = state => ({ events: state.events })
+
+const mapDispatchToProps = ({ readPastRequests })
+
+export default connect(mapStateToProps, mapDispatchToProps)(PastTimeLine);
+//export default PastTimeLine;

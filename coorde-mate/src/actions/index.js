@@ -4,7 +4,7 @@ import axios from 'axios';
 //オリジナル
 export const SIGN_IN = 'SIGN_IN';
 export const READ_REQUESTS = 'READ_REQUESTS';
-export const READ_PAST_REQUEST = 'READ_PAST_REQUEST';
+export const READ_PAST_REQUESTS = 'READ_PAST_REQUESTS';
 export const READ_USER = 'READ_USER';
 export const READ_REQUEST_DETAILS = 'READ_REQUEST_DETAILS';
 export const READ_CLOTHS = 'READ_CLOTHS';
@@ -35,6 +35,11 @@ export const signInEvent = values => async dispatch => {
 export const readRequests = () => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/future_requests`)
   dispatch({ type: READ_REQUESTS, response })
+}
+
+export const readPastRequests = () => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/past_requests`)
+  dispatch({ type: READ_PAST_REQUESTS, response })
 }
 
 //ユーザデータ取得
