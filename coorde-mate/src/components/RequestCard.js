@@ -45,6 +45,7 @@ class RequestCard extends React.Component {
       marginBottom: 4,
       width: '100%',
       border: 'solid 1px #ff9800',
+      boxShadow: this.props.shadowStyle,
     }
     const image = {
       width: 128,

@@ -54,7 +54,7 @@ class ClothsTile extends React.Component {
           {/* 所有服一覧表示 */}
           {this.state.datas.map((cloth) => {
             return (
-              <GridListTile key={cloth.id} style={{width: '20%'}}>
+              <GridListTile key={cloth.id} style={{width: 'auto', height: 150, background: '#E1E8ED', padding: 5, borderRadius: 3, marginLeft: 10}}>
                 <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
               </GridListTile>
             )

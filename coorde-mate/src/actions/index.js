@@ -4,6 +4,7 @@ import axios from 'axios';
 //オリジナル
 export const SIGN_IN = 'SIGN_IN';
 export const READ_REQUESTS = 'READ_REQUESTS';
+export const READ_PAST_REQUEST = 'READ_PAST_REQUEST';
 export const READ_USER = 'READ_USER';
 export const READ_REQUEST_DETAILS = 'READ_REQUEST_DETAILS';
 export const READ_CLOTHS = 'READ_CLOTHS';
@@ -48,6 +49,11 @@ export const readRequestDetails = (requestId) => async dispatch => {
   dispatch({ type: READ_REQUEST_DETAILS, response })
 }
 
+export const readIcon = (requestId) => async dispatch => {
+  const response = await axios.get(`${ROOT_URL}/proposals/${requestId}`)
+  dispatch({ type: READ_REQUEST_DETAILS, response })
+}
+
 //特定ユーザの依頼情報取得
 export const readUserRequests = (userId) => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/user_requests/${userId}`)
@@ -61,7 +67,6 @@ export const readUserProposals = (userId) => async dispatch => {
 }
 
 //所有服一覧
-
 export const readCloths = (userId) => async dispatch => {
   const response = await axios.get(`${ROOT_URL}/cloths/${userId}`)
   dispatch({ type: READ_CLOTHS, response })

@@ -17,8 +17,8 @@ import '../css/ranking.css';
 
 const styles = {
   root: {
-      fontSize: '2rem',
-    },
+    fontSize: '2rem',
+  },
 };
 
 //ランキング画面
@@ -47,35 +47,34 @@ class Ranking extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <TableContainer component={Paper}>
-        <Table className="tableWidth" aria-label="simple table" classes={{ root: classes.root }} >
+      <div className="tableContainer">
+        <TableContainer component={Paper}>
+          <Table className="tableWidth" aria-label="simple table" classes={{ root: classes.root }} >
 
-          <TableHead>
-            <TableRow>
-              <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>Rank</TableCell>
-              <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>icon</TableCell>
-              <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>ユーザネーム</TableCell>
-              <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>BC数</TableCell>
-              <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>BC</TableCell>
-            </TableRow>
-          </TableHead>
-
-          <TableBody>
-            {this.state.rankingDatas.map(row => (
-              <TableRow key={row.id}>
-                <TableCell component="th" scope="row" style={{fontSize:'2.0rem', textAlign:'center'}}>{row.rank}
-                </TableCell>
-                <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}><img src={row.u_icon} /></TableCell>
-                <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>{row.u_name}</TableCell>
-                <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>{row.u_month_bc}</TableCell>
-                <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>BC</TableCell>
+            <TableHead>
+              <TableRow>
+                <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>Rank</TableCell>
+                <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>icon</TableCell>
+                <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>ユーザネーム</TableCell>
+                <TableCell style={{fontSize:'2.0rem', textAlign:'center'}}>BC数</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
+            </TableHead>
 
-        </Table>
-      </TableContainer>
+            <TableBody>
+              {this.state.rankingDatas.map(row => (
+                <TableRow key={row.id}>
+                  <TableCell component="th" scope="row" style={{fontSize:'4.0rem', textAlign:'center'}}>{row.rank}
+                  </TableCell>
+                  <TableCell style={{fontSize:'2.0rem', textAlign:'center', height: 150}}><img src={row.u_icon} alt="icon"/></TableCell>
+                  <TableCell style={{fontSize:'3.5rem', textAlign:'center'}}>{row.u_name}</TableCell>
+                  <TableCell style={{fontSize:'3.0rem', textAlign:'center'}}>{row.u_month_bc}<span style={{fontSize: '2rem', color: '#FF9800', paddingLeft: 10}}> BC</span></TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
 
+          </Table>
+        </TableContainer>
+      </div>
     );
   }
 }

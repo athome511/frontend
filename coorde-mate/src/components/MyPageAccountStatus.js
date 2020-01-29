@@ -25,6 +25,7 @@ class MyPageAccountStatus extends React.Component {
         </div>
         <div className="mailAddress">
           <p>メールアドレス:{userIdStatus.u_mail}</p>
+          <p>月間BC数:{userIdStatus.u_month_bc}</p>
         </div>
           <div>
             <ButtonComponent

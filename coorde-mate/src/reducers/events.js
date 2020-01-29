@@ -5,6 +5,7 @@ import {
   READ_USER_REQUESTS,
   READ_USER,
   READ_REQUEST_DETAILS,
+  READ_PAST_REQUEST,
   READ_CLOTHS,
   READ_PROPOSALS,
   READ_USER_PROPOSALS
@@ -27,6 +28,9 @@ export default (events = {}, action) => {
 
     case READ_REQUEST_DETAILS:
       return action.response.data
+
+    case READ_PAST_REQUEST:
+      return _.mapKeys(action.response.data, 'id')
 
     case READ_PROPOSALS:
       return _.mapKeys(action.response.data, 'id')

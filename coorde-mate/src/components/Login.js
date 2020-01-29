@@ -6,7 +6,6 @@ import ButtonComponent from '../public/ButtonComponent';
 import TextField from '@material-ui/core/TextField';
 
 import '../css/login.css';
-const style = {backgroundImage:'url(${foo})'};
 
 //ログイン画面
 class Login extends React.Component {
@@ -44,25 +43,28 @@ class Login extends React.Component {
 
   render() {
     const form = {
-      
+
     }
 
     return (
+      <div className="loginBg">
         <div className="login-wrapper">
           <div className="theme"><p>今日のあなたをデザインする</p></div>
           <div className="logo"><p>コーデメイト</p></div>
-      {  /*  <p>titleの値：{this.state.mail}</p>
-          <p>textの値：{this.state.password}</p>*/}
-            <div className="loginForm" style={form}>
-              <TextField className="standard-basic"　name="mail" label="メールアドレス"　value={this.state.mail} onChange={this.handleChange} />
-              <TextField className="standard-basic"　name="password" label="パスワード" type="password" onChange={this.handleChange} />
-            </div>
+          <div className="loginForm" style={form}>
+
+            <TextField className="standard-basic"　name="mail" label="メールアドレス"　value={this.state.mail} onChange={this.handleChange} />
+
+            <TextField className="standard-basic"　name="password" label="パスワード" type="password" onChange={this.handleChange} />
+
+          </div>
           <button onClick={() => {this.check()}}>ログイン</button>
           <ButtonComponent
             link = {`/signIn`}
             buttonText = "新規登録"
-          />
+            />
         </div>
+      </div>
     )
   }
 }

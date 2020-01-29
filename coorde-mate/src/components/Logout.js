@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+import ButtonComponent from '../public/ButtonComponent';
 
 
 class Logout extends React.Component {
@@ -9,7 +10,10 @@ class Logout extends React.Component {
     return (
       <div>
         LogOutしました
-        <Link to={'/'}>ログイン画面へ</Link>
+        <ButtonComponent
+          link = {`/`}
+          buttonText = "ログイン画面へ"
+        />
       </div>
     );
   }
