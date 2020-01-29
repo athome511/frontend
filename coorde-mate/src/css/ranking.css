@@ -1,0 +1,57 @@
+.tableContainer {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.ranking-wrapper {
+  width: 80%;
+  font-size: 2rem;
+}
+
+table th {
+  text-align: center;
+  width: 25%;
+}
+
+table td {
+  text-align: center;
+  width: 16%;
+}
+
+.rankHeader {
+  width: 15%;
+}
+
+.rank {
+  font-size: 4rem;
+}
+
+.userNameHeader {
+  width: 35%;
+}
+
+.userName {
+  font-size: 3rem;
+}
+
+.point {
+  font-size: 4rem;
+}
+
+.unit {
+  color: red;
+}
+
+table img {
+  width: 100px;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+.tableWidth {
+  min-width: 650px;
+}

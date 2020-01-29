@@ -1,0 +1,21 @@
+.mypageMenu {
+  display: block;
+  background-color: #ffb74d;
+  float: left;
+  margin-top: 80px;
+  width: 10%;
+  height: 100%;
+  text-align: center;
+}
+
+.mypageMenu p{
+  display: block;
+  font-size: 1.8rem !important;
+  padding: 20% 16px;
+  color: white !important;
+}
+
+.mypageMenu p:hover {
+  opacity: .5;
+  transition: 0.5s;
+}

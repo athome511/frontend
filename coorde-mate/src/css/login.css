@@ -1,0 +1,91 @@
+.loginBg {
+  display: grid;
+	grid-template-columns: 100vw;
+	grid-template-rows: 100vh;
+
+	line-height: 1.5em;
+  background: url(../img/loginBg.jpg) center center / cover no-repeat fixed;
+}
+
+.loginContainer {
+
+}
+
+.login-wrapper {
+  background-color: rgba(255,255,255,0.85);
+  margin: auto;
+  width: 40%;
+  text-align: center;
+}
+
+.theme {
+  margin: 10% 0;
+}
+
+.theme p {
+  font-size: 2rem !important;
+}
+
+.logo {
+  color: #ff9800;
+  margin: 5% 0 15%;
+}
+
+.logo p {
+  font-size: 5.0rem !important;
+}
+
+.loginForm {
+  padding: 5% 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm TextField {
+  font-size: 2.0rem !important;
+}
+
+.loginForm div {
+  margin: 0 auto;
+  width: 70% !important;
+}
+.loginForm label,
+.loginForm input {
+  font-size: 1.3rem !important;
+}
+/*.loginForm label {
+  transform: translate(56px, 23px) scale(1) !important;
+}*/
+
+.password {
+  padding: 5% 0 10%;
+}
+
+button {
+  display: block;
+  margin-top: 5%;
+  margin: auto;
+  margin-bottom: 5%;
+}
+
+.loginButton {
+  width: 80%;
+  align-items: center;
+  border-style: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #ff9800;
+}
+
+.signUpButton {
+  width: 80%;
+  align-items: center;
+  border-style: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #fff;
+  background-color: gray;
+}

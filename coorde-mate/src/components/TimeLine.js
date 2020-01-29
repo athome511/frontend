@@ -1,41 +1,58 @@
 import React from 'react';
+//import axios from 'axios';
+import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
-import '../css/timeLine.css';
+import { connect  } from 'react-redux';
+import { readRequests } from '../actions';
 
-import img from '../img/iconSample.jpg';
+/* myComponents */
+import RequestCard from './RequestCard';
+import ButtonComponent from '../public/ButtonComponent';
+
+
 
 class TimeLine extends React.Component {
-  /*
-  constructor(){
-    super();
-    this.state = {
-      datas:[]
-    };
+  componentDidMount() {
+    this.props.readRequests()
   }
-  */
+
+  /* タイムライン表示 */
+  renderEvents() {
+    return (
+      _.map(this.props.events, requestData => (
+        <Link to={`/request/${requestData.id}`}
+          key={requestData.id}
+          className="container"
+          >
+          <RequestCard
+            key = {requestData.id}
+            userId = {requestData.r_u_id}
+            title = {requestData.r_title}
+            limit = {requestData.r_limit}
+            memo = {requestData.r_memo}
+            borderStyle = {"block"}
+            />
+        </Link>
+      ))
+    )
+  }
 
   render() {
     return (
-      <a href="#" className="container">
-        <div className="requestCard">
-          <div className="icon">
-            <img src={img} alt="default icon" />
-          </div>
-          <div className="requestText right">
-            <div className="requestTitle">
-              <h2>依頼タイトル</h2>
-            </div>
-            <div className="requestMemo">
-              <p>依頼メモを表示する。あああああああああああああああああああああああああああああああああああああああああああ</p>
-            </div>
-            <div className="requestLimit">
-              <p>xx年xx月xx日xx時xx分まで</p>
-            </div>
-          </div>
-        </div>
-      </a>
-    );
-  }
+      <div style={{textAlign:'center', marginTop:10}}>
+        <ButtonComponent
+          link = {`/requestSubmit`}
+          buttonText = "依頼を投稿する"
+        />
+      {this.renderEvents()}
+    </div>
+  )
+}
 }
 
-export default TimeLine;
+const mapStateToProps = state => ({ events: state.events })
+
+const mapDispatchToProps = ({ readRequests })
+
+export default connect(mapStateToProps, mapDispatchToProps)(TimeLine);

@@ -1,0 +1,73 @@
+header {
+	height: 350px;
+}
+@media only screen and (max-width: 799px){
+	header {
+		height: 114px;
+	}
+}
+
+
+
+.overray {
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+
+/* 会社概要 */
+.inner{
+	width: 94%;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+.col2 li{
+	display: inline-block;
+	width: 100%;
+  	/*margin: 20px 0 20px 0;*/
+}
+
+.grayBg dl{
+	line-height: 1.2;
+}
+
+.grayBg dt{
+	clear: left;
+	float: left;
+	display: block;
+	width: 30%;
+	margin-right: 10%;
+	margin-bottom: 20px;
+	text-align: right;
+	line-height: 1.6em;
+}
+
+.grayBg dd{
+	width: 60%;
+	float: left;
+	text-align: left;
+	margin-bottom: 15px;
+	line-height: 1.6em;
+}
+
+#map{
+	position: relative;
+	padding-bottom: 75%;
+	margin-top: 20px;
+	height: 0;
+	overflow: hidden;
+}
+
+#map iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+	border: 0;
+}
+

@@ -1,0 +1,34 @@
+
+
+.grayBg {
+	padding-top: 20px;
+}
+
+/* 前置き文章 */
+.prelude {
+	padding-top: 30px;
+	color: #727171;
+}
+
+
+/* プライバシーポリシー内容 */
+.privacyPolicy {
+	color: #727171;
+	padding: 0 3%;
+	padding-bottom: 20px;
+}
+.privacyPolicy h2 {
+	color: #000;
+	font-size: 24px;
+}
+
+ol {
+	padding-left: 1em;
+}
+.privacyPolicy p {
+	margin: 0 0 13px;
+}
+.privacyPolicy li {
+	margin-top: 19px;
+	font-size: 16px;
+}
