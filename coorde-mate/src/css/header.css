@@ -38,20 +38,14 @@
 .headerList img {
 	display: block;
 	/*float: left;*/
-	width: 54px;
-	height: 54px;
+	width: auto !important;
+	height: 90%;
+	padding-left: 4px;
 	border-radius: 50%;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
 }
-
-/*
-header p:hover {
-	opacity: 0.5;
-	transition: 0.3s;
-}
-*/
 
 .headerList li,
 .headerList li li {
@@ -64,6 +58,7 @@ header p:hover {
 }
 
 .headerList li li {
+		position: relative;
 		background-color: #ff9800;
 		line-height: 80px;
     height: 0;

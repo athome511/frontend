@@ -35,8 +35,8 @@ p {
 
 .userIcon img {
   margin: auto;
-  width: 100px;
-  height: 100px;
+  width: auto !important;
+  height: 100px !important;
   border-radius: 50%;
   border: solid;
 }

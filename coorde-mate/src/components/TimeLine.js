@@ -40,14 +40,12 @@ class TimeLine extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={{textAlign:'center', marginTop:10}}>
         <ButtonComponent
           link = {`/requestSubmit`}
           buttonText = "依頼を投稿する"
         />
-
       {this.renderEvents()}
-
     </div>
   )
 }

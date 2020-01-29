@@ -23,7 +23,7 @@ class Header extends React.Component {
                 <li><Link to={`/pastTimeLine`}><p>過去タイムライン</p></Link></li>
                 <li><Link to={`/ranking`}><p>ランキング</p></Link></li>
                 <li><Link to={`/userHistory/requests/${headerState.id}`}><p>依頼・投稿履歴</p></Link></li>
-                <li><Link to={`/myPage/accountStatus`}><p><img src={headerState.u_icon} alt={`User Icon : ${headerState.u_name}`} className="imageContainer"/>マイページ</p></Link>
+                <li><Link to={`/myPage/accountStatus`}><img src={headerState.u_icon} alt={`User Icon : ${headerState.u_name}`} className="imageContainer"/><p style={{paddingLeft:10}}>マイページ</p></Link>
                   <ul>
                     <li><Link to={`/myPage/accountChange`}><p>アカウント変更</p></Link></li>
                     <li><Link to={`/myPage/closet`}><p>服一覧</p></Link></li>

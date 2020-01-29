@@ -16,7 +16,7 @@ class MyPageAccountStatus extends React.Component {
     return (
       <div className="myPageContainer">
         <div className="userInfo">
-          <div className="icon">
+          <div className="userIcon">
             <img src={userIdStatus.u_icon} alt={userIdStatus.u_name} />
           </div>
           <div className="userName">

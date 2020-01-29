@@ -66,7 +66,7 @@ class RequestDetails extends React.Component {
     const userState = JSON.parse(localStorage.getItem('userData'))
     const requestState = JSON.parse(localStorage.getItem('requestData'))
     return (
-      <div>
+      <div style={{textAlign:'center'}}>
         {this.setClothsAndProposalData()}
         <ClothsTile
           userId = {props.events.r_u_id}
