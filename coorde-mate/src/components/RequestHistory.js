@@ -40,21 +40,23 @@ class RequestHistory extends React.Component {
 
   render() {
     const userState = JSON.parse(localStorage.getItem('userData'))
-
+    const style = {
+      width: '100%'
+    }
+    const button = {
+      width: '70%',
+      height: 60
+    }
     return (
-      <div>
-        <h1>依頼履歴</h1>
-          <ButtonGroup color="primary" aria-label="outlined primary button group" style={{width: '50%'}}>
-            <Button disabled
-              style={{backgroundColor: '#ff9800'}}><Link disabled to={`/userHistory/requests/${userState.id}`} >依頼履歴</Link></Button>
-
-            <Button><Link to={`/userHistory/proposals/${userState.id}`} >提案履歴</Link></Button>
+      <div style={style}>
+        <h1 style={{textAlign:'center'}}>依頼履歴</h1>
+        <div style={{width:'100%', textAlign:'center'}}>
+          <ButtonGroup color="primary" aria-label="outlined primary button group" style={button}>
+            <Button disabled style={{backgroundColor: '#ff9800', width:'100%'}}><Link disabled to={`/userHistory/requests/${userState.id}`} style={{color:'white'}}>依頼履歴</Link></Button>
+            <Button style={{width:'100%'}}><Link to={`/userHistory/proposals/${userState.id}`} >提案履歴</Link></Button>
           </ButtonGroup>
-
         {this.renderEvents()}
-
-
-
+        </div>
       </div>
     );
   }
