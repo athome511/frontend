@@ -1,9 +1,3 @@
-/*
-* {
-  box-sizing: border-box;
-}
-*/
-
 @import url(https://fonts.googleapis.com/css?family=PT+Sans);
 
 .headerList {
@@ -24,30 +18,32 @@
 .headerList > li {
 	width: 15%;
 	display: inline-block;
-	padding: 0 3% 0 0;
+	/*padding: 0 3%;*/
 	line-height: 60px;
   background-color: #ff9800;
 }
 
-/*
+
 .headerList > li:last-child {
-	display: block;
-	margin: 0 0 3% 0;
+	margin-left: 25%;
+	border-left: 1px solid #fff;
+	height: 60px;
+	position: relative;
 }
-*/
+
 .headerList > li:not(:last-child) {
 	border-right:1px solid #fff;
-		padding: 0 3% ;
 }
 
 .headerList img {
-	display: inline-block;
-	float: left;
-	margin-right: 20px;
-	margin-top: 3px;
+	display: block;
+	/*float: left;*/
 	width: 54px;
 	height: 54px;
 	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 /*
@@ -57,20 +53,24 @@ header p:hover {
 }
 */
 
+.headerList li,
+.headerList li li {
+	transition: .5s;
+}
+
 .headerList li:hover,
 .headerList li li:hover {
-	transition: 1s;
 	background-color: #f44336;
 }
 
-
 .headerList li li {
 		background-color: #ff9800;
-		line-height: 60px;
+		line-height: 80px;
     height: 0;
     overflow: hidden;
     transition: .5s;
 		display: block;
+		z-index: 2;
 }
 .headerList li li a {
     display: block;

@@ -36,24 +36,19 @@ class SignIn extends React.Component {
 
   render() {
     const { handleSubmit, pristine, submitting } = this.props
-    const style = { margin: 12 }
+    const style = { margin: 20 }
 
     return (
-      <div>
-        <h1>新規登録</h1>
-        <form onSubmit={handleSubmit(this.onSubmit)}>
-
+      <div style={{marginTop:50}}>
+        <h1 style={{textAlign:'center'}}>新規登録</h1>
+        <form onSubmit={handleSubmit(this.onSubmit)} style={{width:'60%', margin:'auto'}}>
           <div><Field label="ニックネーム" name="u_name" type="String" component={this.renderField} /></div>
-
           <div><Field label="メールアドレス" name="u_mail" type="text" component={this.renderField} /></div>
-
           <div><Field label="パスワード" name="u_password" type="password" component={this.renderField} /></div>
-
-
+          <div style={{textAlign:'center'}}>
           <RaisedButton label="次へ" type="submit" style={style} disabled={pristine || submitting} />
-
           <RaisedButton label="Cancel" style={style} containerElement={<Link to="/"  />} />
-
+          </div>
         </form>
       </div>
 
