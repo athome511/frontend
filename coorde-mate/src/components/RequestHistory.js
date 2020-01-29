@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 
 import { connect  } from 'react-redux';
 import { readUserRequests } from '../actions';
+import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 
-import ButtonComponent from '../public/ButtonComponent';
 import RequestCard from './RequestCard';
 
 class RequestHistory extends React.Component {
@@ -43,14 +44,12 @@ class RequestHistory extends React.Component {
     return (
       <div>
         <h1>依頼履歴</h1>
-        <ButtonComponent
-          link = {`/userHistory/requests/${userState.id}`}
-          buttonText = "依頼履歴"
-        />
-        <ButtonComponent
-          link = {`/userHistory/proposals/${userState.id}`}
-          buttonText = "提案履歴"
-        />
+          <ButtonGroup color="primary" aria-label="outlined primary button group" style={{width: '50%'}}>
+            <Button disabled
+              style={{backgroundColor: '#ff9800'}}><Link disabled to={`/userHistory/requests/${userState.id}`} >依頼履歴</Link></Button>
+
+            <Button><Link to={`/userHistory/proposals/${userState.id}`} >提案履歴</Link></Button>
+          </ButtonGroup>
 
         {this.renderEvents()}
 

@@ -5,8 +5,6 @@ import axios from 'axios';
 import { connect  } from 'react-redux';
 import { readRequestDetails } from '../actions';
 
-//myComponent
-//import Loading from '../public/Loading';
 
 import ButtonComponent from '../public/ButtonComponent';
 import RequestCard from './RequestCard';
@@ -48,7 +46,6 @@ class RequestDetails extends React.Component {
         key = {requestState.id}
         requestId = {requestState.id}
         title = {requestState.r_title}
-        limit = {requestState.r_limit}
         memo = {requestState.r_memo}
         userId = {requestState.r_u_id}
         borderStyle = {"none"}
@@ -65,6 +62,7 @@ class RequestDetails extends React.Component {
     const props = this.props
 
     const userState = JSON.parse(localStorage.getItem('userData'))
+    const requestState = JSON.parse(localStorage.getItem('requestData'))
     return (
       <div>
         {this.setClothsAndProposalData()}
@@ -85,7 +83,7 @@ class RequestDetails extends React.Component {
                     accent = "accent"
                     />
                 )
-              } else {
+              } else if(props.events.is_selected_bc === false){
                 return (
                   <ButtonComponent
                     link = {`/proposal/${this.props.match.params.requestId}/submit`}
@@ -96,10 +94,12 @@ class RequestDetails extends React.Component {
             })()
           }
 
-
+          <h3>{requestState.r_limit}まで</h3>
+          <h2>みんなの提案したコーディネート</h2>
 
         <ProposalCard
-          requestId = {this.props.match.params.requestId}/>
+          requestId = {this.props.match.params.requestId}
+        />
 
 
       </div>

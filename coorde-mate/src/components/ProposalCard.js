@@ -27,7 +27,10 @@ class ProposalCard extends React.Component {
     .then(res => {
       this.setState({ proposalDatas: res.data })
     })
+  }
 
+  bcLabel(p_bc) {
+    if(p_bc !== null) return <div className="bcLabel">BC</div>
   }
 
 
@@ -54,6 +57,8 @@ class ProposalCard extends React.Component {
 
 
                   <p>memo: {cloth.p_memo}</p>
+
+                  {this.bcLabel(cloth.p_bc)}
 
                 </GridList>
               </div>
