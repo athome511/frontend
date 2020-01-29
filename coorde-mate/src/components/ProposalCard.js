@@ -42,7 +42,6 @@ class ProposalCard extends React.Component {
   }
 
   renderIcon(proposalData) {
-    console.log(proposalData)
     if(proposalData.p_is_selected_bc === true){
       return (
         <div className="proposaer">

@@ -45,7 +45,7 @@ class ClothsTile extends React.Component {
 
 
     return (
-      <div className="root">
+      <div className="root" style={{border: 'none'}}>
         <GridList cellHeight={200} className="gridList">
           <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
             <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>所有服一覧</ListSubheader>
@@ -54,7 +54,7 @@ class ClothsTile extends React.Component {
           {/* 所有服一覧表示 */}
           {this.state.datas.map((cloth) => {
             return (
-              <GridListTile key={cloth.id} style={{width: 'auto', height: 150, background: '#E1E8ED', padding: 5, borderRadius: 3, marginLeft: 10}}>
+              <GridListTile key={cloth.id} style={{width: 'auto', height: 150, background: '#E1E8ED', padding: 5, borderRadius: 3, marginLeft: 10,marginBottom: 10}}>
                 <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
               </GridListTile>
             )

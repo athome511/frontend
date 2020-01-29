@@ -55,10 +55,13 @@ class SubmitRequest extends React.Component {
       marginTop: 50
     }
 
+
+    const userState = JSON.parse(localStorage.getItem('userData'))
+
     return (
       <form onSubmit={handleSubmit(this.onSubmit)} style={form}>
 
-        <div style={input}><Field label="ユーザID" name="r_u_id" type="String" component={this.renderField} /></div>
+        <div style={input}><Field label={`ユーザID: ${userState.id}`} name="r_u_id" type="String" component={this.renderField} /></div>
 
         <div style={input}><Field label="依頼タイトル" name="r_title" type="String" component={this.renderField} /></div>
 

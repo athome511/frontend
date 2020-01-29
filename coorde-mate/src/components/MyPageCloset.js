@@ -2,12 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import FileInputComponent from 'react-file-input-previews-base64';
 
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import ListSubheader from '@material-ui/core/ListSubheader';
 
-//import Loading from '../public/Loading';
+import '../css/clothsTile.css';
+
+
 
 
 class MyPageCloset extends React.Component {
@@ -33,8 +35,8 @@ class MyPageCloset extends React.Component {
 	    }
 		 )
     }
-    
-    
+
+
   componentWillMount() {
     const userState = JSON.parse(localStorage.getItem('userData'))
 
@@ -46,12 +48,12 @@ class MyPageCloset extends React.Component {
       localStorage.setItem('clothsData', JSON.stringify(res.data))
     })
 
-  }    
+  }
 
 
     render() {
 	const clothsState = JSON.parse(localStorage.getItem('clothsData'))
-	
+
     return (
 	    <React.Fragment>
         <div className="root">
@@ -63,7 +65,7 @@ class MyPageCloset extends React.Component {
             {/* 所有服一覧表示 */}
             {clothsState.c_link_data.map((cloth) => {
               return (
-                <GridListTile key={cloth.id} style={{width: '20%'}}>
+                <GridListTile key={cloth.id}  style={{width: 'auto', height: 150, background: '#E1E8ED', padding: 5, borderRadius: 3, marginLeft: 10,marginBottom: 10}}>
                   <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
                 </GridListTile>
               )

@@ -73,7 +73,6 @@ ReactDOM.render(
         <Route path={'/userHistory/proposals/:userId'} component={ProposalHistory}/>
 
         {/* マイページコンポーネント */}
-        <Route path={'/myPage'} component={MyPage}/>
         <Route path={'/myPage/accountStatus'} component={MyPageAccountStatus}/>
         <Route path={'/myPage/accountChange'} component={MyPageAccountChange}/>
         <Route path={'/myPage/closet'} component={MyPageCloset}/>
