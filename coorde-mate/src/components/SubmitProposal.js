@@ -110,7 +110,6 @@ class SubmitProposal extends React.Component {
                   </GridListTile>
 
                   <p>{cloth.id}</p>
-                  {console.log(cloth.id)}
                 </React.Fragment>
               )
             })}
@@ -120,13 +119,13 @@ class SubmitProposal extends React.Component {
 
         <form onSubmit={handleSubmit(this.onSubmit)} style={form}>
 
-          <div style={input}><Field label="画像を選んで区切り文字で入力" name="p_selected_data" type="String" component={this.renderField} /></div>
+          <div style={input}><Field label="画像を選んで区切り文字で入力" name="p_pc_text" type="text" component={this.renderField} /></div>
 
           <div style={input}><Field label="メモを入力" name="p_memo" type="String" component={this.renderField} /></div>
 
           <div style={input}><Field label={`ユーザIDを入力 : ${userState.id}`} name="p_u_id" type="String" component={this.renderField} /></div>
 
-          <div style={input}><Field label={`依頼IDを入力 : ${requestState.id}`} name="id" type="String" component={this.renderField} /></div>
+          <div style={input}><Field label={`依頼IDを入力 : ${requestState.id}`} name="p_r_id" type="String" component={this.renderField} /></div>
 
 
           <div className="submitRequestButton" style={submit}>
@@ -146,10 +145,10 @@ class SubmitProposal extends React.Component {
 const validate = values => {
   const errors = {}
 
-  if (!values.p_selected_data) errors.p_selected_data = "validation"
+  if (!values.p_pc_text) errors.p_pc_text = "validation"
   if (!values.p_memo) errors.p_memo = "validation"
   if (!values.p_u_id) errors.p_u_id = "validation"
-  if (!values.id) errors.id = "validation"
+  if (!values.p_r_id) errors.p_r_id = "validation"
 
   return errors
 }
