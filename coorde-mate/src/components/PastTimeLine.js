@@ -20,7 +20,7 @@ class PastTimeLine extends React.Component {
       baseURL: 'http://18.178.35.28:3001'
     })
 
-    request.get(`/requests`)
+    request.get(`/past_requests`)
     .then(res => {
       this.setState({
         datas: res.data
@@ -34,21 +34,19 @@ class PastTimeLine extends React.Component {
     return (
       <div>
         {this.state.datas.map((requestData) => {
-          if(requestData.is_selected_bc) {
-            return (
-              <Link to={`/request/${requestData.id}`}
-                 key={requestData.id}
-                 className="container"
+          return (
+            <Link to={`/request/${requestData.id}`}
+              key={requestData.id}
+              className="container"
               >
-                <RequestCard
-                  requestId = {requestData.id}
-                  title = {requestData.r_title}
-                  memo = {requestData.r_memo}
-                  userId = {requestData.r_u_id}
+              <RequestCard
+                requestId = {requestData.id}
+                title = {requestData.r_title}
+                memo = {requestData.r_memo}
+                userId = {requestData.r_u_id}
                 />
             </Link>
-            )
-          }
+          )
         })}
       </div>
     );

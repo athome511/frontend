@@ -32,7 +32,7 @@ export const signInEvent = values => async dispatch => {
 
 //外部APIにリクエストを投げる
 export const readRequests = () => async dispatch => {
-  const response = await axios.get(`${ROOT_URL}/requests`)
+  const response = await axios.get(`${ROOT_URL}/future_requests`)
   dispatch({ type: READ_REQUESTS, response })
 }
 
