@@ -34,7 +34,7 @@ class SubmitBc extends React.Component {
   handleClickSubmit(e) {
     console.log(e.currentTarget.name)
     const rootURL = 'http://18.178.35.28:3001'
-    axios.patch(`${rootURL}/choose_bc/${e.currentTarget.name}`)
+    axios.get(`${rootURL}/choose_bc/${e.currentTarget.name}`)
     this.props.history.push('/completed')
 
 

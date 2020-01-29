@@ -43,53 +43,53 @@ const store = createStore(reducer, applyMiddleware(thunk))
 ReactDOM.render(
   <MuiThemeProvider>
     <Provider store={store}>
-    <BrowserRouter>
-      <Header />
-      {/* ログイン画面 */}
-      <Route exact path={'/'} component={Login}/>
-      <Route exact path={'/signIn'} component={SignIn}/>
+      <BrowserRouter>
+        <Header />
+        {/* ログイン画面 */}
+        <Route exact path={'/'} component={Login}/>
+        <Route exact path={'/signIn'} component={SignIn}/>
 
-      <Route path={'/timeLine'} component={TimeLine}/>
+        <Route path={'/timeLine'} component={TimeLine}/>
 
-      {/* 依頼投稿画面 */}
-      <Route path={'/requestSubmit'} component={SubmitRequest}/>
+        {/* 依頼投稿画面 */}
+        <Route path={'/requestSubmit'} component={SubmitRequest}/>
 
-      {/* 依頼詳細画面 */}
-      <Route path={'/request/:requestId'} component={RequestDetails}/>
-      {/*<Route path={'/request/:requestId/cloths/:userId'} component={ClothsTile}/>*/}
+        {/* 依頼詳細画面 */}
+        <Route path={'/request/:requestId'} component={RequestDetails}/>
+        {/*<Route path={'/request/:requestId/cloths/:userId'} component={ClothsTile}/>*/}
 
-      {/* 提案入力画面 */}
-      <Route path={`/proposal/:requestId/submit`} component={SubmitProposal}/>
+        {/* 提案入力画面 */}
+        <Route path={`/proposal/:requestId/submit`} component={SubmitProposal}/>
 
 
-      <Route path={'/pastTimeLine'} component={PastTimeLine}/>
+        <Route path={'/pastTimeLine'} component={PastTimeLine}/>
 
         {/* BC選択画面 */}
         <Route path={`/selectBc/:requestId/submit`} component={SubmitBc}/>
 
-      <Route path={'/ranking'} component={Ranking}/>
+        <Route path={'/ranking'} component={Ranking}/>
 
-      <Route path={'/userHistory/requests/:userId'} component={RequestHistory}/>
-      <Route path={'/userHistory/proposals/:userId'} component={ProposalHistory}/>
+        <Route path={'/userHistory/requests/:userId'} component={RequestHistory}/>
+        <Route path={'/userHistory/proposals/:userId'} component={ProposalHistory}/>
 
-      {/* マイページコンポーネント */}
-      <Route path={'/myPage'} component={MyPage}/>
-      <Route path={'/myPage/accountStatus'} component={MyPageAccountStatus}/>
-      <Route path={'/myPage/accountChange'} component={MyPageAccountChange}/>
-      <Route path={'/myPage/closet'} component={MyPageCloset}/>
-
-
-
-      {/* 入力完了画面 */}
-      <Route path={`/completed`} component={Completed}/>
-
-
-      <Route path={`/logout`} component={Logout}/>
+        {/* マイページコンポーネント */}
+        <Route path={'/myPage'} component={MyPage}/>
+        <Route path={'/myPage/accountStatus'} component={MyPageAccountStatus}/>
+        <Route path={'/myPage/accountChange'} component={MyPageAccountChange}/>
+        <Route path={'/myPage/closet'} component={MyPageCloset}/>
 
 
 
-    </BrowserRouter>
-  </Provider>
+        {/* 入力完了画面 */}
+        <Route path={`/completed`} component={Completed}/>
+
+
+        <Route path={`/logout`} component={Logout}/>
+
+
+
+      </BrowserRouter>
+    </Provider>
   </MuiThemeProvider>,
   document.getElementById('root')
 );

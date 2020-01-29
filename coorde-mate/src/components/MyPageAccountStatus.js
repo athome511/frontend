@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import '../css/myPageAccountStatus.css';
 import ButtonComponent from '../public/ButtonComponent.js'
@@ -14,8 +13,6 @@ class MyPageAccountStatus extends React.Component {
 
   render() {
     const userIdStatus = JSON.parse(localStorage.getItem('userData'))
-    console.log('aaaaa');
-    console.log(userIdStatus.id);
     return (
       <div className="myPageContainer">
         <div className="userInfo">
