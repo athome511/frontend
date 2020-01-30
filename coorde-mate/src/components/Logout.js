@@ -13,6 +13,7 @@ class Logout extends React.Component {
         <ButtonComponent
           link = {`/`}
           buttonText = "ログイン画面へ"
+          colorBg = "#ff9800"
         />
       </div>
     );

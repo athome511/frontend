@@ -25,7 +25,6 @@ import PastTimeLine from './components/PastTimeLine';
 import Ranking from './components/Ranking';
 import RequestHistory from './components/RequestHistory';
 import ProposalHistory from './components/ProposalHistory';
-import MyPage from './components/MyPage';
 import MyPageAccountStatus from './components/MyPageAccountStatus';
 import MyPageAccountChange from './components/MyPageAccountChange';
 import MyPageCloset from './components/MyPageCloset';

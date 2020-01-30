@@ -53,11 +53,10 @@ class RequestCard extends React.Component {
     }
     const img = {
       margin: 'auto',
-      display: 'block',
       maxWidth: '100%',
       maxHeight: '100%',
       borderRadius: '50%',
-      border: 'solid'
+      border: 'solid 2px #FF9800'
     }
     const memo = {
       fontSize: '1.2rem'

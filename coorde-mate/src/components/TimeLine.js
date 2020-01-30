@@ -44,6 +44,7 @@ class TimeLine extends React.Component {
         <ButtonComponent
           link = {`/requestSubmit`}
           buttonText = "依頼を投稿する"
+          colorBg = "#ff9800"
         />
       {this.renderEvents()}
     </div>

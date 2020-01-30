@@ -80,7 +80,7 @@ class RequestDetails extends React.Component {
                     <ButtonComponent
                       link = {`/selectBc/${this.props.match.params.requestId}/submit`}
                       buttonText = "BCを選択する"
-                      accent = "accent"
+                      colorBg = "#F44336"
                       />
                   )
                 } else if(props.events.is_selected_bc === false){
@@ -88,6 +88,7 @@ class RequestDetails extends React.Component {
                     <ButtonComponent
                       link = {`/proposal/${this.props.match.params.requestId}/submit`}
                       buttonText = "提案する"
+                      colorBg = "#ff9800"
                       />
                   )
                 }
@@ -109,7 +110,7 @@ class RequestDetails extends React.Component {
                       <ButtonComponent
                         link = {`/selectBc/${this.props.match.params.requestId}/submit`}
                         buttonText = "BCを選択する"
-                        accent = "accent"
+                        colorBg = "#F44336"
                         />
                     )
                   } else if(props.events.is_selected_bc === false){
@@ -117,6 +118,7 @@ class RequestDetails extends React.Component {
                       <ButtonComponent
                         link = {`/proposal/${this.props.match.params.requestId}/submit`}
                         buttonText = "提案する"
+                        colorBg = "#ff9800"
                         />
                     )
                   }

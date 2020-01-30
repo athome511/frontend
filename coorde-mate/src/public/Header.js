@@ -25,7 +25,7 @@ class Header extends React.Component {
                 <li><Link to={`/userHistory/requests/${headerState.id}`}><p>依頼・投稿履歴</p></Link></li>
                 <li><Link to={`/myPage/accountStatus`}><img src={headerState.u_icon} alt={`User Icon : ${headerState.u_name}`} className="imageContainer"/><p style={{paddingLeft:10}}>マイページ</p></Link>
                   <ul>
-                    <li><Link to={`/myPage/accountChange`}><p>アカウント変更</p></Link></li>
+                    <li><Link to={`/myPage/accountChange`}><p>アカウント情報変更</p></Link></li>
                     <li><Link to={`/myPage/closet`}><p>服一覧</p></Link></li>
                     <li><a href="../static/news.html" target="_blank"><p>お知らせ<i className="fas fa-external-link-alt"></i></p></a></li>
                     <li><a href="../static/terms.html" target="_blank"><p>利用規約</p></a></li>

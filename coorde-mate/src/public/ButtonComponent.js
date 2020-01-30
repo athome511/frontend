@@ -6,7 +6,7 @@ class ButtonComponent extends React.Component {
 
   render() {
     const button = {
-      backgroundColor:'#ff9800',
+      backgroundColor: this.props.colorBg,
       color: 'white',
       height:40,
       fontSize: '2.0rem',

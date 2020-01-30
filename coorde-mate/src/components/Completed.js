@@ -13,6 +13,7 @@ class Completed extends React.Component {
           <ButtonComponent
             link = {`/timeLine`}
             buttonText = "タイムラインに戻る"
+            colorBg = "#ff9800"
           />
       </div>
     );

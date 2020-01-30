@@ -105,8 +105,8 @@ class SubmitProposal extends React.Component {
             {this.state.datas.map((cloth) => {
               return (
                 <React.Fragment>
-                  <GridListTile key={cloth.id} style={{width: '20%'}}>
-                    <img src={cloth.c_link} alt={`服画像id : ${cloth.c_u_id}`} />
+                  <GridListTile key={cloth.id} style={{width: 'auto', height: 150, background: '#E1E8ED', padding: 5, borderRadius: 3, marginLeft: 10,marginBottom: 10}}>
+                    <img src={cloth.c_link} alt={`服画像id : ${cloth.id}`} />
                   </GridListTile>
 
                   <p>{cloth.id}</p>
@@ -145,10 +145,9 @@ class SubmitProposal extends React.Component {
 const validate = values => {
   const errors = {}
 
-  if (!values.p_pc_text) errors.p_pc_text = "validation"
-  if (!values.p_memo) errors.p_memo = "validation"
-  if (!values.p_u_id) errors.p_u_id = "validation"
-  if (!values.p_r_id) errors.p_r_id = "validation"
+  if (!values.p_pc_text) errors.p_pc_text = "画像を選んで区切り文字で入力してください"
+  if (!values.p_u_id) errors.p_u_id = "ユーザIDを入力してください"
+  if (!values.p_r_id) errors.p_r_id = "依頼IDを入力してください"
 
   return errors
 }

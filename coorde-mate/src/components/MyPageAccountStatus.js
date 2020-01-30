@@ -31,6 +31,7 @@ class MyPageAccountStatus extends React.Component {
             <ButtonComponent
               buttonText = "アカウント情報を変更する"
               link = {`/myPage/accountChange`}
+              colorBg = "#ff9800"
             />
           </div>
       </div>
