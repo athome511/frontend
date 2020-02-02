@@ -59,7 +59,7 @@ class RequestCard extends React.Component {
       border: 'solid 2px #FF9800'
     }
     const memo = {
-      fontSize: '1.2rem'
+      fontSize: '1.8rem'
     }
 
     return (
