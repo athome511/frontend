@@ -62,6 +62,7 @@ class Login extends React.Component {
           <ButtonComponent
             link = {`/signIn`}
             buttonText = "新規登録"
+            colorBg = "#ff9800"
             />
         </div>
       </div>

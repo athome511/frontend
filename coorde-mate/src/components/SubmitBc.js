@@ -42,6 +42,15 @@ class SubmitBc extends React.Component {
 
 
   render() {
+    const button = {
+      backgroundColor: '#F44336',
+      color: 'white',
+      height:40,
+      fontSize: '2.0rem',
+      textAlign: 'center',
+      marginTop: 10,
+      marginBottom: 10
+    }
 
     return (
       <React.Fragment>
@@ -58,7 +67,7 @@ class SubmitBc extends React.Component {
                   {/* 提案服一覧表示 */}
                   {cloth.p_selected_data.map((cloth) => {
                     return (
-                      <GridListTile key={cloth.id} style={{width: '20%'}}>
+                      <GridListTile key={cloth.id} style={{width: 'auto', height: 150, background: '#E1E8ED', padding: 5, borderRadius: 3, marginLeft: 10}}>
                         <img src={cloth.link} alt={`服画像id : ${cloth.id}`} />
                       </GridListTile>
                     )
@@ -70,9 +79,16 @@ class SubmitBc extends React.Component {
                 </GridList>
               </div>
               <Button
+                style={{backgroundColor: '#F44336', color: 'white',height:40,
+                fontSize: '2.0rem',
+                textAlign: 'center',
+                marginTop: 10,
+                marginBottom: 10,
+              marginLeft: '30%'}}
                 onClick = {(e) => this.handleClickSubmit(e)}
                 name = {cloth.id}
                 variant = "contained"
+                className = 'selectBC'
                 >
                 この提案をBCにする
               </Button>

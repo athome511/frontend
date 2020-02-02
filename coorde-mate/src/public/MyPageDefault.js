@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 
 import '../css/myPageDefault.css'
 
@@ -10,25 +9,6 @@ class MyPageDefault extends React.Component {
       userDatas:[]
     }
   }
-
-/*
-  componentDidMount(){
-    const userIdStatus = localStorage.getItem('userData')
-    console.log()
-    console.log(userIdStatus.)
-    const request = axios.create({
-     baseURL: 'http://18.178.35.28:3001'
-    })
-
-
-    request.get(`/users/${this.userIdStatus}`)
-    .then(res => {
-      this.setState({
-        userDatas: res.data
-      });
-    })
-  }
-*/
 
   render() {
     const userIdStatus = JSON.parse(localStorage.getItem('userData'))

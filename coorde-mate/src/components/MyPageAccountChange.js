@@ -4,7 +4,7 @@ import FileInputComponent from 'react-file-input-previews-base64';
 import TextField from '@material-ui/core/TextField';
 
 //import '../css/myPageAccountChange.css';
-import ButtonComponent from '../public/ButtonComponent.js';
+//import ButtonComponent from '../public/ButtonComponent.js';
 
 class MyPageAccountChange extends React.Component {
 

@@ -61,6 +61,7 @@ class ProposalCard extends React.Component {
             return (
               <div className="root shadowStyle">
                 {this.renderIcon(cloth)}
+                <p style={{textAlign: 'left',paddingLeft: 20, paddingTop: 10, fontSize: '1rem'}}>提案者メモ: {cloth.p_memo}</p>
                 <GridList cellHeight={200} className="gridList">
                   <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                     <ListSubheader component="div" className="listSubheader" style={{fontSize: '2rem'}}>提案服一覧</ListSubheader>
@@ -69,14 +70,12 @@ class ProposalCard extends React.Component {
                   {/* 提案服一覧表示 */}
                   {cloth.p_selected_data.map((cloth) => {
                     return (
-                      <GridListTile key={cloth.id} style={{width: 'auto', height: 150, background: '#E1E8ED', padding: 5, borderRadius: 3, marginLeft: 10}}>
+                      <GridListTile key={cloth.id} style={{width: 'auto', height: 150, background: '#E1E8ED', padding: 5, borderRadius: 3, marginLeft: 20,marginBottom: 20}}>
                         <img src={cloth.link} alt={`服画像id : ${cloth.id}`} />
                       </GridListTile>
                     )
                   })}
 
-
-                  <p>memo: {cloth.p_memo}</p>
 
                   {this.bcLabel(cloth.p_bc)}
 
